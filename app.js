@@ -2,7 +2,7 @@ const termInfo = {
   grid_z: ["起跑順位", "實際起跑順位增加 1 個標準差（約 5.85 位）。"],
   pace_delta_z: ["同場正賽圈速差", "個人有效圈速中位數減去同場中位數；增加 1 個標準差約等於慢 1.13 秒。"],
   pit_count_z: ["進站次數", "進站次數增加 1 個標準差（約 0.99 次）。"],
-  pit_duration_z: ["平均進站時間", "平均進站時間增加 1 個標準差；使用原始資料中的進站時間定義。"],
+  pit_duration_z: ["平均進站時間", "平均進站時間增加 1 個標準差（約 263.61 秒）；使用原始資料中的進站時間定義。"],
   fastf1_starting_compoundINTERMEDIATE: ["起跑胎：半雨胎", "相對於硬胎。"],
   fastf1_starting_compoundMEDIUM: ["起跑胎：中性胎", "相對於硬胎。"],
   fastf1_starting_compoundSOFT: ["起跑胎：軟胎", "相對於硬胎。"],
@@ -83,7 +83,7 @@ function renderDrivers() {
   svg.append("g").attr("class","chart-axis").attr("transform",`translate(0,${height-margin.bottom})`)
     .call(d3.axisBottom(x).ticks(5).tickSize(4).tickFormat(metric==="rate"?d3.format(".0%") : metric==="effect"?d3.format(".1f"):d3.format("d")));
 }
-function selectDriver(id) { selectedDriver=id; renderDriverDetail(); renderDrivers(); }
+function selectDriver(id) { selectedDriver=id; renderDriverDetail(); renderDrivers(); d3.selectAll("#driver-chart .chart-row").filter(d=>d.id===id).node()?.focus(); }
 
 function renderDriverTable() {
   const body = document.querySelector("#driver-table tbody"); body.replaceChildren();
@@ -114,8 +114,8 @@ function renderCoefficients() {
     .attr("class",d=>`chart-row${d.term===selectedTerm?" selected":""}`)
     .attr("transform",(_,i)=>`translate(0,${margin.top+i*40})`).attr("tabindex",0).attr("role","button")
     .attr("aria-label",d=>`${termInfo[d.term][0]}，勝算比 ${number(d.or)}，按 Enter 查看詳細數字。`)
-    .on("click",(_,d)=>{selectedTerm=d.term;renderCoefficientDetail();renderCoefficients();})
-    .on("keydown",(event,d)=>{if(event.key==="Enter"||event.key===" "){event.preventDefault();selectedTerm=d.term;renderCoefficientDetail();renderCoefficients();}})
+    .on("click",(_,d)=>selectTerm(d.term))
+    .on("keydown",(event,d)=>{if(event.key==="Enter"||event.key===" "){event.preventDefault();selectTerm(d.term);}})
     .on("pointerenter",(event,d)=>showTooltip(event,`${termInfo[d.term][0]}：${number(d.or)}（${number(d.lower)}–${number(d.upper)}）`))
     .on("pointermove",moveTooltip).on("pointerleave",hideTooltip);
   g.append("rect").attr("class","row-bg").attr("width",width).attr("height",39).attr("fill","transparent");
@@ -129,6 +129,7 @@ function renderCoefficients() {
   svg.append("text").attr("x",(margin.left+width-margin.right)/2).attr("y",height-8).attr("text-anchor","middle")
     .attr("fill","#5f7279").attr("font-size",11).text("取得第四名的勝算比（對數刻度）");
 }
+function selectTerm(term) { selectedTerm=term; renderCoefficientDetail(); renderCoefficients(); d3.selectAll("#coefficient-chart .chart-row").filter(d=>d.term===term).node()?.focus(); }
 function renderCoefficientTable(){const body=document.querySelector("#coefficient-table tbody");body.replaceChildren();dataset.coefficients.filter(d=>d.term!=="(Intercept)").forEach(d=>{const tr=document.createElement("tr");[termInfo[d.term][0],number(d.or),number(d.lower),number(d.upper),pvalue(d.p)].forEach(v=>addCell(tr,v));body.append(tr);});}
 function renderFlow(){const holder=document.querySelector("#sample-flow");dataset.sample_flow.forEach(d=>{const item=document.createElement("div");item.className="flow-item";const label=document.createElement("span");label.textContent=flowNames[d.stage];const total=document.createElement("strong");total.textContent=fmt.format(d.observations);const track=document.createElement("div");track.className="flow-track";const fill=document.createElement("div");fill.className="flow-fill";fill.style.width=`${100*d.observations/dataset.sample_flow[0].observations}%`;track.append(fill);item.append(label,total,track);holder.append(item);});}
 function renderDiagnostics(){const body=document.querySelector("#diagnostics-table tbody");body.replaceChildren();dataset.diagnostics.forEach(d=>{const tr=document.createElement("tr");const groups=d.groups.split(" | ").map(x=>groupNames[x]).join("、");[modelNames[d.model],groups,Number(d.aic).toFixed(2),d.singular?"是":"否"].forEach(v=>addCell(tr,v));body.append(tr);});}
