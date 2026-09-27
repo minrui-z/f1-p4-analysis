@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f2f4f1">
+  <title>資料與分析限制｜F1 第四名資料分析</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700&family=IBM+Plex+Mono:wght@400;500;600&family=Noto+Sans+TC:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./styles.css">
+</head>
+<body>
+  <a class="skip-link" href="#main">跳到主要內容</a>
+  <header class="site-header"><div class="brand"><span class="brand-mark" aria-hidden="true">04</span><span>F1 正賽資料分析</span></div><nav aria-label="頁面段落"><a href="./index.html">返回分析</a></nav></header>
+  <main id="main" class="wrap limitations-page">
+    <a class="back-link" href="./index.html">← 返回分析頁</a>
+    <p class="eyebrow">閱讀結果前後都可參照</p>
+    <h1>資料與分析限制</h1>
+    <p>這個網站整理 2018 年以後的 F1 正賽資料，研究的是最終名次是否恰好為第四名。下列事項會影響數字的解讀。</p>
+    <h2>勒克萊爾的 p 值是事後檢驗</h2>
+    <p>我們先看過 44 位車手的模型效果排名，才挑出勒克萊爾做追加檢驗。p＝0.044 沒有校正這個選擇過程或多重比較，不能當作預先指定假說的確認性證據。95% 信賴區間為 1.08–8.15，範圍也相當寬。車手隨機效果的排序本身沒有提供「顯著高於每一位其他車手」的檢定。</p>
+    <h2>模型使用賽後資訊</h2>
+    <p>模型納入當場正賽圈速、進站和賽會訊息。這些資料在比賽前尚未確定，因此結果描述變數與第四名的關聯，不能直接用來做賽前預測，也不能推論因果效果。</p>
+    <h2>完整個案與退賽紀錄</h2>
+    <p>先排除未起跑者，再要求完整模型的所有變數都有值，最後保留第四名事件仍在樣本中的賽事。原始 3,788 筆紀錄縮至 3,475 筆、184 場。起跑後退賽者沒有被一律排除，但若缺少圈速、進站等必要資料，仍不會進入完整模型；最終樣本中有 276 筆未列為完賽。</p>
+    <h2>比賽名次的相依性</h2>
+    <p>每場比賽通常只有一位第四名，同場車手的結果彼此相關。原始模型曾納入賽事和賽道隨機截距，但這兩組變異估計為零，造成奇異擬合；最終模型僅保留車手與車隊×賽季隨機截距。它是描述性模型，並非同場名次競爭的完整聯合模型。</p>
+    <h2>指標與資料期間</h2>
+    <p>原始第四名比例、模型中的車手隨機效果、以及勒克萊爾追加檢驗的固定效果，是不同估計量，不能直接當成同一種機率比較。2026 年資料截至 2026-09-26，尚非完整賽季。部分 FastF1 場次或欄位缺漏；網站數字來自目前的資料與模型快照，來源更新後不會自動變動。</p>
+    <h2>資料來源</h2>
+    <p>正賽與車手資料來自 <a href="https://api.jolpi.ca/">Jolpica</a>，圈速、輪胎、天氣與賽會訊息摘要來自 <a href="https://docs.fastf1.dev/">FastF1</a>。模型使用 R 的 <a href="https://lme4.github.io/lme4/">lme4</a>；網站只公開彙整結果，不提供逐筆原始資料。</p>
+  </main>
+  <footer class="site-footer"><div class="wrap footer-grid"><div><strong>F1 第四名資料分析</strong></div><div><a href="./index.html">返回分析</a><a href="https://github.com/minrui-z/f1-p4-analysis">網站原始碼</a></div></div></footer>
+</body>
+</html>

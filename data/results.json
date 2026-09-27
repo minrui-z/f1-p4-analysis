@@ -1,0 +1,806 @@
+{
+  "meta": {
+    "title": "第四名：2018 年起的 F1 正賽資料",
+    "year_start": 2018,
+    "year_end": 2026,
+    "last_race_date": "2026-09-26",
+    "driver_count": 44,
+    "model_n": 3475,
+    "model_races": 184,
+    "model_p4": 184
+  },
+  "drivers": [
+    {
+      "id": "aitken",
+      "name": "Jack Aitken",
+      "starts": 1,
+      "p4": 0,
+      "rate": 0,
+      "model_starts": 1,
+      "model_p4": 0,
+      "driver_effect": -0.002926061654665
+    },
+    {
+      "id": "albon",
+      "name": "Alexander Albon",
+      "starts": 142,
+      "p4": 3,
+      "rate": 0.02112676056338,
+      "model_starts": 132,
+      "model_p4": 3,
+      "driver_effect": -0.06210912558463
+    },
+    {
+      "id": "alonso",
+      "name": "Fernando Alonso",
+      "starts": 150,
+      "p4": 2,
+      "rate": 0.01333333333333,
+      "model_starts": 138,
+      "model_p4": 2,
+      "driver_effect": -0.20035468141
+    },
+    {
+      "id": "antonelli",
+      "name": "Andrea Kimi Antonelli",
+      "starts": 39,
+      "p4": 2,
+      "rate": 0.05128205128205,
+      "model_starts": 36,
+      "model_p4": 2,
+      "driver_effect": -0.1191781622817
+    },
+    {
+      "id": "arvid_lindblad",
+      "name": "Arvid Lindblad",
+      "starts": 14,
+      "p4": 0,
+      "rate": 0,
+      "model_starts": 12,
+      "model_p4": 0,
+      "driver_effect": -0.06392491916098
+    },
+    {
+      "id": "bearman",
+      "name": "Oliver Bearman",
+      "starts": 42,
+      "p4": 1,
+      "rate": 0.02380952380952,
+      "model_starts": 38,
+      "model_p4": 1,
+      "driver_effect": 0.07541335847519
+    },
+    {
+      "id": "bortoleto",
+      "name": "Gabriel Bortoleto",
+      "starts": 38,
+      "p4": 0,
+      "rate": 0,
+      "model_starts": 33,
+      "model_p4": 0,
+      "driver_effect": -0.1162220084475
+    },
+    {
+      "id": "bottas",
+      "name": "Valtteri Bottas",
+      "starts": 164,
+      "p4": 6,
+      "rate": 0.03658536585366,
+      "model_starts": 154,
+      "model_p4": 6,
+      "driver_effect": -0.06310825173418
+    },
+    {
+      "id": "brendon_hartley",
+      "name": "Brendon Hartley",
+      "starts": 21,
+      "p4": 0,
+      "rate": 0,
+      "model_starts": 17,
+      "model_p4": 0,
+      "driver_effect": -0.04195587371777
+    },
+    {
+      "id": "colapinto",
+      "name": "Franco Colapinto",
+      "starts": 41,
+      "p4": 0,
+      "rate": 0,
+      "model_starts": 38,
+      "model_p4": 0,
+      "driver_effect": -0.1135158263578
+    },
+    {
+      "id": "de_vries",
+      "name": "Nyck de Vries",
+      "starts": 11,
+      "p4": 0,
+      "rate": 0,
+      "model_starts": 10,
+      "model_p4": 0,
+      "driver_effect": -0.02548981150248
+    },
+    {
+      "id": "doohan",
+      "name": "Jack Doohan",
+      "starts": 7,
+      "p4": 0,
+      "rate": 0,
+      "model_starts": 5,
+      "model_p4": 0,
+      "driver_effect": -0.0138979057111
+    },
+    {
+      "id": "ericsson",
+      "name": "Marcus Ericsson",
+      "starts": 21,
+      "p4": 0,
+      "rate": 0,
+      "model_starts": 18,
+      "model_p4": 0,
+      "driver_effect": -0.03535306462278
+    },
+    {
+      "id": "gasly",
+      "name": "Pierre Gasly",
+      "starts": 187,
+      "p4": 4,
+      "rate": 0.02139037433155,
+      "model_starts": 169,
+      "model_p4": 4,
+      "driver_effect": -0.08327571718605
+    },
+    {
+      "id": "giovinazzi",
+      "name": "Antonio Giovinazzi",
+      "starts": 60,
+      "p4": 0,
+      "rate": 0,
+      "model_starts": 56,
+      "model_p4": 0,
+      "driver_effect": -0.1593249461234
+    },
+    {
+      "id": "grosjean",
+      "name": "Romain Grosjean",
+      "starts": 57,
+      "p4": 1,
+      "rate": 0.01754385964912,
+      "model_starts": 52,
+      "model_p4": 1,
+      "driver_effect": 0.06242439561409
+    },
+    {
+      "id": "hadjar",
+      "name": "Isack Hadjar",
+      "starts": 36,
+      "p4": 0,
+      "rate": 0,
+      "model_starts": 32,
+      "model_p4": 0,
+      "driver_effect": -0.2016560872628
+    },
+    {
+      "id": "hamilton",
+      "name": "Lewis Hamilton",
+      "starts": 187,
+      "p4": 22,
+      "rate": 0.1176470588235,
+      "model_starts": 179,
+      "model_p4": 22,
+      "driver_effect": 0.2297957929147
+    },
+    {
+      "id": "hulkenberg",
+      "name": "Nico Hülkenberg",
+      "starts": 130,
+      "p4": 0,
+      "rate": 0,
+      "model_starts": 117,
+      "model_p4": 0,
+      "driver_effect": -0.3598606077222
+    },
+    {
+      "id": "kevin_magnussen",
+      "name": "Kevin Magnussen",
+      "starts": 125,
+      "p4": 0,
+      "rate": 0,
+      "model_starts": 115,
+      "model_p4": 0,
+      "driver_effect": -0.3047697542011
+    },
+    {
+      "id": "kubica",
+      "name": "Robert Kubica",
+      "starts": 23,
+      "p4": 0,
+      "rate": 0,
+      "model_starts": 23,
+      "model_p4": 0,
+      "driver_effect": -0.01747978720246
+    },
+    {
+      "id": "kvyat",
+      "name": "Daniil Kvyat",
+      "starts": 38,
+      "p4": 1,
+      "rate": 0.02631578947368,
+      "model_starts": 37,
+      "model_p4": 1,
+      "driver_effect": 0.07582548970837
+    },
+    {
+      "id": "latifi",
+      "name": "Nicholas Latifi",
+      "starts": 61,
+      "p4": 0,
+      "rate": 0,
+      "model_starts": 56,
+      "model_p4": 0,
+      "driver_effect": -0.1084523481506
+    },
+    {
+      "id": "lawson",
+      "name": "Liam Lawson",
+      "starts": 50,
+      "p4": 0,
+      "rate": 0,
+      "model_starts": 46,
+      "model_p4": 0,
+      "driver_effect": -0.1734927999885
+    },
+    {
+      "id": "leclerc",
+      "name": "Charles Leclerc",
+      "starts": 187,
+      "p4": 35,
+      "rate": 0.1871657754011,
+      "model_starts": 173,
+      "model_p4": 33,
+      "driver_effect": 0.8670908668367
+    },
+    {
+      "id": "max_verstappen",
+      "name": "Max Verstappen",
+      "starts": 188,
+      "p4": 13,
+      "rate": 0.06914893617021,
+      "model_starts": 172,
+      "model_p4": 13,
+      "driver_effect": -0.4018601206295
+    },
+    {
+      "id": "mazepin",
+      "name": "Nikita Mazepin",
+      "starts": 22,
+      "p4": 0,
+      "rate": 0,
+      "model_starts": 18,
+      "model_p4": 0,
+      "driver_effect": -0.01157603391892
+    },
+    {
+      "id": "mick_schumacher",
+      "name": "Mick Schumacher",
+      "starts": 44,
+      "p4": 0,
+      "rate": 0,
+      "model_starts": 39,
+      "model_p4": 0,
+      "driver_effect": -0.08365723286898
+    },
+    {
+      "id": "norris",
+      "name": "Lando Norris",
+      "starts": 166,
+      "p4": 13,
+      "rate": 0.07831325301205,
+      "model_starts": 158,
+      "model_p4": 13,
+      "driver_effect": 0.2171183999655
+    },
+    {
+      "id": "ocon",
+      "name": "Esteban Ocon",
+      "starts": 166,
+      "p4": 3,
+      "rate": 0.01807228915663,
+      "model_starts": 147,
+      "model_p4": 3,
+      "driver_effect": 0.01569746323534
+    },
+    {
+      "id": "perez",
+      "name": "Sergio Pérez",
+      "starts": 162,
+      "p4": 17,
+      "rate": 0.1049382716049,
+      "model_starts": 149,
+      "model_p4": 17,
+      "driver_effect": 0.7741327681217
+    },
+    {
+      "id": "piastri",
+      "name": "Oscar Piastri",
+      "starts": 83,
+      "p4": 10,
+      "rate": 0.1204819277108,
+      "model_starts": 77,
+      "model_p4": 10,
+      "driver_effect": 0.4422233029217
+    },
+    {
+      "id": "pietro_fittipaldi",
+      "name": "Pietro Fittipaldi",
+      "starts": 2,
+      "p4": 0,
+      "rate": 0,
+      "model_starts": 2,
+      "model_p4": 0,
+      "driver_effect": -0.002857274938629
+    },
+    {
+      "id": "raikkonen",
+      "name": "Kimi Räikkönen",
+      "starts": 79,
+      "p4": 3,
+      "rate": 0.0379746835443,
+      "model_starts": 74,
+      "model_p4": 3,
+      "driver_effect": 0.05602761914985
+    },
+    {
+      "id": "ricciardo",
+      "name": "Daniel Ricciardo",
+      "starts": 128,
+      "p4": 13,
+      "rate": 0.1015625,
+      "model_starts": 119,
+      "model_p4": 12,
+      "driver_effect": 0.7522373480976
+    },
+    {
+      "id": "russell",
+      "name": "George Russell",
+      "starts": 167,
+      "p4": 18,
+      "rate": 0.1077844311377,
+      "model_starts": 159,
+      "model_p4": 18,
+      "driver_effect": 0.6473310137129
+    },
+    {
+      "id": "sainz",
+      "name": "Carlos Sainz",
+      "starts": 185,
+      "p4": 8,
+      "rate": 0.04324324324324,
+      "model_starts": 169,
+      "model_p4": 8,
+      "driver_effect": -0.004145042677307
+    },
+    {
+      "id": "sargeant",
+      "name": "Logan Sargeant",
+      "starts": 36,
+      "p4": 0,
+      "rate": 0,
+      "model_starts": 33,
+      "model_p4": 0,
+      "driver_effect": -0.06703790445932
+    },
+    {
+      "id": "sirotkin",
+      "name": "Sergey Sirotkin",
+      "starts": 21,
+      "p4": 0,
+      "rate": 0,
+      "model_starts": 18,
+      "model_p4": 0,
+      "driver_effect": -0.02849066590847
+    },
+    {
+      "id": "stroll",
+      "name": "Lance Stroll",
+      "starts": 185,
+      "p4": 4,
+      "rate": 0.02162162162162,
+      "model_starts": 170,
+      "model_p4": 4,
+      "driver_effect": 0.1929822380647
+    },
+    {
+      "id": "tsunoda",
+      "name": "Yuki Tsunoda",
+      "starts": 116,
+      "p4": 1,
+      "rate": 0.008620689655172,
+      "model_starts": 106,
+      "model_p4": 1,
+      "driver_effect": -0.1938223183193
+    },
+    {
+      "id": "vandoorne",
+      "name": "Stoffel Vandoorne",
+      "starts": 21,
+      "p4": 0,
+      "rate": 0,
+      "model_starts": 20,
+      "model_p4": 0,
+      "driver_effect": -0.04311010947904
+    },
+    {
+      "id": "vettel",
+      "name": "Sebastian Vettel",
+      "starts": 101,
+      "p4": 8,
+      "rate": 0.07920792079208,
+      "model_starts": 94,
+      "model_p4": 7,
+      "driver_effect": 0.110056883743
+    },
+    {
+      "id": "zhou",
+      "name": "Guanyu Zhou",
+      "starts": 68,
+      "p4": 0,
+      "rate": 0,
+      "model_starts": 64,
+      "model_p4": 0,
+      "driver_effect": -0.1444325157919
+    }
+  ],
+  "coefficients": [
+    {
+      "term": "(Intercept)",
+      "estimate": -4.307497966668,
+      "se": 0.5009996181615,
+      "z": -8.597806885512,
+      "p": 8.125387525931e-18,
+      "or": 0.01346720286634,
+      "lower": 0.005044497577889,
+      "upper": 0.03595314503434
+    },
+    {
+      "term": "grid_z",
+      "estimate": -0.2600332640582,
+      "se": 0.1373371421147,
+      "z": -1.893393586427,
+      "p": 0.05830554770931,
+      "or": 0.7710259379253,
+      "lower": 0.5890677581737,
+      "upper": 1.009189501046
+    },
+    {
+      "term": "pace_delta_z",
+      "estimate": -1.053162810373,
+      "se": 0.1567907131853,
+      "z": -6.716997384456,
+      "p": 1.855072976822e-11,
+      "or": 0.348832710803,
+      "lower": 0.2565395056209,
+      "upper": 0.4743295183004
+    },
+    {
+      "term": "pit_count_z",
+      "estimate": -0.009190845374081,
+      "se": 0.0893904984158,
+      "z": -0.1028168042126,
+      "p": 0.9181083681146,
+      "or": 0.9908512613477,
+      "lower": 0.8316062376298,
+      "upper": 1.180590257371
+    },
+    {
+      "term": "pit_duration_z",
+      "estimate": 0.05682591329383,
+      "se": 0.07224534092789,
+      "z": 0.7865685532656,
+      "p": 0.4315344739262,
+      "or": 1.058471528533,
+      "lower": 0.9187190143284,
+      "upper": 1.219482735464
+    },
+    {
+      "term": "fastf1_starting_compoundINTERMEDIATE",
+      "estimate": 0.7333850539906,
+      "se": 0.5904897736131,
+      "z": 1.241994504838,
+      "p": 0.2142385895377,
+      "or": 2.082116769741,
+      "lower": 0.654440306655,
+      "upper": 6.624302016171
+    },
+    {
+      "term": "fastf1_starting_compoundMEDIUM",
+      "estimate": 0.6153473308962,
+      "se": 0.4898878199857,
+      "z": 1.256098449057,
+      "p": 0.2090802783894,
+      "or": 1.850299154026,
+      "lower": 0.7083387804489,
+      "upper": 4.833290303856
+    },
+    {
+      "term": "fastf1_starting_compoundSOFT",
+      "estimate": 0.6618075223367,
+      "se": 0.5057622975191,
+      "z": 1.308534712024,
+      "p": 0.1906920088997,
+      "or": 1.938292677284,
+      "lower": 0.7192929374495,
+      "upper": 5.223155000152
+    },
+    {
+      "term": "fastf1_starting_compoundSOFT_2018_VARIANT",
+      "estimate": -0.2056230920039,
+      "se": 0.780269411,
+      "z": -0.2635283263768,
+      "p": 0.7921433936142,
+      "or": 0.8141398742906,
+      "lower": 0.1764088198404,
+      "upper": 3.757316303739
+    },
+    {
+      "term": "fastf1_starting_compoundUNKNOWN",
+      "estimate": 0.5065557951244,
+      "se": 0.5951966356513,
+      "z": 0.8510730148367,
+      "p": 0.3947287945145,
+      "or": 1.659565456861,
+      "lower": 0.5168360303616,
+      "upper": 5.328880619407
+    },
+    {
+      "term": "fastf1_starting_compoundWET",
+      "estimate": 0.1429826031641,
+      "se": 0.8358092029218,
+      "z": 0.1710708648149,
+      "p": 0.8641680446487,
+      "or": 1.153709730593,
+      "lower": 0.2242029894537,
+      "upper": 5.936790342122
+    },
+    {
+      "term": "sc_messages_z",
+      "estimate": -0.001263824498219,
+      "se": 0.08637428301919,
+      "z": -0.01463195356352,
+      "p": 0.9883258067214,
+      "or": 0.9987369737916,
+      "lower": 0.8431946726617,
+      "upper": 1.182971827454
+    },
+    {
+      "term": "rain",
+      "estimate": -0.02862822242782,
+      "se": 0.2180059614248,
+      "z": -0.1313185301939,
+      "p": 0.8955233337501,
+      "or": 0.9717776824636,
+      "lower": 0.6338646032971,
+      "upper": 1.489832149046
+    }
+  ],
+  "sample_flow": [
+    {
+      "stage": "all_records",
+      "observations": 3788,
+      "races": 188,
+      "p4_events": 188
+    },
+    {
+      "stage": "exclude_non_starters",
+      "observations": 3772,
+      "races": 188,
+      "p4_events": 188
+    },
+    {
+      "stage": "complete_covariates",
+      "observations": 3475,
+      "races": 184,
+      "p4_events": 184
+    },
+    {
+      "stage": "races_with_p4_retained",
+      "observations": 3475,
+      "races": 184,
+      "p4_events": 184
+    }
+  ],
+  "diagnostics": [
+    {
+      "model": "baseline_initial",
+      "elapsed_seconds": 0.8,
+      "groups": "driver_ref | team_season_id | circuit_reference | race_id",
+      "n": 3475,
+      "aic": 1281.84971129106,
+      "optimizer_code": 0,
+      "singular": true,
+      "stable": false,
+      "message": "boundary (singular) fit: see help('isSingular')"
+    },
+    {
+      "model": "full_initial",
+      "elapsed_seconds": 14.5,
+      "groups": "driver_ref | team_season_id | circuit_reference | race_id",
+      "n": 3475,
+      "aic": 1253.33195469273,
+      "optimizer_code": 0,
+      "singular": true,
+      "stable": false,
+      "message": "boundary (singular) fit: see help('isSingular')"
+    },
+    {
+      "model": "full_simplified_1",
+      "elapsed_seconds": 7.3,
+      "groups": "driver_ref | team_season_id | circuit_reference",
+      "n": 3475,
+      "aic": 1251.3319546927,
+      "optimizer_code": 0,
+      "singular": true,
+      "stable": false,
+      "message": "boundary (singular) fit: see help('isSingular')"
+    },
+    {
+      "model": "full_simplified_2",
+      "elapsed_seconds": 5.4,
+      "groups": "driver_ref | team_season_id",
+      "n": 3475,
+      "aic": 1249.33195469342,
+      "optimizer_code": 0,
+      "singular": false,
+      "stable": true,
+      "message": ""
+    },
+    {
+      "model": "baseline_comparable",
+      "elapsed_seconds": 0.3,
+      "groups": "driver_ref | team_season_id",
+      "n": 3475,
+      "aic": 1277.84971136383,
+      "optimizer_code": 0,
+      "singular": false,
+      "stable": true,
+      "message": ""
+    }
+  ],
+  "random_variances": [
+    {
+      "grp": "team_season_id",
+      "var1": "(Intercept)",
+      "var2": null,
+      "vcov": 0.2275006875991,
+      "sdcor": 0.4769703215076
+    },
+    {
+      "grp": "driver_ref",
+      "var1": "(Intercept)",
+      "var2": null,
+      "vcov": 0.2593072416332,
+      "sdcor": 0.5092221927932
+    }
+  ],
+  "scaling": [
+    {
+      "variable": "grid_z",
+      "original_variable": "grid_position",
+      "mean": 10.287194244604,
+      "sd": 5.848140106151
+    },
+    {
+      "variable": "pace_delta_z",
+      "original_variable": "pace_delta_s",
+      "mean": -0.07971741007194,
+      "sd": 1.129447817001
+    },
+    {
+      "variable": "pit_count_z",
+      "original_variable": "pit_stop_count",
+      "mean": 1.852661870504,
+      "sd": 0.987335300345
+    },
+    {
+      "variable": "pit_duration_z",
+      "original_variable": "pit_duration_mean_seconds",
+      "mean": 99.128825323741,
+      "sd": 263.614860531145
+    },
+    {
+      "variable": "sc_messages_z",
+      "original_variable": "race_control_safety_car_message_count",
+      "mean": 2.64,
+      "sd": 2.340516945886
+    }
+  ],
+  "leclerc": [
+    {
+      "contrast": "leclerc versus other drivers, adjusted",
+      "estimate_log_odds": 1.088767304351,
+      "odds_ratio": 2.97060995669,
+      "or_ci_lower_wald": 1.082142893091,
+      "or_ci_upper_wald": 8.154674924286,
+      "p_wald": 0.03458164591549,
+      "p_likelihood_ratio": 0.0440452673995,
+      "lrt_chisq": 4.05482563511,
+      "singular": false,
+      "optimizer_code": 0,
+      "convergence_message": null
+    }
+  ],
+  "coverage": [
+    {
+      "year": 2018,
+      "races": 21,
+      "driver_races": 420,
+      "qualifying_available": 420,
+      "jolpica_laps_available": 405,
+      "fastf1_laps_available": 400
+    },
+    {
+      "year": 2019,
+      "races": 21,
+      "driver_races": 420,
+      "qualifying_available": 418,
+      "jolpica_laps_available": 418,
+      "fastf1_laps_available": 420
+    },
+    {
+      "year": 2020,
+      "races": 17,
+      "driver_races": 340,
+      "qualifying_available": 340,
+      "jolpica_laps_available": 331,
+      "fastf1_laps_available": 339
+    },
+    {
+      "year": 2021,
+      "races": 22,
+      "driver_races": 440,
+      "qualifying_available": 439,
+      "jolpica_laps_available": 427,
+      "fastf1_laps_available": 437
+    },
+    {
+      "year": 2022,
+      "races": 22,
+      "driver_races": 440,
+      "qualifying_available": 440,
+      "jolpica_laps_available": 429,
+      "fastf1_laps_available": 438
+    },
+    {
+      "year": 2023,
+      "races": 22,
+      "driver_races": 440,
+      "qualifying_available": 440,
+      "jolpica_laps_available": 430,
+      "fastf1_laps_available": 436
+    },
+    {
+      "year": 2024,
+      "races": 24,
+      "driver_races": 479,
+      "qualifying_available": 479,
+      "jolpica_laps_available": 465,
+      "fastf1_laps_available": 476
+    },
+    {
+      "year": 2025,
+      "races": 24,
+      "driver_races": 479,
+      "qualifying_available": 478,
+      "jolpica_laps_available": 465,
+      "fastf1_laps_available": 476
+    },
+    {
+      "year": 2026,
+      "races": 15,
+      "driver_races": 330,
+      "qualifying_available": 325,
+      "jolpica_laps_available": 276,
+      "fastf1_laps_available": 327
+    }
+  ]
+}

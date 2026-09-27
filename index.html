@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f2f4f1">
+  <meta name="description" content="2018 年起 F1 正賽第四名紀錄與階層模型的互動分析。">
+  <title>誰比較常拿第四名？｜F1 正賽資料分析</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700&family=IBM+Plex+Mono:wght@400;500;600&family=Noto+Sans+TC:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./styles.css">
+  <script defer src="./vendor/d3.v7.min.js"></script>
+  <script defer src="./app.js"></script>
+</head>
+<body>
+  <a class="skip-link" href="#main">跳到主要內容</a>
+  <header class="site-header">
+    <div class="brand"><span class="brand-mark" aria-hidden="true">04</span><span>F1 正賽資料分析</span></div>
+    <nav aria-label="頁面段落">
+      <a href="#drivers">車手</a><a href="#model">模型</a><a href="#method">資料與方法</a>
+    </nav>
+  </header>
+
+  <main id="main">
+    <section class="hero wrap" aria-labelledby="hero-title">
+      <div class="hero-copy">
+        <p class="eyebrow">2018—2026 F1 正賽／第四名</p>
+        <h1 id="hero-title">誰比較常拿<br><em>第四名？</em></h1>
+        <p class="hero-intro">勒克萊爾在這份資料中起跑 187 場，有 35 場拿到第四名。下面可以查看其他車手的紀錄，以及控制起跑順位、正賽圈速和車隊賽季後的模型結果。</p>
+        <p class="snapshot" id="snapshot">資料載入中</p>
+      </div>
+      <div class="timing-board" aria-label="勒克萊爾第四名紀錄摘要">
+        <div class="board-top"><span>車手紀錄</span><span>2018—2026</span></div>
+        <div class="board-name"><span class="board-rank">P4</span><span>Charles<br>Leclerc</span></div>
+        <div class="board-main"><strong>35</strong><span>次第四名<br>／187 場起跑</span></div>
+        <div class="board-bottom"><span>原始比例</span><strong>18.7%</strong></div>
+        <div class="board-stripes" aria-hidden="true"></div>
+      </div>
+    </section>
+
+    <section class="section band" id="drivers" aria-labelledby="drivers-title">
+      <div class="wrap">
+        <div class="section-head">
+          <div><p class="eyebrow">車手紀錄</p><h2 id="drivers-title">第四名分布在誰身上？</h2></div>
+          <p class="section-note">原始次數、出賽比例與模型估計回答不同問題。切換指標時，排序也會跟著改變。</p>
+        </div>
+        <div class="controls">
+          <fieldset class="segmented" id="metric-control"><legend>比較指標</legend>
+            <label><input type="radio" name="metric" value="p4" checked><span>第四名次數</span></label>
+            <label><input type="radio" name="metric" value="rate"><span>起跑後比例</span></label>
+            <label><input type="radio" name="metric" value="effect"><span>模型估計</span></label>
+          </fieldset>
+          <label class="search-label" for="driver-search">找車手 <input id="driver-search" type="search" autocomplete="off" placeholder="輸入姓名"></label>
+        </div>
+        <p class="chart-description" id="driver-description">每位車手在所有已起跑正賽中的第四名次數；圖中顯示模型涵蓋的 44 位車手。</p>
+        <div class="driver-layout">
+          <div class="chart-shell"><div id="driver-chart" class="scroll-chart" role="region" aria-label="車手比較圖" tabindex="0"></div></div>
+          <aside class="driver-detail" id="driver-detail" aria-live="polite"><p class="detail-label">目前選取</p><h3>Charles Leclerc</h3><p>選取圖中的車手，查看三種指標與模型樣本數。</p></aside>
+        </div>
+        <details class="data-details"><summary>查看全部車手數值</summary><div class="table-scroll"><table id="driver-table"><caption>模型中 44 位車手的原始紀錄與估計效果</caption><thead><tr><th scope="col">車手</th><th scope="col">起跑</th><th scope="col">第四名</th><th scope="col">比例</th><th scope="col">模型樣本</th><th scope="col">模型估計*</th></tr></thead><tbody></tbody></table></div><p class="table-note">* 車手隨機截距換算的勝算倍數，以模型平均車手效果為 1。</p></details>
+      </div>
+    </section>
+
+    <section class="section wrap" id="model" aria-labelledby="model-title">
+      <div class="section-head"><div><p class="eyebrow">階層邏輯斯迴歸</p><h2 id="model-title">哪些變數與第四名有關？</h2></div><p class="section-note">點選一列查看變數的意思。橫線是 95% 信賴區間，垂直線代表勝算比 1。</p></div>
+      <div class="model-layout"><div class="chart-shell"><div id="coefficient-chart" role="region" aria-label="模型係數與信賴區間圖" tabindex="0"></div></div><aside class="coefficient-detail" id="coefficient-detail" aria-live="polite"></aside></div>
+      <p class="fine-print">勝算比大於 1 代表取得「恰好第四名」的勝算較高，小於 1 代表較低。輪胎配方以硬胎為比較基準。</p>
+      <details class="data-details"><summary>查看所有模型係數</summary><div class="table-scroll"><table id="coefficient-table"><caption>完整模型固定效果，Wald 信賴區間</caption><thead><tr><th scope="col">變數</th><th scope="col">勝算比</th><th scope="col">95% 下限</th><th scope="col">95% 上限</th><th scope="col">p 值</th></tr></thead><tbody></tbody></table></div></details>
+    </section>
+
+    <section class="section feature-band" id="leclerc" aria-labelledby="leclerc-title"><div class="wrap leclerc-grid"><div><p class="eyebrow">勒克萊爾的追加檢驗</p><h2 id="leclerc-title">模型也估計他較容易拿第四嗎？</h2><p>加入「是否為勒克萊爾」的指標後，調整其他模型變數，估計勝算比為 <strong>2.97</strong>；95% 信賴區間為 <strong>1.08–8.15</strong>，概似比檢定 <strong>p＝0.044</strong>。</p></div><div class="leclerc-stats"><div><span>所有已起跑正賽</span><strong>35 <small>／187</small></strong><span>18.7% 取得第四名</span></div><div><span>完整模型樣本</span><strong>33 <small>／173</small></strong><span>19.1% 取得第四名</span></div></div></div></section>
+
+    <section class="section wrap" id="method" aria-labelledby="method-title"><div class="section-head"><div><p class="eyebrow">資料與方法</p><h2 id="method-title">這些數字怎麼來？</h2></div><p class="section-note">每筆資料是一位車手在一場正賽的紀錄。「第四名」只指最終名次恰好為第 4 名。</p></div>
+      <div class="method-grid"><div><h3>樣本篩選</h3><div id="sample-flow" class="flow-list"></div><p class="fine-print">排除未起跑者；起跑後退賽者可保留。完整模型只使用全部自變數有值、且該場第四名仍在樣本中的紀錄。</p></div><div><h3>模型診斷</h3><div class="table-scroll"><table id="diagnostics-table"><caption>頻率學派模型擬合結果</caption><thead><tr><th scope="col">模型</th><th scope="col">隨機截距</th><th scope="col">AIC</th><th scope="col">奇異擬合</th></tr></thead><tbody></tbody></table></div><p class="fine-print">原始模型包含車手、車隊×賽季、賽道及賽事。賽事與賽道變異估計為零，依序移除後，最終模型保留車手及車隊×賽季，沒有最佳化警告；因此未啟動貝式模型。</p></div></div>
+      <div class="coverage-block"><div><h3>資料涵蓋年度</h3><p class="fine-print">每年的「比賽數」是資料庫收錄場次；完整模型使用 184 場。</p></div><div id="coverage-chart" role="img" aria-label="2018 至 2026 年每年收錄比賽場數"></div></div>
+      <details class="data-details"><summary>查看逐年資料量</summary><div class="table-scroll"><table id="coverage-table"><caption>逐年收錄場次與車手正賽紀錄</caption><thead><tr><th scope="col">年度</th><th scope="col">比賽</th><th scope="col">車手正賽紀錄</th><th scope="col">FastF1 逐圈可用</th></tr></thead><tbody></tbody></table></div></details>
+    </section>
+  </main>
+  <footer class="site-footer"><div class="wrap footer-grid"><div><strong>F1 第四名資料分析</strong><p>資料取自 Jolpica 與 FastF1；模型與結果由本專案整理。</p></div><div><a href="./limitations.html">資料與分析限制</a><a href="https://github.com/minrui-z/f1-p4-analysis">網站原始碼</a><a href="https://api.jolpi.ca/">Jolpica</a><a href="https://docs.fastf1.dev/">FastF1</a></div></div></footer>
+</body>
+</html>
