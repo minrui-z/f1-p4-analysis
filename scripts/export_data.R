@@ -27,6 +27,39 @@ drivers <- do.call(rbind, lapply(driver_ids, function(id) {
              driver_effect = driver_random$random_intercept[match(id, driver_random$level)])
 }))
 
+driver_year <- do.call(rbind, lapply(driver_ids, function(id) {
+  do.call(rbind, lapply(sort(unique(raw$year)), function(year) {
+    rows <- started[started$driver_ref == id & started$year == year, , drop = FALSE]
+    data.frame(id = id, year = year, starts = nrow(rows),
+               p4 = sum(rows$finish_position == 4, na.rm = TRUE))
+  }))
+}))
+
+grid_group <- ifelse(started$grid_position == 0, "pitlane",
+                     ifelse(started$grid_position > 20, "21plus",
+                            as.character(started$grid_position)))
+grid_levels <- c("pitlane", as.character(1:20), "21plus")
+grid <- do.call(rbind, lapply(grid_levels, function(group) {
+  rows <- started[grid_group == group & !is.na(grid_group), , drop = FALSE]
+  data.frame(group = group, starts = nrow(rows),
+             p4 = sum(rows$finish_position == 4, na.rm = TRUE),
+             rate = if (nrow(rows)) sum(rows$finish_position == 4, na.rm = TRUE) / nrow(rows) else 0)
+}))
+
+finish_bucket <- function(position) {
+  if (is.na(position)) return("no_position")
+  if (position <= 5) return(paste0("p", position))
+  if (position <= 10) return("p6_10")
+  "p11plus"
+}
+bucket_levels <- c(paste0("p", 1:5), "p6_10", "p11plus", "no_position")
+finish_distribution <- do.call(rbind, lapply(driver_ids, function(id) {
+  rows <- started[started$driver_ref == id, , drop = FALSE]
+  buckets <- vapply(rows$finish_position, finish_bucket, character(1))
+  data.frame(id = id, bucket = bucket_levels,
+             count = as.integer(table(factor(buckets, levels = bucket_levels))))
+}))
+
 coef <- read.csv(file.path(result, "full_simplified_2_fixed_effects.csv"), check.names = FALSE)
 coef$or <- exp(coef$Estimate)
 coef$lower <- exp(coef$Estimate - 1.96 * coef[["Std. Error"]])
@@ -40,6 +73,9 @@ payload <- list(
               model_n = nobs(model), model_races = length(unique(model_raw$race_id)),
               model_p4 = sum(model_raw$finish_position == 4, na.rm = TRUE)),
   drivers = drivers,
+  driver_year = driver_year,
+  grid = grid,
+  finish_distribution = finish_distribution,
   coefficients = coef,
   sample_flow = read.csv(file.path(result, "sample_flow.csv")),
   diagnostics = read.csv(file.path(result, "frequentist_diagnostics.csv")),

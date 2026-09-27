@@ -12,7 +12,7 @@ Rscript site/scripts/export_data.R
 
 ## 頁面
 
-- `index.html`：車手比較、模型係數、樣本篩選與診斷。
+- `index.html`：車手比較、賽季熱圖、起跑位置與名次分布、模型係數、結果解讀、樣本篩選與診斷。統計名詞和重編碼設有「？」註解。
 - `limitations.html`：資料範圍、分析方法與解讀限制。
 
 資料來源：[Jolpica](https://api.jolpi.ca/) 與 [FastF1](https://docs.fastf1.dev/)。2026 年資料為 2026-09-26 的快照。網站沒有追蹤器，也沒有後端服務。

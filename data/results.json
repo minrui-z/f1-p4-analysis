@@ -451,6 +451,4280 @@
       "driver_effect": -0.1444325157919
     }
   ],
+  "driver_year": [
+    {
+      "id": "aitken",
+      "year": 2018,
+      "starts": 0,
+      "p4": 0
+    },
+    {
+      "id": "aitken",
+      "year": 2019,
+      "starts": 0,
+      "p4": 0
+    },
+    {
+      "id": "aitken",
+      "year": 2020,
+      "starts": 1,
+      "p4": 0
+    },
+    {
+      "id": "aitken",
+      "year": 2021,
+      "starts": 0,
+      "p4": 0
+    },
+    {
+      "id": "aitken",
+      "year": 2022,
+      "starts": 0,
+      "p4": 0
+    },
+    {
+      "id": "aitken",
+      "year": 2023,
+      "starts": 0,
+      "p4": 0
+    },
+    {
+      "id": "aitken",
+      "year": 2024,
+      "starts": 0,
+      "p4": 0
+    },
+    {
+      "id": "aitken",
+      "year": 2025,
+      "starts": 0,
+      "p4": 0
+    },
+    {
+      "id": "aitken",
+      "year": 2026,
+      "starts": 0,
+      "p4": 0
+    },
+    {
+      "id": "albon",
+      "year": 2018,
+      "starts": 0,
+      "p4": 0
+    },
+    {
+      "id": "albon",
+      "year": 2019,
+      "starts": 21,
+      "p4": 1
+    },
+    {
+      "id": "albon",
+      "year": 2020,
+      "starts": 17,
+      "p4": 2
+    },
+    {
+      "id": "albon",
+      "year": 2021,
+      "starts": 0,
+      "p4": 0
+    },
+    {
+      "id": "albon",
+      "year": 2022,
+      "starts": 21,
+      "p4": 0
+    },
+    {
+      "id": "albon",
+      "year": 2023,
+      "starts": 22,
+      "p4": 0
+    },
+    {
+      "id": "albon",
+      "year": 2024,
+      "starts": 23,
+      "p4": 0
+    },
+    {
+      "id": "albon",
+      "year": 2025,
+      "starts": 24,
+      "p4": 0
+    },
+    {
+      "id": "albon",
+      "year": 2026,
+      "starts": 14,
+      "p4": 0
+    },
+    {
+      "id": "alonso",
+      "year": 2018,
+      "starts": 21,
+      "p4": 0
+    },
+    {
+      "id": "alonso",
+      "year": 2019,
+      "starts": 0,
+      "p4": 0
+    },
+    {
+      "id": "alonso",
+      "year": 2020,
+      "starts": 0,
+      "p4": 0
+    },
+    {
+      "id": "alonso",
+      "year": 2021,
+      "starts": 22,
+      "p4": 1
+    },
+    {
+      "id": "alonso",
+      "year": 2022,
+      "starts": 22,
+      "p4": 0
+    },
+    {
+      "id": "alonso",
+      "year": 2023,
+      "starts": 22,
+      "p4": 1
+    },
+    {
+      "id": "alonso",
+      "year": 2024,
+      "starts": 24,
+      "p4": 0
+    },
+    {
+      "id": "alonso",
+      "year": 2025,
+      "starts": 24,
+      "p4": 0
+    },
+    {
+      "id": "alonso",
+      "year": 2026,
+      "starts": 15,
+      "p4": 0
+    },
+    {
+      "id": "antonelli",
+      "year": 2018,
+      "starts": 0,
+      "p4": 0
+    },
+    {
+      "id": "antonelli",
+      "year": 2019,
+      "starts": 0,
+      "p4": 0
+    },
+    {
+      "id": "antonelli",
+      "year": 2020,
+      "starts": 0,
+      "p4": 0
+    },
+    {
+      "id": "antonelli",
+      "year": 2021,
+      "starts": 0,
+      "p4": 0
+    },
+    {
+      "id": "antonelli",
+      "year": 2022,
+      "starts": 0,
+      "p4": 0
+    },
+    {
+      "id": "antonelli",
+      "year": 2023,
+      "starts": 0,
+      "p4": 0
+    },
+    {
+      "id": "antonelli",
+      "year": 2024,
+      "starts": 0,
+      "p4": 0
+    },
+    {
+      "id": "antonelli",
+      "year": 2025,
+      "starts": 24,
+      "p4": 2
+    },
+    {
+      "id": "antonelli",
+      "year": 2026,
+      "starts": 15,
+      "p4": 0
+    },
+    {
+      "id": "arvid_lindblad",
+      "year": 2018,
+      "starts": 0,
+      "p4": 0
+    },
+    {
+      "id": "arvid_lindblad",
+      "year": 2019,
+      "starts": 0,
+      "p4": 0
+    },
+    {
+      "id": "arvid_lindblad",
+      "year": 2020,
+      "starts": 0,
+      "p4": 0
+    },
+    {
+      "id": "arvid_lindblad",
+      "year": 2021,
+      "starts": 0,
+      "p4": 0
+    },
+    {
+      "id": "arvid_lindblad",
+      "year": 2022,
+      "starts": 0,
+      "p4": 0
+    },
+    {
+      "id": "arvid_lindblad",
+      "year": 2023,
+      "starts": 0,
+      "p4": 0
+    },
+    {
+      "id": "arvid_lindblad",
+      "year": 2024,
+      "starts": 0,
+      "p4": 0
+    },
+    {
+      "id": "arvid_lindblad",
+      "year": 2025,
+      "starts": 0,
+      "p4": 0
+    },
+    {
+      "id": "arvid_lindblad",
+      "year": 2026,
+      "starts": 14,
+      "p4": 0
+    },
+    {
+      "id": "bearman",
+      "year": 2018,
+      "starts": 0,
+      "p4": 0
+    },
+    {
+      "id": "bearman",
+      "year": 2019,
+      "starts": 0,
+      "p4": 0
+    },
+    {
+      "id": "bearman",
+      "year": 2020,
+      "starts": 0,
+      "p4": 0
+    },
+    {
+      "id": "bearman",
+      "year": 2021,
+      "starts": 0,
+      "p4": 0
+    },
+    {
+      "id": "bearman",
+      "year": 2022,
+      "starts": 0,
+      "p4": 0
+    },
+    {
+      "id": "bearman",
+      "year": 2023,
+      "starts": 0,
+      "p4": 0
+    },
+    {
+      "id": "bearman",
+      "year": 2024,
+      "starts": 3,
+      "p4": 0
+    },
+    {
+      "id": "bearman",
+      "year": 2025,
+      "starts": 24,
+      "p4": 1
+    },
+    {
+      "id": "bearman",
+      "year": 2026,
+      "starts": 15,
+      "p4": 0
+    },
+    {
+      "id": "bortoleto",
+      "year": 2018,
+      "starts": 0,
+      "p4": 0
+    },
+    {
+      "id": "bortoleto",
+      "year": 2019,
+      "starts": 0,
+      "p4": 0
+    },
+    {
+      "id": "bortoleto",
+      "year": 2020,
+      "starts": 0,
+      "p4": 0
+    },
+    {
+      "id": "bortoleto",
+      "year": 2021,
+      "starts": 0,
+      "p4": 0
+    },
+    {
+      "id": "bortoleto",
+      "year": 2022,
+      "starts": 0,
+      "p4": 0
+    },
+    {
+      "id": "bortoleto",
+      "year": 2023,
+      "starts": 0,
+      "p4": 0
+    },
+    {
+      "id": "bortoleto",
+      "year": 2024,
+      "starts": 0,
+      "p4": 0
+    },
+    {
+      "id": "bortoleto",
+      "year": 2025,
+      "starts": 24,
+      "p4": 0
+    },
+    {
+      "id": "bortoleto",
+      "year": 2026,
+      "starts": 14,
+      "p4": 0
+    },
+    {
+      "id": "bottas",
+      "year": 2018,
+      "starts": 21,
+      "p4": 3
+    },
+    {
+      "id": "bottas",
+      "year": 2019,
+      "starts": 21,
+      "p4": 2
+    },
+    {
+      "id": "bottas",
+      "year": 2020,
+      "starts": 17,
+      "p4": 0
+    },
+    {
+      "id": "bottas",
+      "year": 2021,
+      "starts": 22,
+      "p4": 1
+    },
+    {
+      "id": "bottas",
+      "year": 2022,
+      "starts": 22,
+      "p4": 0
+    },
+    {
+      "id": "bottas",
+      "year": 2023,
+      "starts": 22,
+      "p4": 0
+    },
+    {
+      "id": "bottas",
+      "year": 2024,
+      "starts": 24,
+      "p4": 0
+    },
+    {
+      "id": "bottas",
+      "year": 2025,
+      "starts": 0,
+      "p4": 0
+    },
+    {
+      "id": "bottas",
+      "year": 2026,
+      "starts": 15,
+      "p4": 0
+    },
+    {
+      "id": "brendon_hartley",
+      "year": 2018,
+      "starts": 21,
+      "p4": 0
+    },
+    {
+      "id": "brendon_hartley",
+      "year": 2019,
+      "starts": 0,
+      "p4": 0
+    },
+    {
+      "id": "brendon_hartley",
+      "year": 2020,
+      "starts": 0,
+      "p4": 0
+    },
+    {
+      "id": "brendon_hartley",
+      "year": 2021,
+      "starts": 0,
+      "p4": 0
+    },
+    {
+      "id": "brendon_hartley",
+      "year": 2022,
+      "starts": 0,
+      "p4": 0
+    },
+    {
+      "id": "brendon_hartley",
+      "year": 2023,
+      "starts": 0,
+      "p4": 0
+    },
+    {
+      "id": "brendon_hartley",
+      "year": 2024,
+      "starts": 0,
+      "p4": 0
+    },
+    {
+      "id": "brendon_hartley",
+      "year": 2025,
+      "starts": 0,
+      "p4": 0
+    },
+    {
+      "id": "brendon_hartley",
+      "year": 2026,
+      "starts": 0,
+      "p4": 0
+    },
+    {
+      "id": "colapinto",
+      "year": 2018,
+      "starts": 0,
+      "p4": 0
+    },
+    {
+      "id": "colapinto",
+      "year": 2019,
+      "starts": 0,
+      "p4": 0
+    },
+    {
+      "id": "colapinto",
+      "year": 2020,
+      "starts": 0,
+      "p4": 0
+    },
+    {
+      "id": "colapinto",
+      "year": 2021,
+      "starts": 0,
+      "p4": 0
+    },
+    {
+      "id": "colapinto",
+      "year": 2022,
+      "starts": 0,
+      "p4": 0
+    },
+    {
+      "id": "colapinto",
+      "year": 2023,
+      "starts": 0,
+      "p4": 0
+    },
+    {
+      "id": "colapinto",
+      "year": 2024,
+      "starts": 9,
+      "p4": 0
+    },
+    {
+      "id": "colapinto",
+      "year": 2025,
+      "starts": 17,
+      "p4": 0
+    },
+    {
+      "id": "colapinto",
+      "year": 2026,
+      "starts": 15,
+      "p4": 0
+    },
+    {
+      "id": "de_vries",
+      "year": 2018,
+      "starts": 0,
+      "p4": 0
+    },
+    {
+      "id": "de_vries",
+      "year": 2019,
+      "starts": 0,
+      "p4": 0
+    },
+    {
+      "id": "de_vries",
+      "year": 2020,
+      "starts": 0,
+      "p4": 0
+    },
+    {
+      "id": "de_vries",
+      "year": 2021,
+      "starts": 0,
+      "p4": 0
+    },
+    {
+      "id": "de_vries",
+      "year": 2022,
+      "starts": 1,
+      "p4": 0
+    },
+    {
+      "id": "de_vries",
+      "year": 2023,
+      "starts": 10,
+      "p4": 0
+    },
+    {
+      "id": "de_vries",
+      "year": 2024,
+      "starts": 0,
+      "p4": 0
+    },
+    {
+      "id": "de_vries",
+      "year": 2025,
+      "starts": 0,
+      "p4": 0
+    },
+    {
+      "id": "de_vries",
+      "year": 2026,
+      "starts": 0,
+      "p4": 0
+    },
+    {
+      "id": "doohan",
+      "year": 2018,
+      "starts": 0,
+      "p4": 0
+    },
+    {
+      "id": "doohan",
+      "year": 2019,
+      "starts": 0,
+      "p4": 0
+    },
+    {
+      "id": "doohan",
+      "year": 2020,
+      "starts": 0,
+      "p4": 0
+    },
+    {
+      "id": "doohan",
+      "year": 2021,
+      "starts": 0,
+      "p4": 0
+    },
+    {
+      "id": "doohan",
+      "year": 2022,
+      "starts": 0,
+      "p4": 0
+    },
+    {
+      "id": "doohan",
+      "year": 2023,
+      "starts": 0,
+      "p4": 0
+    },
+    {
+      "id": "doohan",
+      "year": 2024,
+      "starts": 1,
+      "p4": 0
+    },
+    {
+      "id": "doohan",
+      "year": 2025,
+      "starts": 6,
+      "p4": 0
+    },
+    {
+      "id": "doohan",
+      "year": 2026,
+      "starts": 0,
+      "p4": 0
+    },
+    {
+      "id": "ericsson",
+      "year": 2018,
+      "starts": 21,
+      "p4": 0
+    },
+    {
+      "id": "ericsson",
+      "year": 2019,
+      "starts": 0,
+      "p4": 0
+    },
+    {
+      "id": "ericsson",
+      "year": 2020,
+      "starts": 0,
+      "p4": 0
+    },
+    {
+      "id": "ericsson",
+      "year": 2021,
+      "starts": 0,
+      "p4": 0
+    },
+    {
+      "id": "ericsson",
+      "year": 2022,
+      "starts": 0,
+      "p4": 0
+    },
+    {
+      "id": "ericsson",
+      "year": 2023,
+      "starts": 0,
+      "p4": 0
+    },
+    {
+      "id": "ericsson",
+      "year": 2024,
+      "starts": 0,
+      "p4": 0
+    },
+    {
+      "id": "ericsson",
+      "year": 2025,
+      "starts": 0,
+      "p4": 0
+    },
+    {
+      "id": "ericsson",
+      "year": 2026,
+      "starts": 0,
+      "p4": 0
+    },
+    {
+      "id": "gasly",
+      "year": 2018,
+      "starts": 21,
+      "p4": 1
+    },
+    {
+      "id": "gasly",
+      "year": 2019,
+      "starts": 21,
+      "p4": 1
+    },
+    {
+      "id": "gasly",
+      "year": 2020,
+      "starts": 17,
+      "p4": 0
+    },
+    {
+      "id": "gasly",
+      "year": 2021,
+      "starts": 22,
+      "p4": 2
+    },
+    {
+      "id": "gasly",
+      "year": 2022,
+      "starts": 22,
+      "p4": 0
+    },
+    {
+      "id": "gasly",
+      "year": 2023,
+      "starts": 22,
+      "p4": 0
+    },
+    {
+      "id": "gasly",
+      "year": 2024,
+      "starts": 23,
+      "p4": 0
+    },
+    {
+      "id": "gasly",
+      "year": 2025,
+      "starts": 24,
+      "p4": 0
+    },
+    {
+      "id": "gasly",
+      "year": 2026,
+      "starts": 15,
+      "p4": 0
+    },
+    {
+      "id": "giovinazzi",
+      "year": 2018,
+      "starts": 0,
+      "p4": 0
+    },
+    {
+      "id": "giovinazzi",
+      "year": 2019,
+      "starts": 21,
+      "p4": 0
+    },
+    {
+      "id": "giovinazzi",
+      "year": 2020,
+      "starts": 17,
+      "p4": 0
+    },
+    {
+      "id": "giovinazzi",
+      "year": 2021,
+      "starts": 22,
+      "p4": 0
+    },
+    {
+      "id": "giovinazzi",
+      "year": 2022,
+      "starts": 0,
+      "p4": 0
+    },
+    {
+      "id": "giovinazzi",
+      "year": 2023,
+      "starts": 0,
+      "p4": 0
+    },
+    {
+      "id": "giovinazzi",
+      "year": 2024,
+      "starts": 0,
+      "p4": 0
+    },
+    {
+      "id": "giovinazzi",
+      "year": 2025,
+      "starts": 0,
+      "p4": 0
+    },
+    {
+      "id": "giovinazzi",
+      "year": 2026,
+      "starts": 0,
+      "p4": 0
+    },
+    {
+      "id": "grosjean",
+      "year": 2018,
+      "starts": 21,
+      "p4": 1
+    },
+    {
+      "id": "grosjean",
+      "year": 2019,
+      "starts": 21,
+      "p4": 0
+    },
+    {
+      "id": "grosjean",
+      "year": 2020,
+      "starts": 15,
+      "p4": 0
+    },
+    {
+      "id": "grosjean",
+      "year": 2021,
+      "starts": 0,
+      "p4": 0
+    },
+    {
+      "id": "grosjean",
+      "year": 2022,
+      "starts": 0,
+      "p4": 0
+    },
+    {
+      "id": "grosjean",
+      "year": 2023,
+      "starts": 0,
+      "p4": 0
+    },
+    {
+      "id": "grosjean",
+      "year": 2024,
+      "starts": 0,
+      "p4": 0
+    },
+    {
+      "id": "grosjean",
+      "year": 2025,
+      "starts": 0,
+      "p4": 0
+    },
+    {
+      "id": "grosjean",
+      "year": 2026,
+      "starts": 0,
+      "p4": 0
+    },
+    {
+      "id": "hadjar",
+      "year": 2018,
+      "starts": 0,
+      "p4": 0
+    },
+    {
+      "id": "hadjar",
+      "year": 2019,
+      "starts": 0,
+      "p4": 0
+    },
+    {
+      "id": "hadjar",
+      "year": 2020,
+      "starts": 0,
+      "p4": 0
+    },
+    {
+      "id": "hadjar",
+      "year": 2021,
+      "starts": 0,
+      "p4": 0
+    },
+    {
+      "id": "hadjar",
+      "year": 2022,
+      "starts": 0,
+      "p4": 0
+    },
+    {
+      "id": "hadjar",
+      "year": 2023,
+      "starts": 0,
+      "p4": 0
+    },
+    {
+      "id": "hadjar",
+      "year": 2024,
+      "starts": 0,
+      "p4": 0
+    },
+    {
+      "id": "hadjar",
+      "year": 2025,
+      "starts": 24,
+      "p4": 0
+    },
+    {
+      "id": "hadjar",
+      "year": 2026,
+      "starts": 12,
+      "p4": 0
+    },
+    {
+      "id": "hamilton",
+      "year": 2018,
+      "starts": 21,
+      "p4": 2
+    },
+    {
+      "id": "hamilton",
+      "year": 2019,
+      "starts": 21,
+      "p4": 1
+    },
+    {
+      "id": "hamilton",
+      "year": 2020,
+      "starts": 16,
+      "p4": 1
+    },
+    {
+      "id": "hamilton",
+      "year": 2021,
+      "starts": 22,
+      "p4": 1
+    },
+    {
+      "id": "hamilton",
+      "year": 2022,
+      "starts": 22,
+      "p4": 3
+    },
+    {
+      "id": "hamilton",
+      "year": 2023,
+      "starts": 22,
+      "p4": 3
+    },
+    {
+      "id": "hamilton",
+      "year": 2024,
+      "starts": 24,
+      "p4": 4
+    },
+    {
+      "id": "hamilton",
+      "year": 2025,
+      "starts": 24,
+      "p4": 4
+    },
+    {
+      "id": "hamilton",
+      "year": 2026,
+      "starts": 15,
+      "p4": 3
+    },
+    {
+      "id": "hulkenberg",
+      "year": 2018,
+      "starts": 21,
+      "p4": 0
+    },
+    {
+      "id": "hulkenberg",
+      "year": 2019,
+      "starts": 21,
+      "p4": 0
+    },
+    {
+      "id": "hulkenberg",
+      "year": 2020,
+      "starts": 3,
+      "p4": 0
+    },
+    {
+      "id": "hulkenberg",
+      "year": 2021,
+      "starts": 0,
+      "p4": 0
+    },
+    {
+      "id": "hulkenberg",
+      "year": 2022,
+      "starts": 2,
+      "p4": 0
+    },
+    {
+      "id": "hulkenberg",
+      "year": 2023,
+      "starts": 22,
+      "p4": 0
+    },
+    {
+      "id": "hulkenberg",
+      "year": 2024,
+      "starts": 24,
+      "p4": 0
+    },
+    {
+      "id": "hulkenberg",
+      "year": 2025,
+      "starts": 23,
+      "p4": 0
+    },
+    {
+      "id": "hulkenberg",
+      "year": 2026,
+      "starts": 14,
+      "p4": 0
+    },
+    {
+      "id": "kevin_magnussen",
+      "year": 2018,
+      "starts": 21,
+      "p4": 0
+    },
+    {
+      "id": "kevin_magnussen",
+      "year": 2019,
+      "starts": 21,
+      "p4": 0
+    },
+    {
+      "id": "kevin_magnussen",
+      "year": 2020,
+      "starts": 17,
+      "p4": 0
+    },
+    {
+      "id": "kevin_magnussen",
+      "year": 2021,
+      "starts": 0,
+      "p4": 0
+    },
+    {
+      "id": "kevin_magnussen",
+      "year": 2022,
+      "starts": 22,
+      "p4": 0
+    },
+    {
+      "id": "kevin_magnussen",
+      "year": 2023,
+      "starts": 22,
+      "p4": 0
+    },
+    {
+      "id": "kevin_magnussen",
+      "year": 2024,
+      "starts": 22,
+      "p4": 0
+    },
+    {
+      "id": "kevin_magnussen",
+      "year": 2025,
+      "starts": 0,
+      "p4": 0
+    },
+    {
+      "id": "kevin_magnussen",
+      "year": 2026,
+      "starts": 0,
+      "p4": 0
+    },
+    {
+      "id": "kubica",
+      "year": 2018,
+      "starts": 0,
+      "p4": 0
+    },
+    {
+      "id": "kubica",
+      "year": 2019,
+      "starts": 21,
+      "p4": 0
+    },
+    {
+      "id": "kubica",
+      "year": 2020,
+      "starts": 0,
+      "p4": 0
+    },
+    {
+      "id": "kubica",
+      "year": 2021,
+      "starts": 2,
+      "p4": 0
+    },
+    {
+      "id": "kubica",
+      "year": 2022,
+      "starts": 0,
+      "p4": 0
+    },
+    {
+      "id": "kubica",
+      "year": 2023,
+      "starts": 0,
+      "p4": 0
+    },
+    {
+      "id": "kubica",
+      "year": 2024,
+      "starts": 0,
+      "p4": 0
+    },
+    {
+      "id": "kubica",
+      "year": 2025,
+      "starts": 0,
+      "p4": 0
+    },
+    {
+      "id": "kubica",
+      "year": 2026,
+      "starts": 0,
+      "p4": 0
+    },
+    {
+      "id": "kvyat",
+      "year": 2018,
+      "starts": 0,
+      "p4": 0
+    },
+    {
+      "id": "kvyat",
+      "year": 2019,
+      "starts": 21,
+      "p4": 0
+    },
+    {
+      "id": "kvyat",
+      "year": 2020,
+      "starts": 17,
+      "p4": 1
+    },
+    {
+      "id": "kvyat",
+      "year": 2021,
+      "starts": 0,
+      "p4": 0
+    },
+    {
+      "id": "kvyat",
+      "year": 2022,
+      "starts": 0,
+      "p4": 0
+    },
+    {
+      "id": "kvyat",
+      "year": 2023,
+      "starts": 0,
+      "p4": 0
+    },
+    {
+      "id": "kvyat",
+      "year": 2024,
+      "starts": 0,
+      "p4": 0
+    },
+    {
+      "id": "kvyat",
+      "year": 2025,
+      "starts": 0,
+      "p4": 0
+    },
+    {
+      "id": "kvyat",
+      "year": 2026,
+      "starts": 0,
+      "p4": 0
+    },
+    {
+      "id": "latifi",
+      "year": 2018,
+      "starts": 0,
+      "p4": 0
+    },
+    {
+      "id": "latifi",
+      "year": 2019,
+      "starts": 0,
+      "p4": 0
+    },
+    {
+      "id": "latifi",
+      "year": 2020,
+      "starts": 17,
+      "p4": 0
+    },
+    {
+      "id": "latifi",
+      "year": 2021,
+      "starts": 22,
+      "p4": 0
+    },
+    {
+      "id": "latifi",
+      "year": 2022,
+      "starts": 22,
+      "p4": 0
+    },
+    {
+      "id": "latifi",
+      "year": 2023,
+      "starts": 0,
+      "p4": 0
+    },
+    {
+      "id": "latifi",
+      "year": 2024,
+      "starts": 0,
+      "p4": 0
+    },
+    {
+      "id": "latifi",
+      "year": 2025,
+      "starts": 0,
+      "p4": 0
+    },
+    {
+      "id": "latifi",
+      "year": 2026,
+      "starts": 0,
+      "p4": 0
+    },
+    {
+      "id": "lawson",
+      "year": 2018,
+      "starts": 0,
+      "p4": 0
+    },
+    {
+      "id": "lawson",
+      "year": 2019,
+      "starts": 0,
+      "p4": 0
+    },
+    {
+      "id": "lawson",
+      "year": 2020,
+      "starts": 0,
+      "p4": 0
+    },
+    {
+      "id": "lawson",
+      "year": 2021,
+      "starts": 0,
+      "p4": 0
+    },
+    {
+      "id": "lawson",
+      "year": 2022,
+      "starts": 0,
+      "p4": 0
+    },
+    {
+      "id": "lawson",
+      "year": 2023,
+      "starts": 5,
+      "p4": 0
+    },
+    {
+      "id": "lawson",
+      "year": 2024,
+      "starts": 6,
+      "p4": 0
+    },
+    {
+      "id": "lawson",
+      "year": 2025,
+      "starts": 24,
+      "p4": 0
+    },
+    {
+      "id": "lawson",
+      "year": 2026,
+      "starts": 15,
+      "p4": 0
+    },
+    {
+      "id": "leclerc",
+      "year": 2018,
+      "starts": 21,
+      "p4": 0
+    },
+    {
+      "id": "leclerc",
+      "year": 2019,
+      "starts": 21,
+      "p4": 3
+    },
+    {
+      "id": "leclerc",
+      "year": 2020,
+      "starts": 17,
+      "p4": 3
+    },
+    {
+      "id": "leclerc",
+      "year": 2021,
+      "starts": 22,
+      "p4": 6
+    },
+    {
+      "id": "leclerc",
+      "year": 2022,
+      "starts": 22,
+      "p4": 3
+    },
+    {
+      "id": "leclerc",
+      "year": 2023,
+      "starts": 21,
+      "p4": 4
+    },
+    {
+      "id": "leclerc",
+      "year": 2024,
+      "starts": 24,
+      "p4": 5
+    },
+    {
+      "id": "leclerc",
+      "year": 2025,
+      "starts": 24,
+      "p4": 6
+    },
+    {
+      "id": "leclerc",
+      "year": 2026,
+      "starts": 15,
+      "p4": 5
+    },
+    {
+      "id": "max_verstappen",
+      "year": 2018,
+      "starts": 21,
+      "p4": 1
+    },
+    {
+      "id": "max_verstappen",
+      "year": 2019,
+      "starts": 21,
+      "p4": 6
+    },
+    {
+      "id": "max_verstappen",
+      "year": 2020,
+      "starts": 17,
+      "p4": 0
+    },
+    {
+      "id": "max_verstappen",
+      "year": 2021,
+      "starts": 22,
+      "p4": 0
+    },
+    {
+      "id": "max_verstappen",
+      "year": 2022,
+      "starts": 22,
+      "p4": 0
+    },
+    {
+      "id": "max_verstappen",
+      "year": 2023,
+      "starts": 22,
+      "p4": 0
+    },
+    {
+      "id": "max_verstappen",
+      "year": 2024,
+      "starts": 24,
+      "p4": 1
+    },
+    {
+      "id": "max_verstappen",
+      "year": 2025,
+      "starts": 24,
+      "p4": 4
+    },
+    {
+      "id": "max_verstappen",
+      "year": 2026,
+      "starts": 15,
+      "p4": 1
+    },
+    {
+      "id": "mazepin",
+      "year": 2018,
+      "starts": 0,
+      "p4": 0
+    },
+    {
+      "id": "mazepin",
+      "year": 2019,
+      "starts": 0,
+      "p4": 0
+    },
+    {
+      "id": "mazepin",
+      "year": 2020,
+      "starts": 0,
+      "p4": 0
+    },
+    {
+      "id": "mazepin",
+      "year": 2021,
+      "starts": 22,
+      "p4": 0
+    },
+    {
+      "id": "mazepin",
+      "year": 2022,
+      "starts": 0,
+      "p4": 0
+    },
+    {
+      "id": "mazepin",
+      "year": 2023,
+      "starts": 0,
+      "p4": 0
+    },
+    {
+      "id": "mazepin",
+      "year": 2024,
+      "starts": 0,
+      "p4": 0
+    },
+    {
+      "id": "mazepin",
+      "year": 2025,
+      "starts": 0,
+      "p4": 0
+    },
+    {
+      "id": "mazepin",
+      "year": 2026,
+      "starts": 0,
+      "p4": 0
+    },
+    {
+      "id": "mick_schumacher",
+      "year": 2018,
+      "starts": 0,
+      "p4": 0
+    },
+    {
+      "id": "mick_schumacher",
+      "year": 2019,
+      "starts": 0,
+      "p4": 0
+    },
+    {
+      "id": "mick_schumacher",
+      "year": 2020,
+      "starts": 0,
+      "p4": 0
+    },
+    {
+      "id": "mick_schumacher",
+      "year": 2021,
+      "starts": 22,
+      "p4": 0
+    },
+    {
+      "id": "mick_schumacher",
+      "year": 2022,
+      "starts": 22,
+      "p4": 0
+    },
+    {
+      "id": "mick_schumacher",
+      "year": 2023,
+      "starts": 0,
+      "p4": 0
+    },
+    {
+      "id": "mick_schumacher",
+      "year": 2024,
+      "starts": 0,
+      "p4": 0
+    },
+    {
+      "id": "mick_schumacher",
+      "year": 2025,
+      "starts": 0,
+      "p4": 0
+    },
+    {
+      "id": "mick_schumacher",
+      "year": 2026,
+      "starts": 0,
+      "p4": 0
+    },
+    {
+      "id": "norris",
+      "year": 2018,
+      "starts": 0,
+      "p4": 0
+    },
+    {
+      "id": "norris",
+      "year": 2019,
+      "starts": 21,
+      "p4": 0
+    },
+    {
+      "id": "norris",
+      "year": 2020,
+      "starts": 17,
+      "p4": 2
+    },
+    {
+      "id": "norris",
+      "year": 2021,
+      "starts": 22,
+      "p4": 2
+    },
+    {
+      "id": "norris",
+      "year": 2022,
+      "starts": 22,
+      "p4": 1
+    },
+    {
+      "id": "norris",
+      "year": 2023,
+      "starts": 22,
+      "p4": 1
+    },
+    {
+      "id": "norris",
+      "year": 2024,
+      "starts": 24,
+      "p4": 3
+    },
+    {
+      "id": "norris",
+      "year": 2025,
+      "starts": 24,
+      "p4": 2
+    },
+    {
+      "id": "norris",
+      "year": 2026,
+      "starts": 14,
+      "p4": 2
+    },
+    {
+      "id": "ocon",
+      "year": 2018,
+      "starts": 21,
+      "p4": 0
+    },
+    {
+      "id": "ocon",
+      "year": 2019,
+      "starts": 0,
+      "p4": 0
+    },
+    {
+      "id": "ocon",
+      "year": 2020,
+      "starts": 17,
+      "p4": 0
+    },
+    {
+      "id": "ocon",
+      "year": 2021,
+      "starts": 22,
+      "p4": 1
+    },
+    {
+      "id": "ocon",
+      "year": 2022,
+      "starts": 22,
+      "p4": 1
+    },
+    {
+      "id": "ocon",
+      "year": 2023,
+      "starts": 22,
+      "p4": 1
+    },
+    {
+      "id": "ocon",
+      "year": 2024,
+      "starts": 23,
+      "p4": 0
+    },
+    {
+      "id": "ocon",
+      "year": 2025,
+      "starts": 24,
+      "p4": 0
+    },
+    {
+      "id": "ocon",
+      "year": 2026,
+      "starts": 15,
+      "p4": 0
+    },
+    {
+      "id": "perez",
+      "year": 2018,
+      "starts": 21,
+      "p4": 0
+    },
+    {
+      "id": "perez",
+      "year": 2019,
+      "starts": 21,
+      "p4": 0
+    },
+    {
+      "id": "perez",
+      "year": 2020,
+      "starts": 15,
+      "p4": 2
+    },
+    {
+      "id": "perez",
+      "year": 2021,
+      "starts": 22,
+      "p4": 5
+    },
+    {
+      "id": "perez",
+      "year": 2022,
+      "starts": 22,
+      "p4": 4
+    },
+    {
+      "id": "perez",
+      "year": 2023,
+      "starts": 22,
+      "p4": 5
+    },
+    {
+      "id": "perez",
+      "year": 2024,
+      "starts": 24,
+      "p4": 1
+    },
+    {
+      "id": "perez",
+      "year": 2025,
+      "starts": 0,
+      "p4": 0
+    },
+    {
+      "id": "perez",
+      "year": 2026,
+      "starts": 15,
+      "p4": 0
+    },
+    {
+      "id": "piastri",
+      "year": 2018,
+      "starts": 0,
+      "p4": 0
+    },
+    {
+      "id": "piastri",
+      "year": 2019,
+      "starts": 0,
+      "p4": 0
+    },
+    {
+      "id": "piastri",
+      "year": 2020,
+      "starts": 0,
+      "p4": 0
+    },
+    {
+      "id": "piastri",
+      "year": 2021,
+      "starts": 0,
+      "p4": 0
+    },
+    {
+      "id": "piastri",
+      "year": 2022,
+      "starts": 0,
+      "p4": 0
+    },
+    {
+      "id": "piastri",
+      "year": 2023,
+      "starts": 22,
+      "p4": 1
+    },
+    {
+      "id": "piastri",
+      "year": 2024,
+      "starts": 24,
+      "p4": 5
+    },
+    {
+      "id": "piastri",
+      "year": 2025,
+      "starts": 24,
+      "p4": 2
+    },
+    {
+      "id": "piastri",
+      "year": 2026,
+      "starts": 13,
+      "p4": 2
+    },
+    {
+      "id": "pietro_fittipaldi",
+      "year": 2018,
+      "starts": 0,
+      "p4": 0
+    },
+    {
+      "id": "pietro_fittipaldi",
+      "year": 2019,
+      "starts": 0,
+      "p4": 0
+    },
+    {
+      "id": "pietro_fittipaldi",
+      "year": 2020,
+      "starts": 2,
+      "p4": 0
+    },
+    {
+      "id": "pietro_fittipaldi",
+      "year": 2021,
+      "starts": 0,
+      "p4": 0
+    },
+    {
+      "id": "pietro_fittipaldi",
+      "year": 2022,
+      "starts": 0,
+      "p4": 0
+    },
+    {
+      "id": "pietro_fittipaldi",
+      "year": 2023,
+      "starts": 0,
+      "p4": 0
+    },
+    {
+      "id": "pietro_fittipaldi",
+      "year": 2024,
+      "starts": 0,
+      "p4": 0
+    },
+    {
+      "id": "pietro_fittipaldi",
+      "year": 2025,
+      "starts": 0,
+      "p4": 0
+    },
+    {
+      "id": "pietro_fittipaldi",
+      "year": 2026,
+      "starts": 0,
+      "p4": 0
+    },
+    {
+      "id": "raikkonen",
+      "year": 2018,
+      "starts": 21,
+      "p4": 2
+    },
+    {
+      "id": "raikkonen",
+      "year": 2019,
+      "starts": 21,
+      "p4": 1
+    },
+    {
+      "id": "raikkonen",
+      "year": 2020,
+      "starts": 17,
+      "p4": 0
+    },
+    {
+      "id": "raikkonen",
+      "year": 2021,
+      "starts": 20,
+      "p4": 0
+    },
+    {
+      "id": "raikkonen",
+      "year": 2022,
+      "starts": 0,
+      "p4": 0
+    },
+    {
+      "id": "raikkonen",
+      "year": 2023,
+      "starts": 0,
+      "p4": 0
+    },
+    {
+      "id": "raikkonen",
+      "year": 2024,
+      "starts": 0,
+      "p4": 0
+    },
+    {
+      "id": "raikkonen",
+      "year": 2025,
+      "starts": 0,
+      "p4": 0
+    },
+    {
+      "id": "raikkonen",
+      "year": 2026,
+      "starts": 0,
+      "p4": 0
+    },
+    {
+      "id": "ricciardo",
+      "year": 2018,
+      "starts": 21,
+      "p4": 7
+    },
+    {
+      "id": "ricciardo",
+      "year": 2019,
+      "starts": 21,
+      "p4": 1
+    },
+    {
+      "id": "ricciardo",
+      "year": 2020,
+      "starts": 17,
+      "p4": 3
+    },
+    {
+      "id": "ricciardo",
+      "year": 2021,
+      "starts": 22,
+      "p4": 2
+    },
+    {
+      "id": "ricciardo",
+      "year": 2022,
+      "starts": 22,
+      "p4": 0
+    },
+    {
+      "id": "ricciardo",
+      "year": 2023,
+      "starts": 7,
+      "p4": 0
+    },
+    {
+      "id": "ricciardo",
+      "year": 2024,
+      "starts": 18,
+      "p4": 0
+    },
+    {
+      "id": "ricciardo",
+      "year": 2025,
+      "starts": 0,
+      "p4": 0
+    },
+    {
+      "id": "ricciardo",
+      "year": 2026,
+      "starts": 0,
+      "p4": 0
+    },
+    {
+      "id": "russell",
+      "year": 2018,
+      "starts": 0,
+      "p4": 0
+    },
+    {
+      "id": "russell",
+      "year": 2019,
+      "starts": 21,
+      "p4": 0
+    },
+    {
+      "id": "russell",
+      "year": 2020,
+      "starts": 17,
+      "p4": 0
+    },
+    {
+      "id": "russell",
+      "year": 2021,
+      "starts": 22,
+      "p4": 0
+    },
+    {
+      "id": "russell",
+      "year": 2022,
+      "starts": 22,
+      "p4": 6
+    },
+    {
+      "id": "russell",
+      "year": 2023,
+      "starts": 22,
+      "p4": 3
+    },
+    {
+      "id": "russell",
+      "year": 2024,
+      "starts": 24,
+      "p4": 4
+    },
+    {
+      "id": "russell",
+      "year": 2025,
+      "starts": 24,
+      "p4": 3
+    },
+    {
+      "id": "russell",
+      "year": 2026,
+      "starts": 15,
+      "p4": 2
+    },
+    {
+      "id": "sainz",
+      "year": 2018,
+      "starts": 21,
+      "p4": 0
+    },
+    {
+      "id": "sainz",
+      "year": 2019,
+      "starts": 21,
+      "p4": 0
+    },
+    {
+      "id": "sainz",
+      "year": 2020,
+      "starts": 17,
+      "p4": 1
+    },
+    {
+      "id": "sainz",
+      "year": 2021,
+      "starts": 22,
+      "p4": 0
+    },
+    {
+      "id": "sainz",
+      "year": 2022,
+      "starts": 22,
+      "p4": 4
+    },
+    {
+      "id": "sainz",
+      "year": 2023,
+      "starts": 21,
+      "p4": 2
+    },
+    {
+      "id": "sainz",
+      "year": 2024,
+      "starts": 23,
+      "p4": 1
+    },
+    {
+      "id": "sainz",
+      "year": 2025,
+      "starts": 23,
+      "p4": 0
+    },
+    {
+      "id": "sainz",
+      "year": 2026,
+      "starts": 15,
+      "p4": 0
+    },
+    {
+      "id": "sargeant",
+      "year": 2018,
+      "starts": 0,
+      "p4": 0
+    },
+    {
+      "id": "sargeant",
+      "year": 2019,
+      "starts": 0,
+      "p4": 0
+    },
+    {
+      "id": "sargeant",
+      "year": 2020,
+      "starts": 0,
+      "p4": 0
+    },
+    {
+      "id": "sargeant",
+      "year": 2021,
+      "starts": 0,
+      "p4": 0
+    },
+    {
+      "id": "sargeant",
+      "year": 2022,
+      "starts": 0,
+      "p4": 0
+    },
+    {
+      "id": "sargeant",
+      "year": 2023,
+      "starts": 22,
+      "p4": 0
+    },
+    {
+      "id": "sargeant",
+      "year": 2024,
+      "starts": 14,
+      "p4": 0
+    },
+    {
+      "id": "sargeant",
+      "year": 2025,
+      "starts": 0,
+      "p4": 0
+    },
+    {
+      "id": "sargeant",
+      "year": 2026,
+      "starts": 0,
+      "p4": 0
+    },
+    {
+      "id": "sirotkin",
+      "year": 2018,
+      "starts": 21,
+      "p4": 0
+    },
+    {
+      "id": "sirotkin",
+      "year": 2019,
+      "starts": 0,
+      "p4": 0
+    },
+    {
+      "id": "sirotkin",
+      "year": 2020,
+      "starts": 0,
+      "p4": 0
+    },
+    {
+      "id": "sirotkin",
+      "year": 2021,
+      "starts": 0,
+      "p4": 0
+    },
+    {
+      "id": "sirotkin",
+      "year": 2022,
+      "starts": 0,
+      "p4": 0
+    },
+    {
+      "id": "sirotkin",
+      "year": 2023,
+      "starts": 0,
+      "p4": 0
+    },
+    {
+      "id": "sirotkin",
+      "year": 2024,
+      "starts": 0,
+      "p4": 0
+    },
+    {
+      "id": "sirotkin",
+      "year": 2025,
+      "starts": 0,
+      "p4": 0
+    },
+    {
+      "id": "sirotkin",
+      "year": 2026,
+      "starts": 0,
+      "p4": 0
+    },
+    {
+      "id": "stroll",
+      "year": 2018,
+      "starts": 21,
+      "p4": 0
+    },
+    {
+      "id": "stroll",
+      "year": 2019,
+      "starts": 21,
+      "p4": 1
+    },
+    {
+      "id": "stroll",
+      "year": 2020,
+      "starts": 16,
+      "p4": 2
+    },
+    {
+      "id": "stroll",
+      "year": 2021,
+      "starts": 22,
+      "p4": 0
+    },
+    {
+      "id": "stroll",
+      "year": 2022,
+      "starts": 22,
+      "p4": 0
+    },
+    {
+      "id": "stroll",
+      "year": 2023,
+      "starts": 22,
+      "p4": 1
+    },
+    {
+      "id": "stroll",
+      "year": 2024,
+      "starts": 23,
+      "p4": 0
+    },
+    {
+      "id": "stroll",
+      "year": 2025,
+      "starts": 23,
+      "p4": 0
+    },
+    {
+      "id": "stroll",
+      "year": 2026,
+      "starts": 15,
+      "p4": 0
+    },
+    {
+      "id": "tsunoda",
+      "year": 2018,
+      "starts": 0,
+      "p4": 0
+    },
+    {
+      "id": "tsunoda",
+      "year": 2019,
+      "starts": 0,
+      "p4": 0
+    },
+    {
+      "id": "tsunoda",
+      "year": 2020,
+      "starts": 0,
+      "p4": 0
+    },
+    {
+      "id": "tsunoda",
+      "year": 2021,
+      "starts": 22,
+      "p4": 1
+    },
+    {
+      "id": "tsunoda",
+      "year": 2022,
+      "starts": 22,
+      "p4": 0
+    },
+    {
+      "id": "tsunoda",
+      "year": 2023,
+      "starts": 21,
+      "p4": 0
+    },
+    {
+      "id": "tsunoda",
+      "year": 2024,
+      "starts": 24,
+      "p4": 0
+    },
+    {
+      "id": "tsunoda",
+      "year": 2025,
+      "starts": 24,
+      "p4": 0
+    },
+    {
+      "id": "tsunoda",
+      "year": 2026,
+      "starts": 3,
+      "p4": 0
+    },
+    {
+      "id": "vandoorne",
+      "year": 2018,
+      "starts": 21,
+      "p4": 0
+    },
+    {
+      "id": "vandoorne",
+      "year": 2019,
+      "starts": 0,
+      "p4": 0
+    },
+    {
+      "id": "vandoorne",
+      "year": 2020,
+      "starts": 0,
+      "p4": 0
+    },
+    {
+      "id": "vandoorne",
+      "year": 2021,
+      "starts": 0,
+      "p4": 0
+    },
+    {
+      "id": "vandoorne",
+      "year": 2022,
+      "starts": 0,
+      "p4": 0
+    },
+    {
+      "id": "vandoorne",
+      "year": 2023,
+      "starts": 0,
+      "p4": 0
+    },
+    {
+      "id": "vandoorne",
+      "year": 2024,
+      "starts": 0,
+      "p4": 0
+    },
+    {
+      "id": "vandoorne",
+      "year": 2025,
+      "starts": 0,
+      "p4": 0
+    },
+    {
+      "id": "vandoorne",
+      "year": 2026,
+      "starts": 0,
+      "p4": 0
+    },
+    {
+      "id": "vettel",
+      "year": 2018,
+      "starts": 21,
+      "p4": 4
+    },
+    {
+      "id": "vettel",
+      "year": 2019,
+      "starts": 21,
+      "p4": 4
+    },
+    {
+      "id": "vettel",
+      "year": 2020,
+      "starts": 17,
+      "p4": 0
+    },
+    {
+      "id": "vettel",
+      "year": 2021,
+      "starts": 22,
+      "p4": 0
+    },
+    {
+      "id": "vettel",
+      "year": 2022,
+      "starts": 20,
+      "p4": 0
+    },
+    {
+      "id": "vettel",
+      "year": 2023,
+      "starts": 0,
+      "p4": 0
+    },
+    {
+      "id": "vettel",
+      "year": 2024,
+      "starts": 0,
+      "p4": 0
+    },
+    {
+      "id": "vettel",
+      "year": 2025,
+      "starts": 0,
+      "p4": 0
+    },
+    {
+      "id": "vettel",
+      "year": 2026,
+      "starts": 0,
+      "p4": 0
+    },
+    {
+      "id": "zhou",
+      "year": 2018,
+      "starts": 0,
+      "p4": 0
+    },
+    {
+      "id": "zhou",
+      "year": 2019,
+      "starts": 0,
+      "p4": 0
+    },
+    {
+      "id": "zhou",
+      "year": 2020,
+      "starts": 0,
+      "p4": 0
+    },
+    {
+      "id": "zhou",
+      "year": 2021,
+      "starts": 0,
+      "p4": 0
+    },
+    {
+      "id": "zhou",
+      "year": 2022,
+      "starts": 22,
+      "p4": 0
+    },
+    {
+      "id": "zhou",
+      "year": 2023,
+      "starts": 22,
+      "p4": 0
+    },
+    {
+      "id": "zhou",
+      "year": 2024,
+      "starts": 24,
+      "p4": 0
+    },
+    {
+      "id": "zhou",
+      "year": 2025,
+      "starts": 0,
+      "p4": 0
+    },
+    {
+      "id": "zhou",
+      "year": 2026,
+      "starts": 0,
+      "p4": 0
+    }
+  ],
+  "grid": [
+    {
+      "group": "pitlane",
+      "starts": 45,
+      "p4": 0,
+      "rate": 0
+    },
+    {
+      "group": "1",
+      "starts": 188,
+      "p4": 10,
+      "rate": 0.0531914893617
+    },
+    {
+      "group": "2",
+      "starts": 187,
+      "p4": 14,
+      "rate": 0.07486631016043
+    },
+    {
+      "group": "3",
+      "starts": 188,
+      "p4": 19,
+      "rate": 0.1010638297872
+    },
+    {
+      "group": "4",
+      "starts": 188,
+      "p4": 43,
+      "rate": 0.2287234042553
+    },
+    {
+      "group": "5",
+      "starts": 186,
+      "p4": 36,
+      "rate": 0.1935483870968
+    },
+    {
+      "group": "6",
+      "starts": 187,
+      "p4": 14,
+      "rate": 0.07486631016043
+    },
+    {
+      "group": "7",
+      "starts": 186,
+      "p4": 7,
+      "rate": 0.03763440860215
+    },
+    {
+      "group": "8",
+      "starts": 187,
+      "p4": 12,
+      "rate": 0.06417112299465
+    },
+    {
+      "group": "9",
+      "starts": 187,
+      "p4": 14,
+      "rate": 0.07486631016043
+    },
+    {
+      "group": "10",
+      "starts": 186,
+      "p4": 2,
+      "rate": 0.01075268817204
+    },
+    {
+      "group": "11",
+      "starts": 185,
+      "p4": 5,
+      "rate": 0.02702702702703
+    },
+    {
+      "group": "12",
+      "starts": 186,
+      "p4": 3,
+      "rate": 0.01612903225806
+    },
+    {
+      "group": "13",
+      "starts": 186,
+      "p4": 0,
+      "rate": 0
+    },
+    {
+      "group": "14",
+      "starts": 187,
+      "p4": 0,
+      "rate": 0
+    },
+    {
+      "group": "15",
+      "starts": 187,
+      "p4": 3,
+      "rate": 0.01604278074866
+    },
+    {
+      "group": "16",
+      "starts": 186,
+      "p4": 3,
+      "rate": 0.01612903225806
+    },
+    {
+      "group": "17",
+      "starts": 188,
+      "p4": 0,
+      "rate": 0
+    },
+    {
+      "group": "18",
+      "starts": 185,
+      "p4": 1,
+      "rate": 0.005405405405405
+    },
+    {
+      "group": "19",
+      "starts": 184,
+      "p4": 1,
+      "rate": 0.005434782608696
+    },
+    {
+      "group": "20",
+      "starts": 154,
+      "p4": 1,
+      "rate": 0.006493506493506
+    },
+    {
+      "group": "21plus",
+      "starts": 29,
+      "p4": 0,
+      "rate": 0
+    }
+  ],
+  "finish_distribution": [
+    {
+      "id": "aitken",
+      "bucket": "p1",
+      "count": 0
+    },
+    {
+      "id": "aitken",
+      "bucket": "p2",
+      "count": 0
+    },
+    {
+      "id": "aitken",
+      "bucket": "p3",
+      "count": 0
+    },
+    {
+      "id": "aitken",
+      "bucket": "p4",
+      "count": 0
+    },
+    {
+      "id": "aitken",
+      "bucket": "p5",
+      "count": 0
+    },
+    {
+      "id": "aitken",
+      "bucket": "p6_10",
+      "count": 0
+    },
+    {
+      "id": "aitken",
+      "bucket": "p11plus",
+      "count": 1
+    },
+    {
+      "id": "aitken",
+      "bucket": "no_position",
+      "count": 0
+    },
+    {
+      "id": "albon",
+      "bucket": "p1",
+      "count": 0
+    },
+    {
+      "id": "albon",
+      "bucket": "p2",
+      "count": 0
+    },
+    {
+      "id": "albon",
+      "bucket": "p3",
+      "count": 2
+    },
+    {
+      "id": "albon",
+      "bucket": "p4",
+      "count": 3
+    },
+    {
+      "id": "albon",
+      "bucket": "p5",
+      "count": 10
+    },
+    {
+      "id": "albon",
+      "bucket": "p6_10",
+      "count": 37
+    },
+    {
+      "id": "albon",
+      "bucket": "p11plus",
+      "count": 90
+    },
+    {
+      "id": "albon",
+      "bucket": "no_position",
+      "count": 0
+    },
+    {
+      "id": "alonso",
+      "bucket": "p1",
+      "count": 0
+    },
+    {
+      "id": "alonso",
+      "bucket": "p2",
+      "count": 3
+    },
+    {
+      "id": "alonso",
+      "bucket": "p3",
+      "count": 6
+    },
+    {
+      "id": "alonso",
+      "bucket": "p4",
+      "count": 2
+    },
+    {
+      "id": "alonso",
+      "bucket": "p5",
+      "count": 8
+    },
+    {
+      "id": "alonso",
+      "bucket": "p6_10",
+      "count": 64
+    },
+    {
+      "id": "alonso",
+      "bucket": "p11plus",
+      "count": 67
+    },
+    {
+      "id": "alonso",
+      "bucket": "no_position",
+      "count": 0
+    },
+    {
+      "id": "antonelli",
+      "bucket": "p1",
+      "count": 8
+    },
+    {
+      "id": "antonelli",
+      "bucket": "p2",
+      "count": 3
+    },
+    {
+      "id": "antonelli",
+      "bucket": "p3",
+      "count": 4
+    },
+    {
+      "id": "antonelli",
+      "bucket": "p4",
+      "count": 2
+    },
+    {
+      "id": "antonelli",
+      "bucket": "p5",
+      "count": 3
+    },
+    {
+      "id": "antonelli",
+      "bucket": "p6_10",
+      "count": 7
+    },
+    {
+      "id": "antonelli",
+      "bucket": "p11plus",
+      "count": 12
+    },
+    {
+      "id": "antonelli",
+      "bucket": "no_position",
+      "count": 0
+    },
+    {
+      "id": "arvid_lindblad",
+      "bucket": "p1",
+      "count": 0
+    },
+    {
+      "id": "arvid_lindblad",
+      "bucket": "p2",
+      "count": 0
+    },
+    {
+      "id": "arvid_lindblad",
+      "bucket": "p3",
+      "count": 0
+    },
+    {
+      "id": "arvid_lindblad",
+      "bucket": "p4",
+      "count": 0
+    },
+    {
+      "id": "arvid_lindblad",
+      "bucket": "p5",
+      "count": 0
+    },
+    {
+      "id": "arvid_lindblad",
+      "bucket": "p6_10",
+      "count": 10
+    },
+    {
+      "id": "arvid_lindblad",
+      "bucket": "p11plus",
+      "count": 4
+    },
+    {
+      "id": "arvid_lindblad",
+      "bucket": "no_position",
+      "count": 0
+    },
+    {
+      "id": "bearman",
+      "bucket": "p1",
+      "count": 0
+    },
+    {
+      "id": "bearman",
+      "bucket": "p2",
+      "count": 0
+    },
+    {
+      "id": "bearman",
+      "bucket": "p3",
+      "count": 0
+    },
+    {
+      "id": "bearman",
+      "bucket": "p4",
+      "count": 1
+    },
+    {
+      "id": "bearman",
+      "bucket": "p5",
+      "count": 1
+    },
+    {
+      "id": "bearman",
+      "bucket": "p6_10",
+      "count": 13
+    },
+    {
+      "id": "bearman",
+      "bucket": "p11plus",
+      "count": 27
+    },
+    {
+      "id": "bearman",
+      "bucket": "no_position",
+      "count": 0
+    },
+    {
+      "id": "bortoleto",
+      "bucket": "p1",
+      "count": 0
+    },
+    {
+      "id": "bortoleto",
+      "bucket": "p2",
+      "count": 0
+    },
+    {
+      "id": "bortoleto",
+      "bucket": "p3",
+      "count": 0
+    },
+    {
+      "id": "bortoleto",
+      "bucket": "p4",
+      "count": 0
+    },
+    {
+      "id": "bortoleto",
+      "bucket": "p5",
+      "count": 0
+    },
+    {
+      "id": "bortoleto",
+      "bucket": "p6_10",
+      "count": 8
+    },
+    {
+      "id": "bortoleto",
+      "bucket": "p11plus",
+      "count": 30
+    },
+    {
+      "id": "bortoleto",
+      "bucket": "no_position",
+      "count": 0
+    },
+    {
+      "id": "bottas",
+      "bucket": "p1",
+      "count": 7
+    },
+    {
+      "id": "bottas",
+      "bucket": "p2",
+      "count": 21
+    },
+    {
+      "id": "bottas",
+      "bucket": "p3",
+      "count": 17
+    },
+    {
+      "id": "bottas",
+      "bucket": "p4",
+      "count": 6
+    },
+    {
+      "id": "bottas",
+      "bucket": "p5",
+      "count": 10
+    },
+    {
+      "id": "bottas",
+      "bucket": "p6_10",
+      "count": 19
+    },
+    {
+      "id": "bottas",
+      "bucket": "p11plus",
+      "count": 84
+    },
+    {
+      "id": "bottas",
+      "bucket": "no_position",
+      "count": 0
+    },
+    {
+      "id": "brendon_hartley",
+      "bucket": "p1",
+      "count": 0
+    },
+    {
+      "id": "brendon_hartley",
+      "bucket": "p2",
+      "count": 0
+    },
+    {
+      "id": "brendon_hartley",
+      "bucket": "p3",
+      "count": 0
+    },
+    {
+      "id": "brendon_hartley",
+      "bucket": "p4",
+      "count": 0
+    },
+    {
+      "id": "brendon_hartley",
+      "bucket": "p5",
+      "count": 0
+    },
+    {
+      "id": "brendon_hartley",
+      "bucket": "p6_10",
+      "count": 3
+    },
+    {
+      "id": "brendon_hartley",
+      "bucket": "p11plus",
+      "count": 18
+    },
+    {
+      "id": "brendon_hartley",
+      "bucket": "no_position",
+      "count": 0
+    },
+    {
+      "id": "colapinto",
+      "bucket": "p1",
+      "count": 0
+    },
+    {
+      "id": "colapinto",
+      "bucket": "p2",
+      "count": 0
+    },
+    {
+      "id": "colapinto",
+      "bucket": "p3",
+      "count": 0
+    },
+    {
+      "id": "colapinto",
+      "bucket": "p4",
+      "count": 0
+    },
+    {
+      "id": "colapinto",
+      "bucket": "p5",
+      "count": 0
+    },
+    {
+      "id": "colapinto",
+      "bucket": "p6_10",
+      "count": 10
+    },
+    {
+      "id": "colapinto",
+      "bucket": "p11plus",
+      "count": 31
+    },
+    {
+      "id": "colapinto",
+      "bucket": "no_position",
+      "count": 0
+    },
+    {
+      "id": "de_vries",
+      "bucket": "p1",
+      "count": 0
+    },
+    {
+      "id": "de_vries",
+      "bucket": "p2",
+      "count": 0
+    },
+    {
+      "id": "de_vries",
+      "bucket": "p3",
+      "count": 0
+    },
+    {
+      "id": "de_vries",
+      "bucket": "p4",
+      "count": 0
+    },
+    {
+      "id": "de_vries",
+      "bucket": "p5",
+      "count": 0
+    },
+    {
+      "id": "de_vries",
+      "bucket": "p6_10",
+      "count": 1
+    },
+    {
+      "id": "de_vries",
+      "bucket": "p11plus",
+      "count": 10
+    },
+    {
+      "id": "de_vries",
+      "bucket": "no_position",
+      "count": 0
+    },
+    {
+      "id": "doohan",
+      "bucket": "p1",
+      "count": 0
+    },
+    {
+      "id": "doohan",
+      "bucket": "p2",
+      "count": 0
+    },
+    {
+      "id": "doohan",
+      "bucket": "p3",
+      "count": 0
+    },
+    {
+      "id": "doohan",
+      "bucket": "p4",
+      "count": 0
+    },
+    {
+      "id": "doohan",
+      "bucket": "p5",
+      "count": 0
+    },
+    {
+      "id": "doohan",
+      "bucket": "p6_10",
+      "count": 0
+    },
+    {
+      "id": "doohan",
+      "bucket": "p11plus",
+      "count": 7
+    },
+    {
+      "id": "doohan",
+      "bucket": "no_position",
+      "count": 0
+    },
+    {
+      "id": "ericsson",
+      "bucket": "p1",
+      "count": 0
+    },
+    {
+      "id": "ericsson",
+      "bucket": "p2",
+      "count": 0
+    },
+    {
+      "id": "ericsson",
+      "bucket": "p3",
+      "count": 0
+    },
+    {
+      "id": "ericsson",
+      "bucket": "p4",
+      "count": 0
+    },
+    {
+      "id": "ericsson",
+      "bucket": "p5",
+      "count": 0
+    },
+    {
+      "id": "ericsson",
+      "bucket": "p6_10",
+      "count": 6
+    },
+    {
+      "id": "ericsson",
+      "bucket": "p11plus",
+      "count": 15
+    },
+    {
+      "id": "ericsson",
+      "bucket": "no_position",
+      "count": 0
+    },
+    {
+      "id": "gasly",
+      "bucket": "p1",
+      "count": 1
+    },
+    {
+      "id": "gasly",
+      "bucket": "p2",
+      "count": 1
+    },
+    {
+      "id": "gasly",
+      "bucket": "p3",
+      "count": 3
+    },
+    {
+      "id": "gasly",
+      "bucket": "p4",
+      "count": 4
+    },
+    {
+      "id": "gasly",
+      "bucket": "p5",
+      "count": 6
+    },
+    {
+      "id": "gasly",
+      "bucket": "p6_10",
+      "count": 69
+    },
+    {
+      "id": "gasly",
+      "bucket": "p11plus",
+      "count": 103
+    },
+    {
+      "id": "gasly",
+      "bucket": "no_position",
+      "count": 0
+    },
+    {
+      "id": "giovinazzi",
+      "bucket": "p1",
+      "count": 0
+    },
+    {
+      "id": "giovinazzi",
+      "bucket": "p2",
+      "count": 0
+    },
+    {
+      "id": "giovinazzi",
+      "bucket": "p3",
+      "count": 0
+    },
+    {
+      "id": "giovinazzi",
+      "bucket": "p4",
+      "count": 0
+    },
+    {
+      "id": "giovinazzi",
+      "bucket": "p5",
+      "count": 1
+    },
+    {
+      "id": "giovinazzi",
+      "bucket": "p6_10",
+      "count": 8
+    },
+    {
+      "id": "giovinazzi",
+      "bucket": "p11plus",
+      "count": 51
+    },
+    {
+      "id": "giovinazzi",
+      "bucket": "no_position",
+      "count": 0
+    },
+    {
+      "id": "grosjean",
+      "bucket": "p1",
+      "count": 0
+    },
+    {
+      "id": "grosjean",
+      "bucket": "p2",
+      "count": 0
+    },
+    {
+      "id": "grosjean",
+      "bucket": "p3",
+      "count": 0
+    },
+    {
+      "id": "grosjean",
+      "bucket": "p4",
+      "count": 1
+    },
+    {
+      "id": "grosjean",
+      "bucket": "p5",
+      "count": 0
+    },
+    {
+      "id": "grosjean",
+      "bucket": "p6_10",
+      "count": 10
+    },
+    {
+      "id": "grosjean",
+      "bucket": "p11plus",
+      "count": 46
+    },
+    {
+      "id": "grosjean",
+      "bucket": "no_position",
+      "count": 0
+    },
+    {
+      "id": "hadjar",
+      "bucket": "p1",
+      "count": 0
+    },
+    {
+      "id": "hadjar",
+      "bucket": "p2",
+      "count": 0
+    },
+    {
+      "id": "hadjar",
+      "bucket": "p3",
+      "count": 3
+    },
+    {
+      "id": "hadjar",
+      "bucket": "p4",
+      "count": 0
+    },
+    {
+      "id": "hadjar",
+      "bucket": "p5",
+      "count": 2
+    },
+    {
+      "id": "hadjar",
+      "bucket": "p6_10",
+      "count": 14
+    },
+    {
+      "id": "hadjar",
+      "bucket": "p11plus",
+      "count": 17
+    },
+    {
+      "id": "hadjar",
+      "bucket": "no_position",
+      "count": 0
+    },
+    {
+      "id": "hamilton",
+      "bucket": "p1",
+      "count": 44
+    },
+    {
+      "id": "hamilton",
+      "bucket": "p2",
+      "count": 27
+    },
+    {
+      "id": "hamilton",
+      "bucket": "p3",
+      "count": 19
+    },
+    {
+      "id": "hamilton",
+      "bucket": "p4",
+      "count": 22
+    },
+    {
+      "id": "hamilton",
+      "bucket": "p5",
+      "count": 14
+    },
+    {
+      "id": "hamilton",
+      "bucket": "p6_10",
+      "count": 44
+    },
+    {
+      "id": "hamilton",
+      "bucket": "p11plus",
+      "count": 17
+    },
+    {
+      "id": "hamilton",
+      "bucket": "no_position",
+      "count": 0
+    },
+    {
+      "id": "hulkenberg",
+      "bucket": "p1",
+      "count": 0
+    },
+    {
+      "id": "hulkenberg",
+      "bucket": "p2",
+      "count": 0
+    },
+    {
+      "id": "hulkenberg",
+      "bucket": "p3",
+      "count": 1
+    },
+    {
+      "id": "hulkenberg",
+      "bucket": "p4",
+      "count": 0
+    },
+    {
+      "id": "hulkenberg",
+      "bucket": "p5",
+      "count": 3
+    },
+    {
+      "id": "hulkenberg",
+      "bucket": "p6_10",
+      "count": 42
+    },
+    {
+      "id": "hulkenberg",
+      "bucket": "p11plus",
+      "count": 84
+    },
+    {
+      "id": "hulkenberg",
+      "bucket": "no_position",
+      "count": 0
+    },
+    {
+      "id": "kevin_magnussen",
+      "bucket": "p1",
+      "count": 0
+    },
+    {
+      "id": "kevin_magnussen",
+      "bucket": "p2",
+      "count": 0
+    },
+    {
+      "id": "kevin_magnussen",
+      "bucket": "p3",
+      "count": 0
+    },
+    {
+      "id": "kevin_magnussen",
+      "bucket": "p4",
+      "count": 0
+    },
+    {
+      "id": "kevin_magnussen",
+      "bucket": "p5",
+      "count": 3
+    },
+    {
+      "id": "kevin_magnussen",
+      "bucket": "p6_10",
+      "count": 27
+    },
+    {
+      "id": "kevin_magnussen",
+      "bucket": "p11plus",
+      "count": 95
+    },
+    {
+      "id": "kevin_magnussen",
+      "bucket": "no_position",
+      "count": 0
+    },
+    {
+      "id": "kubica",
+      "bucket": "p1",
+      "count": 0
+    },
+    {
+      "id": "kubica",
+      "bucket": "p2",
+      "count": 0
+    },
+    {
+      "id": "kubica",
+      "bucket": "p3",
+      "count": 0
+    },
+    {
+      "id": "kubica",
+      "bucket": "p4",
+      "count": 0
+    },
+    {
+      "id": "kubica",
+      "bucket": "p5",
+      "count": 0
+    },
+    {
+      "id": "kubica",
+      "bucket": "p6_10",
+      "count": 1
+    },
+    {
+      "id": "kubica",
+      "bucket": "p11plus",
+      "count": 22
+    },
+    {
+      "id": "kubica",
+      "bucket": "no_position",
+      "count": 0
+    },
+    {
+      "id": "kvyat",
+      "bucket": "p1",
+      "count": 0
+    },
+    {
+      "id": "kvyat",
+      "bucket": "p2",
+      "count": 0
+    },
+    {
+      "id": "kvyat",
+      "bucket": "p3",
+      "count": 1
+    },
+    {
+      "id": "kvyat",
+      "bucket": "p4",
+      "count": 1
+    },
+    {
+      "id": "kvyat",
+      "bucket": "p5",
+      "count": 0
+    },
+    {
+      "id": "kvyat",
+      "bucket": "p6_10",
+      "count": 15
+    },
+    {
+      "id": "kvyat",
+      "bucket": "p11plus",
+      "count": 21
+    },
+    {
+      "id": "kvyat",
+      "bucket": "no_position",
+      "count": 0
+    },
+    {
+      "id": "latifi",
+      "bucket": "p1",
+      "count": 0
+    },
+    {
+      "id": "latifi",
+      "bucket": "p2",
+      "count": 0
+    },
+    {
+      "id": "latifi",
+      "bucket": "p3",
+      "count": 0
+    },
+    {
+      "id": "latifi",
+      "bucket": "p4",
+      "count": 0
+    },
+    {
+      "id": "latifi",
+      "bucket": "p5",
+      "count": 0
+    },
+    {
+      "id": "latifi",
+      "bucket": "p6_10",
+      "count": 3
+    },
+    {
+      "id": "latifi",
+      "bucket": "p11plus",
+      "count": 58
+    },
+    {
+      "id": "latifi",
+      "bucket": "no_position",
+      "count": 0
+    },
+    {
+      "id": "lawson",
+      "bucket": "p1",
+      "count": 0
+    },
+    {
+      "id": "lawson",
+      "bucket": "p2",
+      "count": 0
+    },
+    {
+      "id": "lawson",
+      "bucket": "p3",
+      "count": 0
+    },
+    {
+      "id": "lawson",
+      "bucket": "p4",
+      "count": 0
+    },
+    {
+      "id": "lawson",
+      "bucket": "p5",
+      "count": 2
+    },
+    {
+      "id": "lawson",
+      "bucket": "p6_10",
+      "count": 18
+    },
+    {
+      "id": "lawson",
+      "bucket": "p11plus",
+      "count": 30
+    },
+    {
+      "id": "lawson",
+      "bucket": "no_position",
+      "count": 0
+    },
+    {
+      "id": "leclerc",
+      "bucket": "p1",
+      "count": 9
+    },
+    {
+      "id": "leclerc",
+      "bucket": "p2",
+      "count": 18
+    },
+    {
+      "id": "leclerc",
+      "bucket": "p3",
+      "count": 27
+    },
+    {
+      "id": "leclerc",
+      "bucket": "p4",
+      "count": 35
+    },
+    {
+      "id": "leclerc",
+      "bucket": "p5",
+      "count": 15
+    },
+    {
+      "id": "leclerc",
+      "bucket": "p6_10",
+      "count": 40
+    },
+    {
+      "id": "leclerc",
+      "bucket": "p11plus",
+      "count": 43
+    },
+    {
+      "id": "leclerc",
+      "bucket": "no_position",
+      "count": 0
+    },
+    {
+      "id": "max_verstappen",
+      "bucket": "p1",
+      "count": 68
+    },
+    {
+      "id": "max_verstappen",
+      "bucket": "p2",
+      "count": 36
+    },
+    {
+      "id": "max_verstappen",
+      "bucket": "p3",
+      "count": 19
+    },
+    {
+      "id": "max_verstappen",
+      "bucket": "p4",
+      "count": 13
+    },
+    {
+      "id": "max_verstappen",
+      "bucket": "p5",
+      "count": 12
+    },
+    {
+      "id": "max_verstappen",
+      "bucket": "p6_10",
+      "count": 18
+    },
+    {
+      "id": "max_verstappen",
+      "bucket": "p11plus",
+      "count": 22
+    },
+    {
+      "id": "max_verstappen",
+      "bucket": "no_position",
+      "count": 0
+    },
+    {
+      "id": "mazepin",
+      "bucket": "p1",
+      "count": 0
+    },
+    {
+      "id": "mazepin",
+      "bucket": "p2",
+      "count": 0
+    },
+    {
+      "id": "mazepin",
+      "bucket": "p3",
+      "count": 0
+    },
+    {
+      "id": "mazepin",
+      "bucket": "p4",
+      "count": 0
+    },
+    {
+      "id": "mazepin",
+      "bucket": "p5",
+      "count": 0
+    },
+    {
+      "id": "mazepin",
+      "bucket": "p6_10",
+      "count": 0
+    },
+    {
+      "id": "mazepin",
+      "bucket": "p11plus",
+      "count": 22
+    },
+    {
+      "id": "mazepin",
+      "bucket": "no_position",
+      "count": 0
+    },
+    {
+      "id": "mick_schumacher",
+      "bucket": "p1",
+      "count": 0
+    },
+    {
+      "id": "mick_schumacher",
+      "bucket": "p2",
+      "count": 0
+    },
+    {
+      "id": "mick_schumacher",
+      "bucket": "p3",
+      "count": 0
+    },
+    {
+      "id": "mick_schumacher",
+      "bucket": "p4",
+      "count": 0
+    },
+    {
+      "id": "mick_schumacher",
+      "bucket": "p5",
+      "count": 0
+    },
+    {
+      "id": "mick_schumacher",
+      "bucket": "p6_10",
+      "count": 2
+    },
+    {
+      "id": "mick_schumacher",
+      "bucket": "p11plus",
+      "count": 42
+    },
+    {
+      "id": "mick_schumacher",
+      "bucket": "no_position",
+      "count": 0
+    },
+    {
+      "id": "norris",
+      "bucket": "p1",
+      "count": 13
+    },
+    {
+      "id": "norris",
+      "bucket": "p2",
+      "count": 22
+    },
+    {
+      "id": "norris",
+      "bucket": "p3",
+      "count": 14
+    },
+    {
+      "id": "norris",
+      "bucket": "p4",
+      "count": 13
+    },
+    {
+      "id": "norris",
+      "bucket": "p5",
+      "count": 14
+    },
+    {
+      "id": "norris",
+      "bucket": "p6_10",
+      "count": 56
+    },
+    {
+      "id": "norris",
+      "bucket": "p11plus",
+      "count": 34
+    },
+    {
+      "id": "norris",
+      "bucket": "no_position",
+      "count": 0
+    },
+    {
+      "id": "ocon",
+      "bucket": "p1",
+      "count": 1
+    },
+    {
+      "id": "ocon",
+      "bucket": "p2",
+      "count": 2
+    },
+    {
+      "id": "ocon",
+      "bucket": "p3",
+      "count": 1
+    },
+    {
+      "id": "ocon",
+      "bucket": "p4",
+      "count": 3
+    },
+    {
+      "id": "ocon",
+      "bucket": "p5",
+      "count": 4
+    },
+    {
+      "id": "ocon",
+      "bucket": "p6_10",
+      "count": 68
+    },
+    {
+      "id": "ocon",
+      "bucket": "p11plus",
+      "count": 87
+    },
+    {
+      "id": "ocon",
+      "bucket": "no_position",
+      "count": 0
+    },
+    {
+      "id": "perez",
+      "bucket": "p1",
+      "count": 6
+    },
+    {
+      "id": "perez",
+      "bucket": "p2",
+      "count": 15
+    },
+    {
+      "id": "perez",
+      "bucket": "p3",
+      "count": 11
+    },
+    {
+      "id": "perez",
+      "bucket": "p4",
+      "count": 17
+    },
+    {
+      "id": "perez",
+      "bucket": "p5",
+      "count": 10
+    },
+    {
+      "id": "perez",
+      "bucket": "p6_10",
+      "count": 47
+    },
+    {
+      "id": "perez",
+      "bucket": "p11plus",
+      "count": 56
+    },
+    {
+      "id": "perez",
+      "bucket": "no_position",
+      "count": 0
+    },
+    {
+      "id": "piastri",
+      "bucket": "p1",
+      "count": 9
+    },
+    {
+      "id": "piastri",
+      "bucket": "p2",
+      "count": 11
+    },
+    {
+      "id": "piastri",
+      "bucket": "p3",
+      "count": 8
+    },
+    {
+      "id": "piastri",
+      "bucket": "p4",
+      "count": 10
+    },
+    {
+      "id": "piastri",
+      "bucket": "p5",
+      "count": 9
+    },
+    {
+      "id": "piastri",
+      "bucket": "p6_10",
+      "count": 18
+    },
+    {
+      "id": "piastri",
+      "bucket": "p11plus",
+      "count": 18
+    },
+    {
+      "id": "piastri",
+      "bucket": "no_position",
+      "count": 0
+    },
+    {
+      "id": "pietro_fittipaldi",
+      "bucket": "p1",
+      "count": 0
+    },
+    {
+      "id": "pietro_fittipaldi",
+      "bucket": "p2",
+      "count": 0
+    },
+    {
+      "id": "pietro_fittipaldi",
+      "bucket": "p3",
+      "count": 0
+    },
+    {
+      "id": "pietro_fittipaldi",
+      "bucket": "p4",
+      "count": 0
+    },
+    {
+      "id": "pietro_fittipaldi",
+      "bucket": "p5",
+      "count": 0
+    },
+    {
+      "id": "pietro_fittipaldi",
+      "bucket": "p6_10",
+      "count": 0
+    },
+    {
+      "id": "pietro_fittipaldi",
+      "bucket": "p11plus",
+      "count": 2
+    },
+    {
+      "id": "pietro_fittipaldi",
+      "bucket": "no_position",
+      "count": 0
+    },
+    {
+      "id": "raikkonen",
+      "bucket": "p1",
+      "count": 1
+    },
+    {
+      "id": "raikkonen",
+      "bucket": "p2",
+      "count": 3
+    },
+    {
+      "id": "raikkonen",
+      "bucket": "p3",
+      "count": 8
+    },
+    {
+      "id": "raikkonen",
+      "bucket": "p4",
+      "count": 3
+    },
+    {
+      "id": "raikkonen",
+      "bucket": "p5",
+      "count": 2
+    },
+    {
+      "id": "raikkonen",
+      "bucket": "p6_10",
+      "count": 15
+    },
+    {
+      "id": "raikkonen",
+      "bucket": "p11plus",
+      "count": 47
+    },
+    {
+      "id": "raikkonen",
+      "bucket": "no_position",
+      "count": 0
+    },
+    {
+      "id": "ricciardo",
+      "bucket": "p1",
+      "count": 3
+    },
+    {
+      "id": "ricciardo",
+      "bucket": "p2",
+      "count": 0
+    },
+    {
+      "id": "ricciardo",
+      "bucket": "p3",
+      "count": 2
+    },
+    {
+      "id": "ricciardo",
+      "bucket": "p4",
+      "count": 13
+    },
+    {
+      "id": "ricciardo",
+      "bucket": "p5",
+      "count": 8
+    },
+    {
+      "id": "ricciardo",
+      "bucket": "p6_10",
+      "count": 33
+    },
+    {
+      "id": "ricciardo",
+      "bucket": "p11plus",
+      "count": 69
+    },
+    {
+      "id": "ricciardo",
+      "bucket": "no_position",
+      "count": 0
+    },
+    {
+      "id": "russell",
+      "bucket": "p1",
+      "count": 8
+    },
+    {
+      "id": "russell",
+      "bucket": "p2",
+      "count": 9
+    },
+    {
+      "id": "russell",
+      "bucket": "p3",
+      "count": 15
+    },
+    {
+      "id": "russell",
+      "bucket": "p4",
+      "count": 18
+    },
+    {
+      "id": "russell",
+      "bucket": "p5",
+      "count": 20
+    },
+    {
+      "id": "russell",
+      "bucket": "p6_10",
+      "count": 28
+    },
+    {
+      "id": "russell",
+      "bucket": "p11plus",
+      "count": 69
+    },
+    {
+      "id": "russell",
+      "bucket": "no_position",
+      "count": 0
+    },
+    {
+      "id": "sainz",
+      "bucket": "p1",
+      "count": 4
+    },
+    {
+      "id": "sainz",
+      "bucket": "p2",
+      "count": 7
+    },
+    {
+      "id": "sainz",
+      "bucket": "p3",
+      "count": 18
+    },
+    {
+      "id": "sainz",
+      "bucket": "p4",
+      "count": 8
+    },
+    {
+      "id": "sainz",
+      "bucket": "p5",
+      "count": 23
+    },
+    {
+      "id": "sainz",
+      "bucket": "p6_10",
+      "count": 66
+    },
+    {
+      "id": "sainz",
+      "bucket": "p11plus",
+      "count": 59
+    },
+    {
+      "id": "sainz",
+      "bucket": "no_position",
+      "count": 0
+    },
+    {
+      "id": "sargeant",
+      "bucket": "p1",
+      "count": 0
+    },
+    {
+      "id": "sargeant",
+      "bucket": "p2",
+      "count": 0
+    },
+    {
+      "id": "sargeant",
+      "bucket": "p3",
+      "count": 0
+    },
+    {
+      "id": "sargeant",
+      "bucket": "p4",
+      "count": 0
+    },
+    {
+      "id": "sargeant",
+      "bucket": "p5",
+      "count": 0
+    },
+    {
+      "id": "sargeant",
+      "bucket": "p6_10",
+      "count": 1
+    },
+    {
+      "id": "sargeant",
+      "bucket": "p11plus",
+      "count": 35
+    },
+    {
+      "id": "sargeant",
+      "bucket": "no_position",
+      "count": 0
+    },
+    {
+      "id": "sirotkin",
+      "bucket": "p1",
+      "count": 0
+    },
+    {
+      "id": "sirotkin",
+      "bucket": "p2",
+      "count": 0
+    },
+    {
+      "id": "sirotkin",
+      "bucket": "p3",
+      "count": 0
+    },
+    {
+      "id": "sirotkin",
+      "bucket": "p4",
+      "count": 0
+    },
+    {
+      "id": "sirotkin",
+      "bucket": "p5",
+      "count": 0
+    },
+    {
+      "id": "sirotkin",
+      "bucket": "p6_10",
+      "count": 1
+    },
+    {
+      "id": "sirotkin",
+      "bucket": "p11plus",
+      "count": 20
+    },
+    {
+      "id": "sirotkin",
+      "bucket": "no_position",
+      "count": 0
+    },
+    {
+      "id": "stroll",
+      "bucket": "p1",
+      "count": 0
+    },
+    {
+      "id": "stroll",
+      "bucket": "p2",
+      "count": 0
+    },
+    {
+      "id": "stroll",
+      "bucket": "p3",
+      "count": 2
+    },
+    {
+      "id": "stroll",
+      "bucket": "p4",
+      "count": 4
+    },
+    {
+      "id": "stroll",
+      "bucket": "p5",
+      "count": 2
+    },
+    {
+      "id": "stroll",
+      "bucket": "p6_10",
+      "count": 51
+    },
+    {
+      "id": "stroll",
+      "bucket": "p11plus",
+      "count": 126
+    },
+    {
+      "id": "stroll",
+      "bucket": "no_position",
+      "count": 0
+    },
+    {
+      "id": "tsunoda",
+      "bucket": "p1",
+      "count": 0
+    },
+    {
+      "id": "tsunoda",
+      "bucket": "p2",
+      "count": 0
+    },
+    {
+      "id": "tsunoda",
+      "bucket": "p3",
+      "count": 0
+    },
+    {
+      "id": "tsunoda",
+      "bucket": "p4",
+      "count": 1
+    },
+    {
+      "id": "tsunoda",
+      "bucket": "p5",
+      "count": 0
+    },
+    {
+      "id": "tsunoda",
+      "bucket": "p6_10",
+      "count": 33
+    },
+    {
+      "id": "tsunoda",
+      "bucket": "p11plus",
+      "count": 82
+    },
+    {
+      "id": "tsunoda",
+      "bucket": "no_position",
+      "count": 0
+    },
+    {
+      "id": "vandoorne",
+      "bucket": "p1",
+      "count": 0
+    },
+    {
+      "id": "vandoorne",
+      "bucket": "p2",
+      "count": 0
+    },
+    {
+      "id": "vandoorne",
+      "bucket": "p3",
+      "count": 0
+    },
+    {
+      "id": "vandoorne",
+      "bucket": "p4",
+      "count": 0
+    },
+    {
+      "id": "vandoorne",
+      "bucket": "p5",
+      "count": 0
+    },
+    {
+      "id": "vandoorne",
+      "bucket": "p6_10",
+      "count": 4
+    },
+    {
+      "id": "vandoorne",
+      "bucket": "p11plus",
+      "count": 17
+    },
+    {
+      "id": "vandoorne",
+      "bucket": "no_position",
+      "count": 0
+    },
+    {
+      "id": "vettel",
+      "bucket": "p1",
+      "count": 6
+    },
+    {
+      "id": "vettel",
+      "bucket": "p2",
+      "count": 10
+    },
+    {
+      "id": "vettel",
+      "bucket": "p3",
+      "count": 7
+    },
+    {
+      "id": "vettel",
+      "bucket": "p4",
+      "count": 8
+    },
+    {
+      "id": "vettel",
+      "bucket": "p5",
+      "count": 6
+    },
+    {
+      "id": "vettel",
+      "bucket": "p6_10",
+      "count": 23
+    },
+    {
+      "id": "vettel",
+      "bucket": "p11plus",
+      "count": 41
+    },
+    {
+      "id": "vettel",
+      "bucket": "no_position",
+      "count": 0
+    },
+    {
+      "id": "zhou",
+      "bucket": "p1",
+      "count": 0
+    },
+    {
+      "id": "zhou",
+      "bucket": "p2",
+      "count": 0
+    },
+    {
+      "id": "zhou",
+      "bucket": "p3",
+      "count": 0
+    },
+    {
+      "id": "zhou",
+      "bucket": "p4",
+      "count": 0
+    },
+    {
+      "id": "zhou",
+      "bucket": "p5",
+      "count": 0
+    },
+    {
+      "id": "zhou",
+      "bucket": "p6_10",
+      "count": 7
+    },
+    {
+      "id": "zhou",
+      "bucket": "p11plus",
+      "count": 61
+    },
+    {
+      "id": "zhou",
+      "bucket": "no_position",
+      "count": 0
+    }
+  ],
   "coefficients": [
     {
       "term": "(Intercept)",
