@@ -5047,6 +5047,52 @@
       "singular": null
     }
   ],
+  "leclerc_bayes": [
+    {
+      "quantity": "leclerc_probability",
+      "mean": 0.1038238617014,
+      "median": 0.1033796403291,
+      "lower": 0.06549017643549,
+      "upper": 0.1469770164742
+    },
+    {
+      "quantity": "average_driver_probability",
+      "mean": 0.0321838280152,
+      "median": 0.03210350722239,
+      "lower": 0.020718115308,
+      "upper": 0.04484465460582
+    },
+    {
+      "quantity": "probability_difference",
+      "mean": 0.07164003368616,
+      "median": 0.07078052682613,
+      "lower": 0.03268443512676,
+      "upper": 0.1151405908781
+    },
+    {
+      "quantity": "driver_odds_ratio",
+      "mean": 3.949646831281,
+      "median": 3.707619402591,
+      "lower": 2.03984755101,
+      "upper": 7.038067545442
+    }
+  ],
+  "leclerc_bayes_diagnostics": [
+    {
+      "max_rhat": 1.004619112759,
+      "min_bulk_ess": 937.113035416979,
+      "min_tail_ess": 1760.73337883079,
+      "divergent_transitions": 0,
+      "n": 3772,
+      "races": 188,
+      "p4_events": 188
+    }
+  ],
+  "leclerc_bayes_comparison": [
+    {
+      "posterior_probability_leclerc_higher": 1
+    }
+  ],
   "coverage": [
     {
       "year": 2018,

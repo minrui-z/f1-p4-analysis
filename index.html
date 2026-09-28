@@ -11,7 +11,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700&family=IBM+Plex+Mono:wght@400;500;600&family=Noto+Sans+TC:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="./styles.css">
   <script defer src="./vendor/d3.v7.min.js"></script>
-  <script defer src="./app.js?v=leclerc-audit-2"></script>
+  <script defer src="./app.js?v=leclerc-bayes-1"></script>
 </head>
 <body>
   <a class="skip-link" href="#main">跳到主要內容</a>
@@ -89,6 +89,13 @@
     </div></section>
 
     <section class="section feature-band" id="leclerc" aria-labelledby="leclerc-title"><div class="wrap leclerc-grid"><div><p class="eyebrow">直接回答</p><h2 id="leclerc-title">勒克萊爾比較容易拿第四嗎？</h2><p>看所有起跑紀錄：是，他拿第四的比例較高。調整起跑位置、車手與車隊賽季的階層模型也估計較高。若把比較縮到同一場的隊友，數字仍偏高，但這份資料還不能明確分出差異。<button class="help-button help-light" type="button" data-help="comparison_scope" aria-label="說明比較對象">?</button></p></div><div class="leclerc-stats"><div><span>勒克萊爾</span><strong>35 <small>／187</small></strong><span>18.7% 取得第四名</span></div><div><span>同車隊同賽季的隊友</span><strong>18 <small>／187</small></strong><span>9.6% 取得第四名</span></div></div></div></section>
+
+    <section class="section wrap" id="bayes" aria-labelledby="bayes-title"><div class="section-head"><div><p class="eyebrow">貝式階層模型</p><h2 id="bayes-title">比模型中的平均車手高嗎？</h2></div><p class="section-note">把兩人的起跑位置分布設成一樣、車隊效果設為模型平均值，再比較取得第四名的估計機率。<button class="help-button" type="button" data-help="bayes_standardized" aria-label="說明貝式機率比較">?</button></p></div>
+      <div class="bayes-summary"><div><span>勒克萊爾</span><strong>10.4%</strong><small>95% 可信區間 6.5%–14.7% <button class="help-button" type="button" data-help="credible_interval" aria-label="說明可信區間">?</button></small></div><div><span>模型平均車手</span><strong>3.2%</strong><small>95% 可信區間 2.1%–4.5%</small></div><div><span>勒克萊爾較高的後驗機率 <button class="help-button" type="button" data-help="posterior_probability" aria-label="說明後驗機率">?</button></span><strong>&gt;99.9%</strong><small>4,000 個後驗抽樣中，4,000 個較高</small></div></div>
+      <div id="bayes-chart" class="chart-shell bayes-chart" role="region" aria-label="勒克萊爾與模型平均車手的第四名估計機率及可信區間" tabindex="0"></div>
+      <p class="fine-print">這是把條件設成相同後的模型估計，所以和勒克萊爾原始的 18.7% 不一樣；它回答的是「比模型平均車手高嗎」，不是「比同場隊友高嗎」。</p>
+      <details class="data-details"><summary>查看貝式模型設定與抽樣檢查</summary><p class="fine-print">使用 3,772 筆已起跑紀錄；第四名為 1、其他名次為 0。模型納入非線性的起跑位置、車手與車隊賽季效果。四條鏈、共 4,000 個保留抽樣；最大 R-hat 1.005、最小有效樣本數 937、發散轉換 0。</p></details>
+    </section>
 
     <section class="section wrap" id="model" aria-labelledby="model-title">
       <div class="section-head"><div><p class="eyebrow">先前的賽中探索模型 <button class="help-button" type="button" data-help="legacy_model" aria-label="說明先前賽中模型">?</button></p><h2 id="model-title">比賽過程中的數字與第四名</h2></div><p class="section-note">這張圖保留先前模型的圈速、進站等結果；勒克萊爾的主要比較以上方的新模型為準。點選一列可看變數意思。橫線是 95% 信賴區間 <button class="help-button" type="button" data-help="ci" aria-label="說明信賴區間">?</button>。</p></div>

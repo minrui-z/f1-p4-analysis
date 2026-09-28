@@ -83,6 +83,9 @@ payload <- list(
   random_variances = read.csv(file.path(result, "full_simplified_2_random_variances.csv")),
   scaling = read.csv(file.path(result, "scaling.csv")),
   leclerc_audit = read.csv(file.path(root, "results", "leclerc_audit", "leclerc_comparisons.csv")),
+  leclerc_bayes = read.csv(file.path(root, "results", "leclerc_bayes", "posterior_summary.csv")),
+  leclerc_bayes_diagnostics = read.csv(file.path(root, "results", "leclerc_bayes", "diagnostics.csv")),
+  leclerc_bayes_comparison = read.csv(file.path(root, "results", "leclerc_bayes", "posterior_comparison.csv")),
   coverage = read.csv(file.path(root, "docs", "coverage_by_year.csv"))
 )
 dir.create(file.path(site, "data"), showWarnings = FALSE)

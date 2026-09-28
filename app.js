@@ -42,7 +42,10 @@ const helpContent = {
   comparison_scope:["兩種比較差在哪？","階層模型拿勒克萊爾跟所有其他車手比，也考慮起跑位置、車手和年度車隊。同場隊友比較只看他和當場隊友，兩人開的是同隊的車；兩種數字回答的問題不同。"],
   legacy_model:["這是先前的模型","這張圖用正賽圈速、進站、雨天等比賽中才知道的資料，樣本是 3,475 筆。它能描述賽中數字和第四名的關聯；這次勒克萊爾的主要比較另用 3,772 筆起跑紀錄重算。"],
   primary_sample:["為什麼這次是 3,772 筆？","原始有 3,788 筆，排除 16 筆沒起跑的紀錄。第四名、車手、起跑位置和車隊賽季都有值，所以不用再刪紀錄。"],
-  grid_recode:["維修區起跑怎麼處理？","資料把維修區起跑記為 0，但這不是比第一名更前面。模型把它放在最後一格之後；起跑位置也不硬套一條直線，因為第 4、5 格拿第四的比例特別高。"]
+  grid_recode:["維修區起跑怎麼處理？","資料把維修區起跑記為 0，但這不是比第一名更前面。模型把它放在最後一格之後；起跑位置也不硬套一條直線，因為第 4、5 格拿第四的比例特別高。"],
+  bayes_standardized:["兩個百分比怎麼算？","用同一批起跑位置來估算兩人的第四名機率，車隊效果都設為模型平均值。勒克萊爾保留自己的車手效果；「平均車手」的車手效果設為 0。這樣比較的是同樣條件下的模型估計。"],
+  credible_interval:["可信區間怎麼看？","這是貝式模型給估計值的範圍。95% 可信區間表示：按照這個模型與先驗設定，該數值有 95% 的後驗機率落在範圍內。"],
+  posterior_probability:["後驗機率是什麼？","模型抽出了 4,000 組可能的參數；每一組都算兩人的第四名機率。這次 4,000 組都估勒克萊爾較高，所以寫成大於 99.9%，不代表絕對確定。"]
 };
 const termHelp = {grid_z:"zscore",pace_delta_z:"pace_recode",pit_count_z:"zscore",pit_duration_z:"pit_duration",sc_messages_z:"safety_messages",rain:"rain_recode"};
 const fmt = new Intl.NumberFormat("zh-TW");
@@ -222,6 +225,24 @@ function renderLeclercComparisonTable(){
   const body=document.querySelector("#leclerc-comparison-table tbody");body.replaceChildren();
   dataset.leclerc_audit.forEach(d=>{const row=document.createElement("tr");[auditNames[d.comparison],number(d.odds_ratio),number(d.ci_low),number(d.ci_high),pvalue(d.p_lrt??d.p_wald)].forEach(value=>addCell(row,value));body.append(row);});
 }
+function renderBayesComparison(){
+  const holder=document.querySelector("#bayes-chart");holder.replaceChildren();
+  const names={leclerc_probability:"勒克萊爾",average_driver_probability:"模型平均車手"};
+  const rows=dataset.leclerc_bayes.filter(d=>names[d.quantity]);
+  const width=Math.max(600,(holder.clientWidth||740)-2),height=178,margin={left:160,right:60};
+  const x=d3.scaleLinear().domain([0,.18]).range([margin.left,width-margin.right]);
+  const svg=d3.select(holder).append("svg").attr("width",width).attr("height",height).attr("role","img").attr("aria-label","勒克萊爾與模型平均車手的第四名估計機率及 95% 可信區間");
+  svg.append("title").text("圓點是平均估計值；橫線是 95% 可信區間");
+  const g=svg.selectAll("g.bayes-row").data(rows).join("g").attr("class","bayes-row").attr("transform",(_,i)=>`translate(0,${48+i*58})`);
+  g.append("text").attr("x",18).attr("y",5).text(d=>names[d.quantity]);
+  g.append("line").attr("x1",d=>x(d.lower)).attr("x2",d=>x(d.upper)).attr("stroke","#2d637d").attr("stroke-width",4);
+  g.append("circle").attr("cx",d=>x(d.mean)).attr("r",7).attr("fill",d=>d.quantity==="leclerc_probability"?"#bd4b40":"#2d637d")
+    .attr("role","img").attr("tabindex",0)
+    .attr("aria-label",d=>`${names[d.quantity]}：估計第四名機率 ${pct(d.mean)}，95% 可信區間 ${pct(d.lower)} 到 ${pct(d.upper)}`)
+    .on("pointerenter",(event,d)=>showTooltip(event,`${names[d.quantity]}：${pct(d.mean)}（${pct(d.lower)}–${pct(d.upper)}）`)).on("pointermove",moveTooltip).on("pointerleave",hideTooltip);
+  g.append("text").attr("x",d=>Math.min(width-56,x(d.upper)+8)).attr("y",5).text(d=>pct(d.mean));
+  svg.append("g").attr("class","chart-axis").attr("transform","translate(0,153)").call(d3.axisBottom(x).ticks(5).tickFormat(d3.format(".0%")));
+}
 
 async function start(){
   setupHelp();
@@ -231,8 +252,8 @@ async function start(){
     document.querySelector("#snapshot").textContent=`資料截至 ${dataset.meta.last_race_date} · ${fmt.format(dataset.meta.starts)} 筆已起跑紀錄 · ${dataset.meta.races} 場比賽`;
     document.querySelectorAll('input[name="metric"]').forEach(input=>input.addEventListener("change",()=>{metric=input.value;renderDrivers();}));
     document.querySelector("#driver-search").addEventListener("input",renderDrivers);
-    renderDriverDetail();renderDrivers();renderDriverTable();renderSeason();renderSeasonTable();renderGrid();renderGridTable();renderFinishDistribution();renderLeclercComparison();renderLeclercComparisonTable();renderCoefficientDetail();renderCoefficients();renderCoefficientTable();renderFlow();renderDiagnostics();renderCoverage();renderCoverageTable();
-    let timer;window.addEventListener("resize",()=>{clearTimeout(timer);timer=setTimeout(()=>{renderDrivers();renderSeason();renderGrid();renderFinishDistribution();renderLeclercComparison();renderCoefficients();renderCoverage();},120);});
+    renderDriverDetail();renderDrivers();renderDriverTable();renderSeason();renderSeasonTable();renderGrid();renderGridTable();renderFinishDistribution();renderLeclercComparison();renderLeclercComparisonTable();renderBayesComparison();renderCoefficientDetail();renderCoefficients();renderCoefficientTable();renderFlow();renderDiagnostics();renderCoverage();renderCoverageTable();
+    let timer;window.addEventListener("resize",()=>{clearTimeout(timer);timer=setTimeout(()=>{renderDrivers();renderSeason();renderGrid();renderFinishDistribution();renderLeclercComparison();renderBayesComparison();renderCoefficients();renderCoverage();},120);});
   }catch(error){document.querySelector("#snapshot").textContent="資料讀取失敗，請重新整理頁面。";console.error(error);}
 }
 start();
