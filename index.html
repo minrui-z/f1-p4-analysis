@@ -4,22 +4,20 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="theme-color" content="#f2f4f1">
-  <meta name="description" content="勒克萊爾是否比較常拿第四名？2018 年起 F1 正賽紀錄與模型比較。">
+  <meta name="description" content="2018 年起 F1 正賽第四名紀錄：看車手、賽季與每場比賽，也比較勒克萊爾和平均車手。">
   <title>誰比較常拿第四名？｜F1 正賽資料分析</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700&family=IBM+Plex+Mono:wght@400;500;600&family=Noto+Sans+TC:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="./styles.css">
   <script defer src="./vendor/d3.v7.min.js"></script>
-  <script defer src="./app.js?v=leclerc-bayes-1"></script>
+  <script defer src="./app.js?v=plain-explorer-1"></script>
 </head>
 <body>
   <a class="skip-link" href="#main">跳到主要內容</a>
   <header class="site-header">
     <div class="brand"><span class="brand-mark" aria-hidden="true">04</span><span>F1 正賽資料分析</span></div>
-    <nav aria-label="頁面段落">
-      <a href="#drivers">車手</a><a href="#interpretation">結果</a><a href="#method">資料與方法</a>
-    </nav>
+    <nav aria-label="頁面段落"><a href="#answer">結果</a><a href="#races">逐場</a><a href="#duel">比車手</a><a href="#details">詳細數字</a></nav>
   </header>
 
   <main id="main">
@@ -27,105 +25,120 @@
       <div class="hero-copy">
         <p class="eyebrow">2018—2026 F1 正賽／第四名</p>
         <h1 id="hero-title">誰比較常拿<br><em>第四名？</em></h1>
-        <p class="hero-intro">勒克萊爾起跑 187 場，其中 35 場拿第四，比例高於其他車手。納入起跑位置與車隊賽季後，模型仍估計他較常拿第四；但和同場隊友相比，差異沒有那麼明確。</p>
+        <p class="hero-intro">勒克萊爾起跑 187 場，拿了 35 次第四名。把起跑位置等條件設成一樣後，模型仍估他比平均車手更常拿第四。</p>
+        <div class="hero-model" aria-label="同樣起跑條件下的模型估計">
+          <p>同樣起跑條件下，假設各跑 100 場 <button class="help-button" type="button" data-help="plain_model" aria-label="說明每 100 場的模型估計">?</button></p>
+          <div><span>勒克萊爾 <strong>約 10 次</strong></span><span>平均車手 <strong>約 3 次</strong></span></div>
+        </div>
         <p class="snapshot" id="snapshot">資料載入中</p>
       </div>
-      <div class="timing-board" aria-label="勒克萊爾第四名紀錄摘要">
-        <div class="board-top"><span>車手紀錄</span><span>2018—2026</span></div>
+      <div class="timing-board" aria-label="勒克萊爾實際第四名紀錄">
+        <div class="board-top"><span>實際紀錄</span><span>2018—2026</span></div>
         <div class="board-name"><span class="board-rank">P4</span><span>Charles<br>Leclerc</span></div>
         <div class="board-main"><strong>35</strong><span>次第四名<br>／187 場起跑</span></div>
-        <div class="board-bottom"><span>原始比例</span><strong>18.7%</strong></div>
+        <div class="board-bottom"><span>實際比例</span><strong>18.7%</strong></div>
         <div class="board-stripes" aria-hidden="true"></div>
       </div>
     </section>
 
-    <section class="section band" id="drivers" aria-labelledby="drivers-title">
-      <div class="wrap">
-        <div class="section-head">
-          <div><p class="eyebrow">車手紀錄</p><h2 id="drivers-title">第四名分布在誰身上？ <button class="help-button" type="button" data-help="raw_vs_model" aria-label="說明原始比例與模型估計">?</button></h2></div>
-          <p class="section-note">原始次數、出賽比例與模型估計回答不同問題。切換指標時，排序也會跟著改變。</p>
-        </div>
-        <div class="controls">
-          <fieldset class="segmented" id="metric-control"><legend>比較指標 <button class="help-button" type="button" data-help="driver_metrics" aria-label="說明車手比較指標">?</button></legend>
-            <label><input type="radio" name="metric" value="p4" checked><span>第四名次數</span></label>
-            <label><input type="radio" name="metric" value="rate"><span>起跑後比例</span></label>
-            <label><input type="radio" name="metric" value="effect"><span>賽中模型估計</span></label>
-          </fieldset>
-          <label class="search-label" for="driver-search">找車手 <input id="driver-search" type="search" autocomplete="off" placeholder="輸入姓名"></label>
-        </div>
-        <p class="chart-description" id="driver-description">每位車手在所有已起跑正賽中的第四名次數；圖中顯示模型涵蓋的 44 位車手。</p>
-        <div class="driver-layout">
-          <div class="chart-shell"><div id="driver-chart" class="scroll-chart" role="region" aria-label="車手比較圖" tabindex="0"></div></div>
-          <aside class="driver-detail" id="driver-detail" aria-live="polite"><p class="detail-label">目前選取</p><h3>Charles Leclerc</h3><p>選取圖中的車手，查看三種指標與模型樣本數。</p></aside>
-        </div>
-        <details class="data-details"><summary>查看全部車手數值</summary><div class="table-scroll"><table id="driver-table"><caption>44 位車手的原始紀錄與先前賽中模型估計</caption><thead><tr><th scope="col">車手</th><th scope="col">起跑</th><th scope="col">第四名</th><th scope="col">比例</th><th scope="col">舊模型樣本</th><th scope="col">賽中模型估計*</th></tr></thead><tbody></tbody></table></div><p class="table-note">* 這是先前賽中模型的車手隨機效果，以模型平均車手效果為 1；勒克萊爾的主要比較請看下方結果。</p></details>
+    <section class="section interpretation-band" id="answer" aria-labelledby="answer-title"><div class="wrap">
+      <p class="eyebrow">先看結論</p><h2 id="answer-title">勒克萊爾比較容易拿第四嗎？</h2>
+      <div class="answer-grid">
+        <article><span class="answer-index">01／實際紀錄</span><strong>35／187</strong><p>勒克萊爾每 100 場約有 19 場第四名；其他車手合計每 100 場約有 4 場。</p></article>
+        <article><span class="answer-index">02／同條件估計</span><strong>約 10 比 3</strong><p>如果起跑位置分布相同，模型估勒克萊爾每 100 場約 10 次，平均車手約 3 次。<button class="help-button" type="button" data-help="plain_model" aria-label="說明模型估計">?</button></p></article>
+        <article><span class="answer-index">03／同場隊友</span><strong>仍不明確</strong><p>只拿勒克萊爾和同一場的隊友比，數字偏高，但還看不出明確差距。<button class="help-button" type="button" data-help="plain_teammate" aria-label="說明隊友比較">?</button></p></article>
       </div>
+    </div></section>
+
+    <section class="section wrap" id="races" aria-labelledby="races-title">
+      <div class="section-head"><div><p class="eyebrow">逐場紀錄</p><h2 id="races-title">第四名發生在哪幾場？</h2></div><p class="section-note">選車手和賽季。每格是一場已起跑的正賽；紅色是第四名，點一下看那場的起跑與最終名次。</p></div>
+      <div class="explore-controls">
+        <label for="race-driver">車手<select id="race-driver"></select></label>
+        <label for="race-year">賽季<select id="race-year"></select></label>
+      </div>
+      <p class="race-summary" id="race-summary" aria-live="polite"></p>
+      <div class="race-layout">
+        <div id="race-track" class="race-track" role="group" aria-label="所選車手逐場名次"></div>
+        <aside id="race-detail" class="race-detail" aria-live="polite"></aside>
+      </div>
+      <details class="data-details"><summary>查看本季每場數字</summary><div class="table-scroll"><table id="race-table"><caption>所選車手本季已起跑的正賽</caption><thead><tr><th scope="col">場次</th><th scope="col">比賽</th><th scope="col">車隊</th><th scope="col">起跑</th><th scope="col">最終名次</th></tr></thead><tbody></tbody></table></div></details>
     </section>
 
-    <section class="section wrap" id="season" aria-labelledby="season-title">
-      <div class="section-head"><div><p class="eyebrow">賽季分布</p><h2 id="season-title">第四名集中在哪些年份？ <button class="help-button" type="button" data-help="season_heatmap" aria-label="說明賽季熱圖">?</button></h2></div><p class="section-note">依已起跑正賽中的第四名總次數列出前 12 位車手。格子越深，該年第四名越多；點車手名稱可連動上方紀錄。</p></div>
-      <div class="chart-shell"><div id="season-chart" role="region" aria-label="車手各年第四名次數熱圖" tabindex="0"></div></div>
+    <section class="section band" id="duel" aria-labelledby="duel-title"><div class="wrap">
+      <div class="section-head"><div><p class="eyebrow">兩位車手</p><h2 id="duel-title">選兩位來比</h2></div><p class="section-note">比較的是實際第四名紀錄。兩人起跑場數可能不同，所以次數和每 100 場的比例一起看。</p></div>
+      <div class="explore-controls">
+        <label for="duel-a">車手 A<select id="duel-a"></select></label>
+        <label for="duel-b">車手 B<select id="duel-b"></select></label>
+        <label for="duel-year">賽季<select id="duel-year"></select></label>
+      </div>
+      <div id="duel-chart" class="chart-shell duel-chart" role="img" aria-label="兩位車手每 100 場取得第四名的次數"></div>
+      <div id="duel-summary" class="duel-summary" aria-live="polite"></div>
+      <p class="fine-print">這裡是實際紀錄；上方的「約 10 比 3」是把條件設成相同後的模型估計。</p>
+    </div></section>
+
+    <section class="section wrap" id="drivers" aria-labelledby="drivers-title">
+      <div class="section-head"><div><p class="eyebrow">所有車手</p><h2 id="drivers-title">誰拿過最多次第四？</h2></div><p class="section-note">可以改看每場起跑的比例。選一位車手，下面的賽季和起跑圖會跟著換。</p></div>
+      <div class="controls">
+        <fieldset class="segmented" id="metric-control"><legend>看哪個數字？</legend>
+          <label><input type="radio" name="metric" value="p4" checked><span>第四名次數</span></label>
+          <label><input type="radio" name="metric" value="rate"><span>起跑後比例</span></label>
+        </fieldset>
+        <label class="search-label" for="driver-search">找車手<input id="driver-search" type="search" autocomplete="off" placeholder="輸入英文姓名"></label>
+      </div>
+      <p class="chart-description" id="driver-description"></p>
+      <div class="driver-layout"><div class="chart-shell"><div id="driver-chart" class="scroll-chart" role="region" aria-label="車手第四名比較圖" tabindex="0"></div></div><aside class="driver-detail" id="driver-detail" aria-live="polite"></aside></div>
+      <details class="data-details"><summary>查看全部車手數字</summary><div class="table-scroll"><table id="driver-table"><caption>44 位車手的實際第四名紀錄</caption><thead><tr><th scope="col">車手</th><th scope="col">起跑</th><th scope="col">第四名</th><th scope="col">比例</th></tr></thead><tbody></tbody></table></div></details>
+    </section>
+
+    <section class="section band" id="season" aria-labelledby="season-title"><div class="wrap">
+      <div class="section-head"><div><p class="eyebrow">賽季分布</p><h2 id="season-title">哪些年份比較常見？</h2></div><p class="section-note">顏色越深，該年第四名越多。選取的車手會排在最上面；點其他車手也能切換。</p></div>
+      <div class="chart-shell"><div id="season-chart" role="region" aria-label="車手各年第四名次數" tabindex="0"></div></div>
       <p class="scroll-hint">左右滑動可看完整年份。</p>
-      <div class="heat-legend"><span>0 次</span><span class="legend-ramp" aria-hidden="true"></span><span>較多</span><span class="legend-empty" aria-hidden="true"></span><span>該年未出賽</span></div>
-      <details class="data-details"><summary>查看賽季熱圖數值</summary><div class="table-scroll"><table id="season-table"><caption>前 12 位車手各年第四名次數；— 代表未出賽</caption><thead><tr><th scope="col">車手</th></tr></thead><tbody></tbody></table></div></details>
-    </section>
+      <details class="data-details"><summary>查看各年數字</summary><div class="table-scroll"><table id="season-table"><caption>所選車手及第四名次數較多車手的各年紀錄</caption><thead><tr><th scope="col">車手</th></tr></thead><tbody></tbody></table></div></details>
+    </div></section>
 
-    <section class="section band" id="race-patterns" aria-labelledby="patterns-title"><div class="wrap">
-      <div class="section-head"><div><p class="eyebrow">比賽紀錄</p><h2 id="patterns-title">從起跑到最終名次</h2></div><p class="section-note">左邊比較各起跑位置拿第四名的比例；右邊顯示目前選取車手的官方名次分布。</p></div>
+    <section class="section wrap" id="race-patterns" aria-labelledby="patterns-title">
+      <div class="section-head"><div><p class="eyebrow">起跑與完賽</p><h2 id="patterns-title"><span id="pattern-driver-name">勒克萊爾</span>的名次怎麼分布？</h2></div><p class="section-note">左邊看這位車手從哪個位置起跑後拿第四；右邊看所有最終名次。兩張圖都跟著上方選取的車手更新。</p></div>
       <div class="pattern-grid">
-        <div class="pattern-panel"><h3>從哪裡起跑，最後拿第四？ <button class="help-button" type="button" data-help="grid_rate" aria-label="說明起跑順位圖">?</button></h3><p class="chart-description">各起跑位置的第四名次數／起跑次數。游標移到圓點可看分母。</p><div id="grid-chart" class="chart-overflow" role="img" aria-label="各起跑位置的第四名比例"></div><p class="scroll-hint">左右滑動可看完整起跑位置。</p></div>
-        <div class="pattern-panel"><h3><span id="finish-driver-name">勒克萊爾</span>的名次分布 <button class="help-button" type="button" data-help="finish_distribution" aria-label="說明名次分布圖">?</button></h3><p class="chart-description">與上方車手選取連動；第四名以紅色標出。</p><div id="finish-chart" class="chart-overflow" role="img" aria-label="選取車手的官方名次分布"></div></div>
+        <div class="pattern-panel"><h3>從哪格起跑後拿第四？</h3><p class="chart-description">每格的第四名次數與起跑次數一起看。</p><div id="grid-chart" class="chart-overflow" role="img" aria-label="所選車手各起跑位置的第四名比例"></div></div>
+        <div class="pattern-panel"><h3><span id="finish-driver-name">勒克萊爾</span>的最終名次</h3><p class="chart-description">第四名用紅色標出。</p><div id="finish-chart" class="chart-overflow" role="img" aria-label="所選車手的官方名次分布"></div></div>
       </div>
-      <details class="data-details"><summary>查看起跑位置數值</summary><div class="table-scroll"><table id="grid-table"><caption>各起跑位置的第四名紀錄</caption><thead><tr><th scope="col">起跑位置</th><th scope="col">起跑次數</th><th scope="col">第四名次數</th><th scope="col">比例</th></tr></thead><tbody></tbody></table></div></details>
+      <details class="data-details"><summary>查看各起跑位置數字</summary><div class="table-scroll"><table id="grid-table"><caption>所選車手各起跑位置的第四名紀錄</caption><thead><tr><th scope="col">起跑位置</th><th scope="col">起跑次數</th><th scope="col">第四名次數</th><th scope="col">比例</th></tr></thead><tbody></tbody></table></div></details>
+      <details class="data-details"><summary>查看各名次數字</summary><div class="table-scroll"><table id="finish-table"><caption>所選車手的官方名次分布</caption><thead><tr><th scope="col">最終名次</th><th scope="col">次數</th></tr></thead><tbody></tbody></table></div></details>
+    </section>
+
+    <section class="section technical-section" id="details" aria-labelledby="details-title"><div class="wrap">
+      <p class="eyebrow">想看計算細節</p><h2 id="details-title">詳細數字與模型設定</h2>
+      <p class="section-note technical-intro">以下保留完整的模型數字、變數處理與抽樣檢查。前面的逐場圖和車手比較不需要讀這段也能操作。</p>
+      <details id="technical-details" class="technical-details"><summary>展開詳細數字</summary><div class="technical-body">
+        <h3>勒克萊爾與平均車手</h3>
+        <p>兩邊套用相同起跑位置分布、車隊效果都設為模型平均。勒克萊爾為 10.4%（95% 可信區間 6.5%–14.7%）；平均車手為 3.2%（2.1%–4.5%）。4,000 個後驗抽樣中全部估勒克萊爾較高，寫為 &gt;99.9%。</p>
+        <div id="bayes-chart" class="chart-shell bayes-chart" role="region" aria-label="勒克萊爾與平均車手的估計機率及可信區間" tabindex="0"></div>
+        <p>模型使用 3,772 筆已起跑紀錄。最大 R-hat 1.005、最小有效樣本數 937、發散轉換 0。</p>
+        <h3>勒克萊爾的其他比較</h3>
+        <div id="leclerc-comparison-chart" class="chart-shell comparison-chart" role="region" aria-label="勒克萊爾模型比較的勝算比與信賴區間" tabindex="0"></div>
+        <div class="table-scroll"><table id="leclerc-comparison-table"><caption>階層模型與隊友比較</caption><thead><tr><th scope="col">比較</th><th scope="col">勝算比 <button class="help-button" type="button" data-help="odds_ratio" aria-label="說明勝算比">?</button></th><th scope="col">95% 下限</th><th scope="col">95% 上限</th><th scope="col">p 值 <button class="help-button" type="button" data-help="pvalue" aria-label="說明 p 值">?</button></th></tr></thead><tbody></tbody></table></div>
+        <h3>先前賽中模型的變數</h3>
+        <p>下圖保留先前放入正賽圈速、進站等資料的模型；它使用 3,475 筆完整紀錄。點變數可看處理方式。</p>
+        <div class="model-layout"><div class="chart-shell"><div id="coefficient-chart" role="region" aria-label="先前模型的係數與信賴區間圖" tabindex="0"></div></div><aside class="coefficient-detail" id="coefficient-detail" aria-live="polite"></aside></div>
+        <div class="table-scroll"><table id="coefficient-table"><caption>先前賽中模型的所有係數</caption><thead><tr><th scope="col">變數</th><th scope="col">勝算比</th><th scope="col">95% 下限</th><th scope="col">95% 上限</th><th scope="col">p 值</th></tr></thead><tbody></tbody></table></div>
+        <h3>樣本與模型檢查</h3>
+        <div class="method-grid"><div id="sample-flow" class="flow-list"></div><div class="table-scroll"><table id="diagnostics-table"><caption>先前賽中模型的擬合結果</caption><thead><tr><th scope="col">模型</th><th scope="col">群組</th><th scope="col">AIC <button class="help-button" type="button" data-help="aic" aria-label="說明 AIC">?</button></th><th scope="col">奇異擬合 <button class="help-button" type="button" data-help="singular" aria-label="說明奇異擬合">?</button></th></tr></thead><tbody></tbody></table></div></div>
+        <h3>變數怎麼處理</h3>
+        <div class="table-scroll"><table class="recode-table"><thead><tr><th scope="col">變數</th><th scope="col">處理方式</th></tr></thead><tbody>
+          <tr><th scope="row">第四名</th><td>官方最終名次恰好第 4 名記 1，其他記 0。</td></tr>
+          <tr><th scope="row">起跑資格</th><td>排除未起跑、未通過排位與未通過預排位者；已起跑後退賽者仍保留。</td></tr>
+          <tr><th scope="row">起跑位置</th><td>維修區起跑在原始資料記為 0；分析時排在一般起跑格之後，並容許起跑位置與第四名的關係彎曲。</td></tr>
+          <tr><th scope="row">圈速差與連續變數</th><td>車手的有效圈速中位數減去同場中位數，再標準化；起跑順位、進站次數、平均進站時間和安全車訊息數也標準化。</td></tr>
+          <tr><th scope="row">輪胎與雨天</th><td>2018 年少見的三種軟胎合併；原始 nan 列為未知。FastF1 記錄到下雨記 1，沒有記錄到記 0；缺值不當作無雨。</td></tr>
+          <tr><th scope="row">群組</th><td>主要階層模型納入車手與車隊×賽季；先前賽中模型起初也試了賽道和賽事，最後兩者變異估計為零而移除。</td></tr>
+        </tbody></table></div>
+        <h3>資料涵蓋年度</h3><div id="coverage-chart" role="img" aria-label="2018 至 2026 年每年收錄比賽場數"></div>
+        <div class="table-scroll"><table id="coverage-table"><caption>逐年資料量</caption><thead><tr><th scope="col">年度</th><th scope="col">比賽</th><th scope="col">車手正賽紀錄</th><th scope="col">FastF1 逐圈可用</th></tr></thead><tbody></tbody></table></div>
+      </div></details>
     </div></section>
-
-    <section class="section interpretation-band" id="interpretation" aria-labelledby="interpretation-title"><div class="wrap"><p class="eyebrow">勒克萊爾的第四名紀錄</p><h2 id="interpretation-title">比較結果</h2><div class="interpretation-grid">
-      <article><span class="interpretation-number">18.7%</span><h3>原始比例較高</h3><p>勒克萊爾 187 場起跑拿了 35 次第四名；其他車手合計 3,585 場起跑、153 次第四名，比例為 4.3%。</p></article>
-      <article><span class="interpretation-number">4.06</span><h3>階層模型也估計較高 <button class="help-button" type="button" data-help="glmm" aria-label="說明階層模型">?</button></h3><p>考慮起跑位置、車手與車隊賽季後，勒克萊爾相對其他車手的第四名勝算比為 4.06；95% 信賴區間 <button class="help-button" type="button" data-help="ci" aria-label="說明信賴區間">?</button> 1.25–13.18，模型比較 p＝0.027 <button class="help-button" type="button" data-help="pvalue" aria-label="說明 p 值">?</button>。</p></article>
-      <article><span class="interpretation-number">1.87</span><h3>同場隊友比較沒那麼明確</h3><p>只和同一場的隊友比，再考慮起跑位置，勝算比為 1.87；95% 信賴區間 0.95–3.65，p＝0.069 <button class="help-button" type="button" data-help="pvalue" aria-label="說明 p 值">?</button>。</p></article>
-    </div><p class="interpretation-note">勝算比 <button class="help-button" type="button" data-help="odds_ratio" aria-label="說明勝算比">?</button> 不是機率的倍數。兩種模型比較的對象不同：一個是所有其他車手，一個是同場隊友。<button class="help-button" type="button" data-help="comparison_scope" aria-label="說明兩種比較">?</button></p>
-    <div id="leclerc-comparison-chart" class="chart-shell comparison-chart" role="region" aria-label="勒克萊爾三種模型比較的勝算比與信賴區間" tabindex="0"></div><p class="scroll-hint">左右滑動可看完整區間。</p>
-    <details class="data-details"><summary>查看所有勒克萊爾比較數值</summary><div class="table-scroll"><table id="leclerc-comparison-table"><caption>階層模型、隊友比較與排除 2026 年的檢查</caption><thead><tr><th scope="col">比較</th><th scope="col">勝算比</th><th scope="col">95% 下限</th><th scope="col">95% 上限</th><th scope="col">p 值</th></tr></thead><tbody></tbody></table></div></details>
-    </div></section>
-
-    <section class="section feature-band" id="leclerc" aria-labelledby="leclerc-title"><div class="wrap leclerc-grid"><div><p class="eyebrow">直接回答</p><h2 id="leclerc-title">勒克萊爾比較容易拿第四嗎？</h2><p>看所有起跑紀錄：是，他拿第四的比例較高。調整起跑位置、車手與車隊賽季的階層模型也估計較高。若把比較縮到同一場的隊友，數字仍偏高，但這份資料還不能明確分出差異。<button class="help-button help-light" type="button" data-help="comparison_scope" aria-label="說明比較對象">?</button></p></div><div class="leclerc-stats"><div><span>勒克萊爾</span><strong>35 <small>／187</small></strong><span>18.7% 取得第四名</span></div><div><span>同車隊同賽季的隊友</span><strong>18 <small>／187</small></strong><span>9.6% 取得第四名</span></div></div></div></section>
-
-    <section class="section wrap" id="bayes" aria-labelledby="bayes-title"><div class="section-head"><div><p class="eyebrow">貝式階層模型</p><h2 id="bayes-title">比模型中的平均車手高嗎？</h2></div><p class="section-note">把兩人的起跑位置分布設成一樣、車隊效果設為模型平均值，再比較取得第四名的估計機率。<button class="help-button" type="button" data-help="bayes_standardized" aria-label="說明貝式機率比較">?</button></p></div>
-      <div class="bayes-summary"><div><span>勒克萊爾</span><strong>10.4%</strong><small>95% 可信區間 6.5%–14.7% <button class="help-button" type="button" data-help="credible_interval" aria-label="說明可信區間">?</button></small></div><div><span>模型平均車手</span><strong>3.2%</strong><small>95% 可信區間 2.1%–4.5%</small></div><div><span>勒克萊爾較高的後驗機率 <button class="help-button" type="button" data-help="posterior_probability" aria-label="說明後驗機率">?</button></span><strong>&gt;99.9%</strong><small>4,000 個後驗抽樣中，4,000 個較高</small></div></div>
-      <div id="bayes-chart" class="chart-shell bayes-chart" role="region" aria-label="勒克萊爾與模型平均車手的第四名估計機率及可信區間" tabindex="0"></div>
-      <p class="fine-print">這是把條件設成相同後的模型估計，所以和勒克萊爾原始的 18.7% 不一樣；它回答的是「比模型平均車手高嗎」，不是「比同場隊友高嗎」。</p>
-      <details class="data-details"><summary>查看貝式模型設定與抽樣檢查</summary><p class="fine-print">使用 3,772 筆已起跑紀錄；第四名為 1、其他名次為 0。模型納入非線性的起跑位置、車手與車隊賽季效果。四條鏈、共 4,000 個保留抽樣；最大 R-hat 1.005、最小有效樣本數 937、發散轉換 0。</p></details>
-    </section>
-
-    <section class="section wrap" id="model" aria-labelledby="model-title">
-      <div class="section-head"><div><p class="eyebrow">先前的賽中探索模型 <button class="help-button" type="button" data-help="legacy_model" aria-label="說明先前賽中模型">?</button></p><h2 id="model-title">比賽過程中的數字與第四名</h2></div><p class="section-note">這張圖保留先前模型的圈速、進站等結果；勒克萊爾的主要比較以上方的新模型為準。點選一列可看變數意思。橫線是 95% 信賴區間 <button class="help-button" type="button" data-help="ci" aria-label="說明信賴區間">?</button>。</p></div>
-      <div class="model-layout"><div class="chart-shell"><div id="coefficient-chart" role="region" aria-label="模型係數與信賴區間圖" tabindex="0"></div><p class="scroll-hint chart-scroll-hint">左右滑動可看完整區間。</p></div><aside class="coefficient-detail" id="coefficient-detail" aria-live="polite"></aside></div>
-      <p class="fine-print">此圖使用 3,475 筆完整賽中資料。勝算比大於 1 對應較高的第四名勝算，小於 1 對應較低勝算。連續變數先標準化；輪胎配方以硬胎為比較基準。</p>
-      <details class="data-details"><summary>查看所有模型係數</summary><div class="table-scroll"><table id="coefficient-table"><caption>完整模型固定效果，Wald 信賴區間</caption><thead><tr><th scope="col">變數</th><th scope="col">勝算比 <button class="help-button" type="button" data-help="odds_ratio" aria-label="說明勝算比">?</button></th><th scope="col">95% 下限</th><th scope="col">95% 上限</th><th scope="col">p 值 <button class="help-button" type="button" data-help="pvalue" aria-label="說明 p 值">?</button></th></tr></thead><tbody></tbody></table></div></details>
-    </section>
-
-    <section class="section wrap" id="method" aria-labelledby="method-title"><div class="section-head"><div><p class="eyebrow">資料與方法</p><h2 id="method-title">模型放了哪些變數？</h2></div><p class="section-note">每筆資料是一位車手在一場正賽的紀錄。「第四名」只指最終名次恰好為第 4 名。<button class="help-button" type="button" data-help="is_p4" aria-label="說明第四名依變數">?</button></p></div>
-      <div class="primary-method"><h3>回答勒克萊爾問題的模型</h3><p>先排除 16 筆未起跑紀錄；3,772 筆已起跑紀錄全部進入階層模型，沒有因圈速或進站資料缺值而刪掉車手。<button class="help-button" type="button" data-help="primary_sample" aria-label="說明主要模型樣本">?</button></p><div class="table-scroll"><table><caption>主要模型與同場隊友比較使用的變數</caption><thead><tr><th scope="col">變數</th><th scope="col">怎麼放</th><th scope="col">用途</th></tr></thead><tbody>
-        <tr><th scope="row">恰好第四名</th><td>官方名次等於 4 記 1，其他記 0</td><td>要回答的結果</td></tr>
-        <tr><th scope="row">勒克萊爾</th><td>勒克萊爾記 1，其他車手記 0</td><td>直接檢驗他的差異</td></tr>
-        <tr><th scope="row">起跑位置 <button class="help-button" type="button" data-help="grid_recode" aria-label="說明起跑位置處理">?</button></th><td>維修區起跑排在一般起跑格之後；容許第 4、5 格特別容易第四</td><td>比較相近的起跑機會</td></tr>
-        <tr><th scope="row">車手與車隊×賽季 <button class="help-button" type="button" data-help="random_intercept" aria-label="說明群組變數">?</button></th><td>各自有基準值</td><td>考慮同一車手、同一年度車隊的紀錄相像</td></tr>
-        <tr><th scope="row">同場隊友</th><td>另一個模型只比勒克萊爾和同場隊友，並考慮起跑位置</td><td>控制當場與車隊條件</td></tr>
-      </tbody></table></div></div>
-      <div class="method-grid"><div><h3>先前賽中模型的樣本篩選 <button class="help-button" type="button" data-help="complete_case" aria-label="說明先前模型的完整個案篩選">?</button></h3><div id="sample-flow" class="flow-list"></div><p class="fine-print">下方 3,475 筆是先前賽中模型使用的資料量；上方勒克萊爾階層比較使用 3,772 筆。</p></div><div><h3>先前賽中模型的診斷 <button class="help-button" type="button" data-help="singular" aria-label="說明先前模型診斷">?</button></h3><div class="table-scroll"><table id="diagnostics-table"><caption>先前賽中模型擬合結果</caption><thead><tr><th scope="col">模型</th><th scope="col">隨機截距 <button class="help-button" type="button" data-help="random_intercept" aria-label="說明隨機截距">?</button></th><th scope="col">AIC <button class="help-button" type="button" data-help="aic" aria-label="說明 AIC">?</button></th><th scope="col">奇異擬合 <button class="help-button" type="button" data-help="singular" aria-label="說明奇異擬合">?</button></th></tr></thead><tbody></tbody></table></div><p class="fine-print">先前模型的賽事與賽道變異估計為零，移除後保留車手及車隊×賽季；沒有最佳化警告，因此當時未啟動貝式模型。</p></div></div>
-      <details class="data-details recode-details"><summary>查看先前賽中模型的變數重編碼</summary><div class="table-scroll"><table><caption>先前賽中模型使用的主要變數處理</caption><thead><tr><th scope="col">變數</th><th scope="col">來源</th><th scope="col">處理方式</th></tr></thead><tbody>
-        <tr><th scope="row">第四名 <button class="help-button" type="button" data-help="is_p4" aria-label="說明第四名編碼">?</button></th><td><code>finish_position</code></td><td>等於 4 編為 1，其他名次編為 0。</td></tr>
-        <tr><th scope="row">起跑資格 <button class="help-button" type="button" data-help="nonstarter" aria-label="說明未起跑者篩選">?</button></th><td><code>race_status</code></td><td>排除 Did not start、Did not qualify、Did not prequalify。</td></tr>
-        <tr><th scope="row">同場圈速差 <button class="help-button" type="button" data-help="pace_recode" aria-label="說明同場圈速差算法">?</button></th><td><code>fastf1_median_valid_lap_seconds</code></td><td>先減去同場可用車手的圈速中位數，再標準化。</td></tr>
-        <tr><th scope="row">連續變數 <button class="help-button" type="button" data-help="zscore" aria-label="說明標準化算法">?</button></th><td>起跑順位、圈速差、進站次數、平均進站時間、安全車訊息數</td><td>減去完整模型樣本平均值，再除以該樣本標準差。</td></tr>
-        <tr><th scope="row">起跑輪胎 <button class="help-button" type="button" data-help="tyre_recode" aria-label="說明起跑輪胎重編碼">?</button></th><td><code>fastf1_starting_compound</code></td><td>2018 年三種少見軟胎合併；原始 nan 記為 UNKNOWN；硬胎為參照。</td></tr>
-        <tr><th scope="row">是否下雨 <button class="help-button" type="button" data-help="rain_recode" aria-label="說明雨天變數編碼">?</button></th><td><code>weather_any_rain</code></td><td>True 編為 1，False 編為 0；缺值不進入完整模型。</td></tr>
-        <tr><th scope="row">群組 <button class="help-button" type="button" data-help="group_recode" aria-label="說明群組變數">?</button></th><td>車手、車隊×賽季、賽道、賽事 ID</td><td>轉為類別群組；最終模型保留車手及車隊×賽季。</td></tr>
-      </tbody></table></div></details>
-      <div class="coverage-block"><div><h3>資料涵蓋年度</h3><p class="fine-print">每年的「比賽數」是資料庫收錄場次；勒克萊爾的新模型使用全部 188 場，先前賽中模型使用 184 場。</p></div><div id="coverage-chart" role="img" aria-label="2018 至 2026 年每年收錄比賽場數"></div></div>
-      <details class="data-details"><summary>查看逐年資料量</summary><div class="table-scroll"><table id="coverage-table"><caption>逐年收錄場次與車手正賽紀錄</caption><thead><tr><th scope="col">年度</th><th scope="col">比賽</th><th scope="col">車手正賽紀錄</th><th scope="col">FastF1 逐圈可用</th></tr></thead><tbody></tbody></table></div></details>
-    </section>
   </main>
+
   <div id="help-popover" class="help-popover" role="tooltip" hidden><strong></strong><p></p></div>
   <footer class="site-footer"><div class="wrap footer-grid"><div><strong>F1 第四名資料分析</strong><p>資料取自 Jolpica 與 FastF1；模型與結果由本專案整理。</p></div><div><a href="./limitations.html">資料與分析限制</a><a href="https://github.com/minrui-z/f1-p4-analysis">網站原始碼</a><a href="https://api.jolpi.ca/">Jolpica</a><a href="https://docs.fastf1.dev/">FastF1</a></div></div></footer>
 </body>

@@ -75,6 +75,16 @@ payload <- list(
               model_p4 = sum(model_raw$finish_position == 4, na.rm = TRUE)),
   drivers = drivers,
   driver_year = driver_year,
+  race_summaries = data.frame(
+    id = started$driver_ref,
+    year = as.integer(started$year),
+    round = as.integer(started$round_number),
+    race = started$race_name,
+    date = started$race_date,
+    team = started$team_name,
+    grid = as.integer(started$grid_position),
+    finish = as.integer(started$finish_position)
+  ),
   grid = grid,
   finish_distribution = finish_distribution,
   coefficients = coef,
