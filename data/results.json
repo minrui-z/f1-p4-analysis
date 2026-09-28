@@ -5,6 +5,8 @@
     "year_end": 2026,
     "last_race_date": "2026-09-26",
     "driver_count": 44,
+    "starts": 3772,
+    "races": 188,
     "model_n": 3475,
     "model_races": 184,
     "model_p4": 184
@@ -4988,19 +4990,61 @@
       "sd": 2.340516945886
     }
   ],
-  "leclerc": [
+  "leclerc_audit": [
     {
-      "contrast": "leclerc versus other drivers, adjusted",
-      "estimate_log_odds": 1.088767304351,
-      "odds_ratio": 2.97060995669,
-      "or_ci_lower_wald": 1.082142893091,
-      "or_ci_upper_wald": 8.154674924286,
-      "p_wald": 0.03458164591549,
-      "p_likelihood_ratio": 0.0440452673995,
-      "lrt_chisq": 4.05482563511,
-      "singular": false,
-      "optimizer_code": 0,
-      "convergence_message": null
+      "comparison": "hierarchical_all_starters",
+      "n": 3772,
+      "events": 188,
+      "odds_ratio": 4.05633553018,
+      "ci_low": 1.248287178103,
+      "ci_high": 13.181147913736,
+      "p_wald": 0.01986785562272,
+      "p_lrt": 0.02679375101662,
+      "singular": false
+    },
+    {
+      "comparison": "same_race_teammate",
+      "n": 374,
+      "events": 53,
+      "odds_ratio": 1.866348631,
+      "ci_low": 0.9536661610259,
+      "ci_high": 3.652491149196,
+      "p_wald": 0.06852932833633,
+      "p_lrt": null,
+      "singular": null
+    },
+    {
+      "comparison": "same_team_season",
+      "n": 374,
+      "events": 53,
+      "odds_ratio": 2.267056751358,
+      "ci_low": 1.198848165253,
+      "ci_high": 4.28707025864,
+      "p_wald": 0.01180473038083,
+      "p_lrt": null,
+      "singular": null
+    },
+    {
+      "comparison": "hierarchical_2019_2025",
+      "n": 3029,
+      "events": 152,
+      "odds_ratio": 3.773308282608,
+      "ci_low": 1.393722305007,
+      "ci_high": 10.21570462383,
+      "p_wald": 0.008967065532002,
+      "p_lrt": null,
+      "singular": false
+    },
+    {
+      "comparison": "same_race_teammate_2019_2025",
+      "n": 302,
+      "events": 45,
+      "odds_ratio": 1.845954477909,
+      "ci_low": 0.8510712967213,
+      "ci_high": 4.003833694824,
+      "p_wald": 0.1207153830888,
+      "p_lrt": null,
+      "singular": null
     }
   ],
   "coverage": [

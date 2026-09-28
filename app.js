@@ -16,19 +16,19 @@ const flowNames = {all_records:"原始車手正賽紀錄",exclude_non_starters:"
 const modelNames = {baseline_initial:"簡單模型／原始群組",full_initial:"完整模型／原始群組",full_simplified_1:"完整模型／移除賽事",full_simplified_2:"最終完整模型",baseline_comparable:"簡單模型／相同群組"};
 const groupNames = {driver_ref:"車手",team_season_id:"車隊×賽季",circuit_reference:"賽道",race_id:"賽事"};
 const helpContent = {
-  raw_vs_model:["這三種數字怎麼看？","次數是拿到第四名幾次；比例是每場起跑中有多少場拿第四；模型估計則把起跑順位、圈速等條件一起考慮。三者不是同一種數字。"],
-  driver_metrics:["選哪個指標？","想看誰拿得最多，選「第四名次數」；想比較出賽機會不同的車手，選「起跑後比例」；想看模型中的車手差異，選「模型估計」。"],
+  raw_vs_model:["這三種數字怎麼看？","次數和比例都是原始紀錄。「賽中模型估計」來自先前放入正賽圈速、進站等資料的模型；勒克萊爾的新比較請看下方「比較結果」。"],
+  driver_metrics:["選哪個指標？","看總數選「第四名次數」，看每場起跑的比例選「起跑後比例」。「賽中模型估計」是先前模型的車手效果，和下方勒克萊爾的比較不是同一個數字。"],
   season_heatmap:["格子的顏色","一格是一位車手在某一年的第四名次數。越深代表越多；淺色代表有出賽但沒有第四名，灰色代表那年沒出賽。"],
   grid_rate:["圖上的百分比","例如某起跑位置有 100 次起跑，其中 10 次拿第四，圖上就是 10%。維修區起跑標為 0；第 21 位以後合在「21+」。"],
   finish_distribution:["名次怎麼分？","前五名各自列出；第 6 至 10 名和第 11 名以後各合成一組。退賽後若仍有官方名次，也照那個名次計算。"],
-  glmm:["這是什麼模型？","模型先看每筆結果是不是第四名，再一起考慮起跑順位、圈速等條件。它也容許同一位車手、同一車隊賽季的紀錄比較相像。"],
+  glmm:["這是什麼模型？","模型看每筆結果是不是第四名，並容許同一位車手、同一年度車隊的紀錄比較相像。這次的主要模型只用起跑前已知的起跑位置來調整。"],
   ci:["橫線代表什麼？","圓點是算出來的勝算比，橫線是它的 95% 信賴區間。線越長，估計越不精確；橫線如果跨過 1，就不能明確說這項因素對應較高或較低的勝算。"],
   odds_ratio:["勝算比怎麼看？","1 代表兩邊的勝算相同；大於 1 代表第四名的勝算較高，小於 1 代表較低。像 0.35 是勝算變成原來的 0.35 倍，不是第四名機率直接少 65 個百分點。"],
   pvalue:["p 值怎麼看？","先假設兩邊其實沒有差異，再看目前這樣的資料有多罕見。數字越小，越難用「沒有差異」解釋；它不是「結論正確的機率」。"],
-  is_p4:["第四名怎麼編碼？","官方最終名次是第 4 名就記 1；其他名次記 0。冠軍、亞軍、季軍也都算 0。沒有名次的紀錄不進入完整模型。"],
-  complete_case:["哪些紀錄進模型？","先拿掉沒起跑的紀錄，再拿掉模型所需欄位有空白的紀錄。最後只留下第四名車手也在樣本中的比賽，共 3,475 筆、184 場。"],
+  is_p4:["第四名怎麼編碼？","官方最終名次是第 4 名就記 1；其他名次記 0。冠軍、亞軍、季軍也都算 0。這份資料的已起跑紀錄都有官方名次。"],
+  complete_case:["先前模型用了哪些紀錄？","先拿掉沒起跑的紀錄，再拿掉圈速、進站等欄位有空白的紀錄，剩 3,475 筆。現在用來比較勒克萊爾的新模型有 3,772 筆已起跑紀錄。"],
   singular:["奇異擬合是什麼？","模型想替賽道和每場比賽分出額外差異，但兩者算出來都是 0。資料無法支持這兩項，所以最終模型把它們拿掉。"],
-  random_intercept:["每個群組有自己的起點","模型讓不同車手、不同年度車隊有各自的基準值，再估計起跑順位和圈速等共同關係。最終保留車手與車隊×賽季兩組。"],
+  random_intercept:["每個群組有自己的起點","模型讓不同車手、不同年度車隊有各自的基準值，再看勒克萊爾是否仍和其他車手不同。這樣能顧到同一個群組的紀錄可能比較像。"],
   aic:["AIC 怎麼看？","這是比較模型用的分數，同一批資料下通常越小越好。它同時考慮貼近資料的程度與模型複雜度，不是顯著性的 p 值。"],
   lrt:["追加檢驗在比什麼？","用同一批資料跑兩次：一次加入「是否為勒克萊爾」，一次不加。再看加入後，模型是否更能貼近觀察到的結果。"],
   nonstarter:["誰算未起跑？","資料標成 Did not start、Did not qualify 或 Did not prequalify 的紀錄會拿掉。已起跑但後來退賽者不會因退賽而直接排除。"],
@@ -38,7 +38,11 @@ const helpContent = {
   rain_recode:["雨天怎麼記？","FastF1 只要在該場記錄到下雨，就記為 1；沒有記錄到下雨記為 0。原本沒資料的場次不會被當成無雨。"],
   group_recode:["群組怎麼放進模型？","車手、車隊×賽季、賽道和比賽原本都當成不同群組。賽道與比賽的額外差異算出來是 0，最終只保留前兩組。"],
   pit_duration:["平均進站時間","資料來自 Jolpica，以秒計。模型把它換成「比平均多幾個標準差」；在這批資料中，一個標準差約為 263.61 秒。"],
-  safety_messages:["安全車訊息數","計算該場比賽中，FastF1 記錄了幾則安全車類別訊息。同一場的所有車手共用這個數字；一個標準差約為 2.34 則。"]
+  safety_messages:["安全車訊息數","計算該場比賽中，FastF1 記錄了幾則安全車類別訊息。同一場的所有車手共用這個數字；一個標準差約為 2.34 則。"],
+  comparison_scope:["兩種比較差在哪？","階層模型拿勒克萊爾跟所有其他車手比，也考慮起跑位置、車手和年度車隊。同場隊友比較只看他和當場隊友，兩人開的是同隊的車；兩種數字回答的問題不同。"],
+  legacy_model:["這是先前的模型","這張圖用正賽圈速、進站、雨天等比賽中才知道的資料，樣本是 3,475 筆。它能描述賽中數字和第四名的關聯；這次勒克萊爾的主要比較另用 3,772 筆起跑紀錄重算。"],
+  primary_sample:["為什麼這次是 3,772 筆？","原始有 3,788 筆，排除 16 筆沒起跑的紀錄。第四名、車手、起跑位置和車隊賽季都有值，所以不用再刪紀錄。"],
+  grid_recode:["維修區起跑怎麼處理？","資料把維修區起跑記為 0，但這不是比第一名更前面。模型把它放在最後一格之後；起跑位置也不硬套一條直線，因為第 4、5 格拿第四的比例特別高。"]
 };
 const termHelp = {grid_z:"zscore",pace_delta_z:"pace_recode",pit_count_z:"zscore",pit_duration_z:"pit_duration",sc_messages_z:"safety_messages",rain:"rain_recode"};
 const fmt = new Intl.NumberFormat("zh-TW");
@@ -73,12 +77,12 @@ function renderDriverDetail() {
   const label = document.createElement("p"); label.className = "detail-label"; label.textContent = "目前選取"; box.append(label);
   const name = document.createElement("h3"); name.textContent = d.name; box.append(name);
   const grid = document.createElement("div"); grid.className = "detail-grid";
-  [[d.p4, "次第四名"], [d.starts, "場起跑"], [pct(d.rate), "原始比例"], [number(Math.exp(d.driver_effect)), "模型估計倍數"]].forEach(([v, title]) => {
+  [[d.p4, "次第四名"], [d.starts, "場起跑"], [pct(d.rate), "原始比例"], [number(Math.exp(d.driver_effect)), "先前賽中模型倍數"]].forEach(([v, title]) => {
     const item = document.createElement("div"); const strong = document.createElement("strong"); strong.textContent = v;
     const span = document.createElement("span"); span.textContent = title; item.append(strong, span); grid.append(item);
   });
   box.append(grid);
-  const note = document.createElement("p"); note.textContent = `完整模型樣本：${d.model_p4} 次第四名／${d.model_starts} 筆紀錄。`; box.append(note);
+  const note = document.createElement("p"); note.textContent = `先前賽中模型樣本：${d.model_p4} 次第四名／${d.model_starts} 筆紀錄。`; box.append(note);
 }
 function metricValue(d) { return metric === "p4" ? d.p4 : metric === "rate" ? d.rate : Math.exp(d.driver_effect); }
 function metricText(d) { return metric === "p4" ? `${d.p4} 次` : metric === "rate" ? pct(d.rate) : `${number(Math.exp(d.driver_effect))} 倍`; }
@@ -86,7 +90,7 @@ function renderDrivers() {
   const q = document.querySelector("#driver-search").value.trim().toLocaleLowerCase();
   const rows = dataset.drivers.filter(d => `${d.name} ${d.id}`.toLocaleLowerCase().includes(q))
     .sort((a,b) => metricValue(b) - metricValue(a) || a.name.localeCompare(b.name));
-  const desc = {p4:"每位車手在所有已起跑正賽中的第四名次數。",rate:"第四名次數除以已起跑場數。",effect:"車手隨機效果換算的勝算倍數；垂直線代表模型平均車手效果。"};
+  const desc = {p4:"每位車手在所有已起跑正賽中的第四名次數。",rate:"第四名次數除以已起跑場數。",effect:"先前賽中模型的車手效果；垂直線代表該模型平均車手效果。"};
   document.querySelector("#driver-description").textContent = `${desc[metric]} 圖中可查看模型涵蓋的 44 位車手。`;
   const holder = document.querySelector("#driver-chart"); holder.replaceChildren();
   if (!rows.length) { const p = document.createElement("p"); p.style.padding = "25px"; p.textContent = "找不到符合的車手，請試試英文姓名。"; holder.append(p); return; }
@@ -196,16 +200,39 @@ function renderGridTable(){const body=document.querySelector("#grid-table tbody"
 const finishLabels={p1:"冠軍",p2:"第 2 名",p3:"第 3 名",p4:"第 4 名",p5:"第 5 名",p6_10:"第 6–10 名",p11plus:"第 11 名後",no_position:"無官方名次"};
 function renderFinishDistribution(){const driver=dataset.drivers.find(d=>d.id===selectedDriver);document.querySelector("#finish-driver-name").textContent=driver.name;const rows=dataset.finish_distribution.filter(d=>d.id===selectedDriver);const holder=document.querySelector("#finish-chart");holder.replaceChildren();const width=Math.max(460,holder.clientWidth||460),height=rows.length*37+38,margin={left:105,right:37,top:8,bottom:28};const x=d3.scaleLinear().domain([0,Math.max(1,d3.max(rows,d=>d.count)*1.12)]).range([margin.left,width-margin.right]);const svg=d3.select(holder).append("svg").attr("width",width).attr("height",height).attr("role","img").attr("aria-label",`${driver.name} 各名次場數`);svg.append("title").text(`${driver.name} 官方名次分布`);const g=svg.selectAll("g.finish-row").data(rows).join("g").attr("class","finish-row").attr("transform",(_,i)=>`translate(0,${margin.top+i*37})`);g.append("text").attr("x",6).attr("y",24).text(d=>finishLabels[d.bucket]);g.append("rect").attr("x",margin.left).attr("y",10).attr("height",19).attr("width",d=>x(d.count)-margin.left).attr("fill",d=>d.bucket==="p4"?"#bd4b40":"#2d637d");g.append("text").attr("x",d=>x(d.count)+6).attr("y",25).attr("font-family","IBM Plex Mono, monospace").text(d=>d.count);svg.append("g").attr("class","chart-axis").attr("transform",`translate(0,${height-margin.bottom})`).call(d3.axisBottom(x).ticks(4).tickFormat(d3.format("d")));}
 
+const auditNames={hierarchical_all_starters:"階層模型：全部車手",same_race_teammate:"同場隊友",same_team_season:"同車隊同賽季",hierarchical_2019_2025:"階層模型：2019–2025",same_race_teammate_2019_2025:"同場隊友：2019–2025"};
+function renderLeclercComparison(){
+  const holder=document.querySelector("#leclerc-comparison-chart");holder.replaceChildren();
+  const rows=dataset.leclerc_audit.slice(0,3),width=Math.max(690,(holder.clientWidth||760)-2),height=230;
+  const x=d3.scaleLog().domain([.5,16]).range([190,width-145]);
+  const svg=d3.select(holder).append("svg").attr("width",width).attr("height",height).attr("role","img").attr("aria-label","勒克萊爾三種比較的勝算比與 95% 信賴區間");
+  svg.append("title").text("圓點是勝算比；橫線是 95% 信賴區間；直線是勝算比 1");
+  svg.append("line").attr("class","zero-line").attr("x1",x(1)).attr("x2",x(1)).attr("y1",19).attr("y2",185);
+  const g=svg.selectAll("g.comparison-row").data(rows).join("g").attr("class","comparison-row").attr("transform",(_,i)=>`translate(0,${48+i*56})`);
+  g.append("text").attr("class","comparison-label").attr("x",18).attr("y",5).text(d=>auditNames[d.comparison]);
+  g.append("line").attr("x1",d=>x(d.ci_low)).attr("x2",d=>x(d.ci_high)).attr("y1",0).attr("y2",0).attr("stroke","#2d637d").attr("stroke-width",3);
+  g.append("circle").attr("cx",d=>x(d.odds_ratio)).attr("cy",0).attr("r",7).attr("fill","#bd4b40")
+    .attr("tabindex",0).attr("role","img")
+    .attr("aria-label",d=>`${auditNames[d.comparison]}：勝算比 ${number(d.odds_ratio)}，95% 信賴區間 ${number(d.ci_low)} 到 ${number(d.ci_high)}，p ${pvalue(d.p_lrt??d.p_wald)}`)
+    .on("pointerenter",(event,d)=>showTooltip(event,`${auditNames[d.comparison]}：${number(d.odds_ratio)}（${number(d.ci_low)}–${number(d.ci_high)}）`)).on("pointermove",moveTooltip).on("pointerleave",hideTooltip);
+  g.append("text").attr("class","comparison-value").attr("x",width-130).attr("y",5).text(d=>`${number(d.odds_ratio)} · p ${pvalue(d.p_lrt??d.p_wald)}`);
+  svg.append("g").attr("class","chart-axis").attr("transform","translate(0,205)").call(d3.axisBottom(x).tickValues([.5,1,2,4,8,16]).tickFormat(d3.format("~g")));
+}
+function renderLeclercComparisonTable(){
+  const body=document.querySelector("#leclerc-comparison-table tbody");body.replaceChildren();
+  dataset.leclerc_audit.forEach(d=>{const row=document.createElement("tr");[auditNames[d.comparison],number(d.odds_ratio),number(d.ci_low),number(d.ci_high),pvalue(d.p_lrt??d.p_wald)].forEach(value=>addCell(row,value));body.append(row);});
+}
+
 async function start(){
   setupHelp();
   try{
     const response=await fetch("./data/results.json"); if(!response.ok)throw new Error(`HTTP ${response.status}`);
     dataset=await response.json();
-    document.querySelector("#snapshot").textContent=`資料截至 ${dataset.meta.last_race_date} · ${fmt.format(dataset.meta.model_n)} 筆模型紀錄 · ${dataset.meta.model_races} 場比賽`;
+    document.querySelector("#snapshot").textContent=`資料截至 ${dataset.meta.last_race_date} · ${fmt.format(dataset.meta.starts)} 筆已起跑紀錄 · ${dataset.meta.races} 場比賽`;
     document.querySelectorAll('input[name="metric"]').forEach(input=>input.addEventListener("change",()=>{metric=input.value;renderDrivers();}));
     document.querySelector("#driver-search").addEventListener("input",renderDrivers);
-    renderDriverDetail();renderDrivers();renderDriverTable();renderSeason();renderSeasonTable();renderGrid();renderGridTable();renderFinishDistribution();renderCoefficientDetail();renderCoefficients();renderCoefficientTable();renderFlow();renderDiagnostics();renderCoverage();renderCoverageTable();
-    let timer;window.addEventListener("resize",()=>{clearTimeout(timer);timer=setTimeout(()=>{renderDrivers();renderSeason();renderGrid();renderFinishDistribution();renderCoefficients();renderCoverage();},120);});
+    renderDriverDetail();renderDrivers();renderDriverTable();renderSeason();renderSeasonTable();renderGrid();renderGridTable();renderFinishDistribution();renderLeclercComparison();renderLeclercComparisonTable();renderCoefficientDetail();renderCoefficients();renderCoefficientTable();renderFlow();renderDiagnostics();renderCoverage();renderCoverageTable();
+    let timer;window.addEventListener("resize",()=>{clearTimeout(timer);timer=setTimeout(()=>{renderDrivers();renderSeason();renderGrid();renderFinishDistribution();renderLeclercComparison();renderCoefficients();renderCoverage();},120);});
   }catch(error){document.querySelector("#snapshot").textContent="資料讀取失敗，請重新整理頁面。";console.error(error);}
 }
 start();

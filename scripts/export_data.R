@@ -70,6 +70,7 @@ payload <- list(
   meta = list(title = "第四名：2018 年起的 F1 正賽資料", year_start = min(raw$year),
               year_end = max(raw$year), last_race_date = as.character(max(as.Date(raw$race_date))),
               driver_count = length(driver_ids),
+              starts = nrow(started), races = length(unique(started$race_id)),
               model_n = nobs(model), model_races = length(unique(model_raw$race_id)),
               model_p4 = sum(model_raw$finish_position == 4, na.rm = TRUE)),
   drivers = drivers,
@@ -81,7 +82,7 @@ payload <- list(
   diagnostics = read.csv(file.path(result, "frequentist_diagnostics.csv")),
   random_variances = read.csv(file.path(result, "full_simplified_2_random_variances.csv")),
   scaling = read.csv(file.path(result, "scaling.csv")),
-  leclerc = read.csv(file.path(result, "leclerc_significance.csv")),
+  leclerc_audit = read.csv(file.path(root, "results", "leclerc_audit", "leclerc_comparisons.csv")),
   coverage = read.csv(file.path(root, "docs", "coverage_by_year.csv"))
 )
 dir.create(file.path(site, "data"), showWarnings = FALSE)
