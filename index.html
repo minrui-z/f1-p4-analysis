@@ -5,43 +5,47 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="theme-color" content="#f2f4f1">
   <meta name="description" content="2018 年起 F1 正賽第四名紀錄：看車手、賽季與每場比賽，也比較勒克萊爾和平均車手。">
-  <title>誰比較常拿第四名？｜F1 正賽資料分析</title>
+  <title>勒克萊爾比較容易拿第四嗎？｜F1 正賽資料分析</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700&family=IBM+Plex+Mono:wght@400;500;600&family=Noto+Sans+TC:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="./styles.css?v=2">
+  <link rel="stylesheet" href="./styles.css?v=3">
   <script defer src="./vendor/d3.v7.min.js"></script>
-  <script defer src="./app.js?v=2"></script>
+  <script defer src="./app.js?v=3"></script>
 </head>
 <body>
   <a class="skip-link" href="#main">跳到主要內容</a>
   <header class="site-header">
     <div class="brand"><span class="brand-mark" aria-hidden="true">04</span><span>F1 正賽資料分析</span></div>
-    <nav aria-label="頁面段落"><a href="#answer">結果</a><a href="#races">逐場</a><a href="#circuits">賽道</a><a href="#drivers">車手</a><a href="#details">詳細數字</a></nav>
+    <nav aria-label="頁面段落"><a href="#answer">結果</a><a href="#races">逐場</a><a href="#circuits">賽道</a><a href="#duel">兩車比較</a><a href="#drivers">所有車手</a><a href="#season">賽季</a><a href="#details">詳細數字</a></nav>
   </header>
 
   <main id="main">
     <section class="hero wrap" aria-labelledby="hero-title">
       <div class="hero-copy">
         <p class="eyebrow">2018—2026 F1 正賽／第四名</p>
-        <h1 id="hero-title">誰比較常拿<br><em>第四名？</em></h1>
-        <p class="hero-intro">勒克萊爾拿第四的比賽在哪些地方？往下可以切換車手、年份和賽道，自己翻逐場紀錄。</p>
-        <p class="snapshot" id="snapshot">資料載入中</p>
+        <h1 id="hero-title">勒克萊爾比較容易<br><em>拿第四嗎？</em></h1>
+        <p class="hero-verdict">模型估計：比平均車手高。</p>
+        <p class="hero-intro" id="hero-intro">把起跑位置設成相同後，模型估他每 100 場約拿 10 次第四名，平均車手約 3 次。右邊的 35／187 場是他的實際紀錄。</p>
+        <a class="hero-link" href="#answer">看兩個估計值怎麼比 <span aria-hidden="true">↓</span></a>
+        <p class="snapshot" id="snapshot" aria-live="polite">資料載入中…</p>
       </div>
       <div class="timing-board" aria-label="勒克萊爾實際第四名紀錄">
         <div class="board-top"><span>實際紀錄</span><span>2018—2026</span></div>
         <div class="board-name"><span class="board-rank">P4</span><span>Charles<br>Leclerc</span></div>
-        <div class="board-main"><strong>35</strong><span>次第四名<br>／187 場起跑</span></div>
-        <div class="board-bottom"><span>實際比例</span><strong>18.7%</strong></div>
+        <div class="board-main"><strong id="hero-p4">35</strong><span>次第四名<br>／<span id="hero-starts">187</span> 場起跑</span></div>
+        <div class="board-bottom"><span>實際比例</span><strong id="hero-rate">18.7%</strong></div>
         <div class="board-stripes" aria-hidden="true"></div>
       </div>
     </section>
 
     <section class="section interpretation-band" id="answer" aria-labelledby="answer-title"><div class="wrap answer-layout">
-      <div class="answer-copy"><p class="eyebrow">把起跑條件設成一樣</p><h2 id="answer-title">模型估他拿第四的機會較高</h2><p>模型把兩邊的起跑位置分布設成相同，再換算成每 100 場起跑的次數。這是估計值，和上面的 35／187 場實際紀錄不同。<button class="help-button" type="button" data-help="plain_model" aria-label="說明模型估計">?</button></p></div>
+      <div class="answer-copy"><p class="eyebrow">模型估計</p><h2 id="answer-title">同樣起跑條件，約 10 次對 3 次</h2><p>兩邊套用相同的起跑位置分布，再換算成每 100 場起跑的次數。這和上方的實際紀錄是兩種數字。<button class="help-button" type="button" data-help="plain_model" aria-label="說明模型估計">?</button></p></div>
       <div class="estimate-list" aria-label="同樣起跑條件下的模型估計">
-        <div class="estimate-row"><span>勒克萊爾</span><div class="estimate-track"><i style="width:87%"></i></div><strong>約 10 次</strong></div>
-        <div class="estimate-row"><span>平均車手</span><div class="estimate-track"><i style="width:27%"></i></div><strong>約 3 次</strong></div>
+        <p class="estimate-unit">每 100 場起跑，估計拿第四的次數</p>
+        <div class="estimate-row"><span>勒克萊爾</span><div class="estimate-track"><i id="estimate-leclerc-bar" style="width:86.7%"></i></div><strong id="estimate-leclerc-value">約 10 次</strong></div>
+        <div class="estimate-row"><span>平均車手</span><div class="estimate-track"><i id="estimate-average-bar" style="width:26.7%"></i></div><strong id="estimate-average-value">約 3 次</strong></div>
+        <div class="estimate-axis" aria-hidden="true"><span>0</span><span>6</span><span>12 次</span></div>
         <p>同場隊友的比較沒有得出同樣明確的差距。<button class="help-button" type="button" data-help="plain_teammate" aria-label="說明隊友比較">?</button></p>
       </div>
     </div></section>
@@ -70,7 +74,7 @@
     </div></section>
 
     <section class="section wrap" id="duel" aria-labelledby="duel-title">
-      <div class="section-head"><div><p class="eyebrow">兩位車手</p><h2 id="duel-title">選兩位來比</h2></div><p class="section-note">比較的是實際第四名紀錄。兩人起跑場數可能不同，所以次數和每 100 場的比例一起看。</p></div>
+      <div class="section-head"><div><p class="eyebrow">兩位車手</p><h2 id="duel-title">兩位車手各拿幾次第四？</h2></div><p class="section-note">比較的是實際第四名紀錄。兩人起跑場數可能不同，所以次數和每 100 場的比例一起看。</p></div>
       <div class="explore-controls">
         <label for="duel-a">車手 A<select id="duel-a"></select></label>
         <label for="duel-b">車手 B<select id="duel-b"></select></label>
@@ -88,7 +92,7 @@
           <label><input type="radio" name="metric" value="p4" checked><span>第四名次數</span></label>
           <label><input type="radio" name="metric" value="rate"><span>起跑後比例</span></label>
         </fieldset>
-        <label class="search-label" for="driver-search">找車手<input id="driver-search" type="search" autocomplete="off" placeholder="輸入英文姓名"></label>
+        <label class="search-label" for="driver-search">找車手<input id="driver-search" name="driver-search" type="search" autocomplete="off" placeholder="例如 Leclerc…"></label>
       </div>
       <p class="chart-description" id="driver-description"></p>
       <div class="driver-layout"><div class="chart-shell"><div id="driver-chart" class="scroll-chart" role="region" aria-label="車手第四名比較圖" tabindex="0"></div></div><aside class="driver-detail" id="driver-detail" aria-live="polite"></aside></div>
@@ -97,8 +101,9 @@
     </section>
 
     <section class="section band" id="season" aria-labelledby="season-title"><div class="wrap">
-      <div class="section-head"><div><p class="eyebrow">賽季分布</p><h2 id="season-title">哪些年份比較常見？</h2></div><p class="section-note">顏色越深，該年第四名越多。選取的車手會排在最上面；點其他車手也能切換。</p></div>
-      <div class="chart-shell"><div id="season-chart" role="region" aria-label="車手各年第四名次數" tabindex="0"></div></div>
+      <div class="section-head"><div><p class="eyebrow">賽季分布</p><h2 id="season-title">第四名集中在哪些年份？</h2></div><p class="section-note">顏色越深，該年第四名越多。選取的車手會排在最上面；點其他車手也能切換。</p></div>
+      <div class="chart-shell"><div id="season-chart" role="region" aria-label="車手各年第四名次數" aria-describedby="season-keyboard-help"></div></div>
+      <p class="chart-keyboard-help" id="season-keyboard-help">鍵盤操作：Tab 進入圖表，方向鍵移動格子，Enter 選車手。下方也有完整數字。</p>
       <p class="scroll-hint">左右滑動可看完整年份。</p>
       <details class="data-details"><summary>查看各年數字</summary><div class="table-scroll"><table id="season-table"><caption>所選車手及第四名次數較多車手的各年紀錄</caption><thead><tr><th scope="col">車手</th></tr></thead><tbody></tbody></table></div></details>
     </div></section>

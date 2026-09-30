@@ -17,4 +17,16 @@ Rscript site/scripts/export_data.R
 - `index.html`：白話結果、逐場軌跡、賽道紀錄、雙車手比較、車手與賽季圖。模型係數、檢定數字及診斷收在「詳細數字」內；名詞設有「？」註解。
 - `limitations.html`：資料範圍、分析方法與解讀限制。
 
+選擇車手、年份、賽道、兩車比較或圖表指標時，網址會跟著更新；複製網址可保留目前的選擇。賽季圖可用 Tab 進入、方向鍵移動格子、Enter 選取車手。
+
+## 檢查網站
+
+```sh
+npm ci
+npx playwright install chromium
+npm test
+```
+
+測試涵蓋首頁數字、320px 手機版面、鍵盤操作、可分享網址、瀏覽器返回、雙車手比較與主要頁面的無障礙檢查。GitHub Actions 會在推送及提交拉取請求時執行。
+
 資料來源：[Jolpica](https://api.jolpi.ca/) 與 [FastF1](https://docs.fastf1.dev/)。2026 年資料為 2026-09-26 的快照。網站沒有追蹤器，也沒有後端服務。
