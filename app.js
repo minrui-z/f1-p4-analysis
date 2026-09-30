@@ -97,8 +97,6 @@ function renderDrivers() {
     .sort((a,b) => metricValue(b) - metricValue(a) || a.name.localeCompare(b.name));
   const rows = q || showAllDrivers ? allRows : allRows.slice(0,12);
   if (!q && !showAllDrivers && !rows.some(d=>d.id===selectedDriver)) rows.push(allRows.find(d=>d.id===selectedDriver));
-  const desc = {p4:"每位車手在所有已起跑正賽中的第四名次數。",rate:"第四名次數除以已起跑場數；小樣本車手的比例請連起跑場數一起看。"};
-  document.querySelector("#driver-description").textContent = `${desc[metric]} ${q ? `找到 ${allRows.length} 位車手。` : showAllDrivers ? "目前顯示全部車手。" : "先列前 12 位；可搜尋或展開全部。"}`;
   const toggle=document.querySelector("#show-all-drivers");toggle.hidden=Boolean(q);toggle.textContent=showAllDrivers?"收起其餘車手":"顯示其餘車手";toggle.setAttribute("aria-expanded",String(showAllDrivers));
   const holder = document.querySelector("#driver-chart"); holder.replaceChildren();
   if (!rows.length) { const p = document.createElement("p"); p.style.padding = "25px"; p.textContent = "找不到符合的車手，請試試英文姓名。"; holder.append(p); return; }
@@ -307,7 +305,7 @@ function renderHero(){
   document.querySelector("#hero-p4").textContent=fmt.format(leclerc.p4);
   document.querySelector("#hero-starts").textContent=fmt.format(leclerc.starts);
   document.querySelector("#hero-rate").textContent=pct(leclerc.rate);
-  document.querySelector("#hero-intro").textContent=`把起跑位置設成相同後，模型估他每 100 場約拿 ${leclercPer100} 次第四名，平均車手約 ${averagePer100} 次。右邊的 ${leclerc.p4}／${leclerc.starts} 場是他的實際紀錄。`;
+  document.querySelector("#hero-intro").textContent=`相同起跑條件下，每 100 場約拿 ${leclercPer100} 次第四名；平均車手約 ${averagePer100} 次。`;
   document.querySelector("#answer-title").textContent=`同樣起跑條件，約 ${leclercPer100} 次對 ${averagePer100} 次`;
   [["leclerc",probability],["average",average]].forEach(([id,value])=>{
     document.querySelector(`#estimate-${id}-bar`).style.width=`${Math.min(100,value*100/12*100)}%`;
