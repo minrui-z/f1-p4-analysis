@@ -17,6 +17,8 @@ Rscript site/scripts/export_data.R
 - `index.html`：白話結果、逐場軌跡、賽道紀錄、雙車手比較、車手與賽季圖。模型係數、檢定數字及診斷收在「詳細數字」內；名詞設有「？」註解。
 - `limitations.html`：資料範圍、分析方法與解讀限制。
 
+中文大標題使用 [源石黑體 GenSekiGothic TW](https://github.com/ButTaiwan/genseki-font) 的精簡網頁字型；字型依 [SIL Open Font License 1.1](assets/fonts/OFL-GenSekiGothic.txt) 發布。內文保留 Noto Sans TC。
+
 選擇車手、年份、賽道、兩車比較或圖表指標時，網址會跟著更新；複製網址可保留目前的選擇。賽季圖可用 Tab 進入、方向鍵移動格子、Enter 選取車手。
 
 ## 檢查網站
