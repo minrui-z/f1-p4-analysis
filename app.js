@@ -59,6 +59,7 @@ let metric = "p4";
 let selectedDriver = "leclerc";
 let selectedTerm = "pace_delta_z";
 let selectedRaceRound = null;
+let showAllDrivers = false;
 const tooltip = d3.select("body").append("div").attr("class", "chart-tooltip").style("display", "none");
 
 function showTooltip(event, content) {
@@ -80,49 +81,39 @@ function renderDriverDetail() {
   const d = dataset.drivers.find(x => x.id === selectedDriver) || dataset.drivers[0];
   const box = document.querySelector("#driver-detail");
   box.replaceChildren();
-  const label = document.createElement("p"); label.className = "detail-label"; label.textContent = "目前選取"; box.append(label);
-  const name = document.createElement("h3"); name.textContent = d.name; box.append(name);
-  const grid = document.createElement("div"); grid.className = "detail-grid";
-  [[d.p4, "次第四名"], [d.starts, "場起跑"], [pct(d.rate), "實際比例"]].forEach(([v, title]) => {
-    const item = document.createElement("div"); const strong = document.createElement("strong"); strong.textContent = v;
-    const span = document.createElement("span"); span.textContent = title; item.append(strong, span); grid.append(item);
-  });
-  box.append(grid);
-  const note = document.createElement("p"); note.textContent = d.starts < 10 ? "這位車手起跑場數較少，比例容易受單場結果影響。" : "選車手後，可查看他逐場與各年的紀錄。"; box.append(note);
+  const label = document.createElement("p"); label.className = "detail-label"; label.textContent = "目前選取";
+  const name = document.createElement("h3"); name.textContent = d.name;
+  const numbers = document.createElement("p"); numbers.className = "driver-detail-numbers";
+  numbers.textContent = `${d.p4} 次第四名／${d.starts} 場起跑（${pct(d.rate)}）`;
+  const link = document.createElement("a"); link.href="#races"; link.textContent="看這位車手的逐場紀錄 →";
+  box.append(label,name,numbers,link);
 }
 function metricValue(d) { return metric === "p4" ? d.p4 : d.rate; }
 function metricText(d) { return metric === "p4" ? `${d.p4} 次` : pct(d.rate); }
 function renderDrivers() {
   const q = document.querySelector("#driver-search").value.trim().toLocaleLowerCase();
-  const rows = dataset.drivers.filter(d => `${d.name} ${d.id}`.toLocaleLowerCase().includes(q))
+  const allRows = dataset.drivers.filter(d => `${d.name} ${d.id}`.toLocaleLowerCase().includes(q))
     .sort((a,b) => metricValue(b) - metricValue(a) || a.name.localeCompare(b.name));
+  const rows = q || showAllDrivers ? allRows : allRows.slice(0,12);
+  if (!q && !showAllDrivers && !rows.some(d=>d.id===selectedDriver)) rows.push(allRows.find(d=>d.id===selectedDriver));
   const desc = {p4:"每位車手在所有已起跑正賽中的第四名次數。",rate:"第四名次數除以已起跑場數；小樣本車手的比例請連起跑場數一起看。"};
-  document.querySelector("#driver-description").textContent = `${desc[metric]} 圖中可查看資料涵蓋的 44 位車手。`;
+  document.querySelector("#driver-description").textContent = `${desc[metric]} ${q ? `找到 ${allRows.length} 位車手。` : showAllDrivers ? "目前顯示全部車手。" : "先列前 12 位；可搜尋或展開全部。"}`;
+  const toggle=document.querySelector("#show-all-drivers");toggle.hidden=Boolean(q);toggle.textContent=showAllDrivers?"收起其餘車手":"顯示其餘車手";toggle.setAttribute("aria-expanded",String(showAllDrivers));
   const holder = document.querySelector("#driver-chart"); holder.replaceChildren();
   if (!rows.length) { const p = document.createElement("p"); p.style.padding = "25px"; p.textContent = "找不到符合的車手，請試試英文姓名。"; holder.append(p); return; }
-  const containerWidth = holder.clientWidth || 750;
-  const width = Math.max(630, containerWidth - 2);
-  const margin = {left: 175,right: 78,top: 24,bottom: 32};
-  const height = margin.top + rows.length * 38 + margin.bottom;
-  const max = metric === "rate" ? Math.max(.2, d3.max(rows, metricValue) * 1.08) : Math.max(1, d3.max(rows, metricValue) * 1.08);
-  const x = d3.scaleLinear().domain([0,max]).range([margin.left,width-margin.right]);
-  const svg = d3.select(holder).append("svg").attr("width",width).attr("height",height)
-    .attr("role","img").attr("aria-label",`車手${metric === "p4" ? "第四名次數" : "第四名比例"}排行`);
-  svg.append("title").text("車手第四名比較圖");
-  const g = svg.selectAll("g.chart-row").data(rows,d=>d.id).join("g").attr("class",d=>`chart-row${d.id===selectedDriver?" selected":""}`)
-    .attr("transform",(_,i)=>`translate(0,${margin.top+i*38})`).attr("tabindex",0).attr("role","button")
-    .attr("aria-label",d=>`${d.name}，${d.p4} 次第四名，${d.starts} 場起跑，比例 ${pct(d.rate)}。按 Enter 查看紀錄。`)
-    .on("click",(_,d)=>selectDriver(d.id)).on("keydown",(event,d)=>{if(event.key==="Enter"||event.key===" "){event.preventDefault();selectDriver(d.id);}})
-    .on("pointerenter",(event,d)=>showTooltip(event,`${d.name}：${metricText(d)}`)).on("pointermove",moveTooltip).on("pointerleave",hideTooltip);
-  g.append("rect").attr("class","row-bg").attr("x",0).attr("y",0).attr("width",width).attr("height",37).attr("fill","transparent");
-  g.append("text").attr("x",16).attr("y",24).text(d=>d.name.length>24?`${d.name.slice(0,22)}…`:d.name);
-  g.append("rect").attr("x",margin.left).attr("y",11).attr("height",16).attr("width",d=>Math.max(metricValue(d)===0?0:2,x(metricValue(d))-margin.left))
-    .attr("fill",d=>d.id==="leclerc"?"#bd4b40":"#2d637d");
-  g.append("text").attr("class","chart-value").attr("x",width-8).attr("y",24).attr("text-anchor","end").text(metricText);
-  svg.append("g").attr("class","chart-axis").attr("transform",`translate(0,${height-margin.bottom})`)
-    .call(d3.axisBottom(x).ticks(5).tickSize(4).tickFormat(metric==="rate"?d3.format(".0%") : d3.format("d")));
+  const max=Math.max(.001,d3.max(allRows,metricValue));
+  rows.forEach(d=>{
+    const button=document.createElement("button");button.type="button";button.className=`driver-row${d.id===selectedDriver?" is-selected":""}`;
+    button.setAttribute("aria-label",`${d.name}，${d.p4} 次第四名，${d.starts} 場起跑，比例 ${pct(d.rate)}。選取車手。`);
+    button.addEventListener("click",()=>selectDriver(d.id));
+    const name=document.createElement("span");name.className="driver-row-name";name.textContent=d.name;
+    const track=document.createElement("span");track.className="driver-row-track";
+    const bar=document.createElement("i");bar.style.width=`${100*metricValue(d)/max}%`;track.append(bar);
+    const value=document.createElement("span");value.className="driver-row-value";value.textContent=metricText(d);
+    button.append(name,track,value);holder.append(button);
+  });
 }
-function selectDriver(id,focusChart=true) { selectedDriver=id; document.querySelector("#race-driver").value=id; selectedRaceRound=null; renderDriverDetail(); renderDrivers(); renderSeason(); renderSeasonTable(); renderGrid(); renderGridTable(); renderFinishDistribution(); renderFinishTable(); renderRaceTrack(); if(focusChart)d3.selectAll("#driver-chart .chart-row").filter(d=>d.id===id).node()?.focus(); }
+function selectDriver(id,focusChart=true) { selectedDriver=id; document.querySelector("#race-driver").value=id; selectedRaceRound=null; renderDriverDetail(); renderDrivers(); renderSeason(); renderSeasonTable(); renderGrid(); renderGridTable(); renderFinishDistribution(); renderFinishTable(); renderRaceTrack(); if(focusChart)document.querySelector(`#driver-chart .driver-row.is-selected`)?.focus(); }
 
 function renderDriverTable() {
   const body = document.querySelector("#driver-table tbody"); body.replaceChildren();
@@ -211,12 +202,12 @@ function renderGrid(){
   const holder=document.querySelector("#grid-chart");holder.replaceChildren();
   const rows=selectedGridRows(),driver=dataset.drivers.find(d=>d.id===selectedDriver);
   document.querySelector("#pattern-driver-name").textContent=driver.name;
-  const width=Math.max(520,holder.clientWidth||520),height=285,margin={left:45,right:20,top:20,bottom:48};
+  const width=Math.max(310,holder.clientWidth||310),height=285,margin={left:45,right:20,top:20,bottom:48};
   const x=d3.scalePoint().domain(rows.map(d=>d.group)).range([margin.left,width-margin.right]).padding(.55);
   const ymax=Math.max(.2,d3.max(rows,d=>d.rate)*1.16),y=d3.scaleLinear().domain([0,ymax]).range([height-margin.bottom,margin.top]);
   const svg=d3.select(holder).append("svg").attr("width",width).attr("height",height).attr("role","img").attr("aria-label",`${driver.name} 各起跑位置拿第四名的比例`);
   svg.append("title").text(`${driver.name} 的起跑位置與第四名`);
-  svg.append("g").attr("class","chart-axis").attr("transform",`translate(0,${height-margin.bottom})`).call(d3.axisBottom(x).tickValues(["pitlane",...Array.from({length:10},(_,i)=>String((i+1)*2)),"21plus"]).tickFormat(gridLabel));
+  svg.append("g").attr("class","chart-axis").attr("transform",`translate(0,${height-margin.bottom})`).call(d3.axisBottom(x).tickValues(["pitlane","2","4","6","8","10","12","16","20","21plus"]).tickFormat(gridLabel));
   svg.append("g").attr("class","chart-axis").attr("transform",`translate(${margin.left},0)`).call(d3.axisLeft(y).ticks(5).tickFormat(d3.format(".0%")));
   svg.selectAll("line.stem").data(rows.filter(d=>d.starts)).join("line").attr("class","stem").attr("x1",d=>x(d.group)).attr("x2",d=>x(d.group)).attr("y1",y(0)).attr("y2",d=>y(d.rate)).attr("stroke","#9db8bd").attr("stroke-width",2);
   svg.selectAll("circle.dot").data(rows.filter(d=>d.starts)).join("circle").attr("class","dot").attr("cx",d=>x(d.group)).attr("cy",d=>y(d.rate)).attr("r",6).attr("fill",d=>d.p4?"#bd4b40":"#2d637d").attr("tabindex",0).attr("role","img").attr("aria-label",d=>`${gridLabel(d.group)}起跑，${d.p4} 次第四名，共 ${d.starts} 次起跑，比例 ${pct(d.rate)}`).on("pointerenter",(event,d)=>showTooltip(event,`${gridLabel(d.group)}起跑：${d.p4}／${d.starts}，${pct(d.rate)}`)).on("pointermove",moveTooltip).on("pointerleave",hideTooltip);
@@ -224,7 +215,7 @@ function renderGrid(){
 function renderGridTable(){const body=document.querySelector("#grid-table tbody");body.replaceChildren();selectedGridRows().filter(d=>d.starts).forEach(d=>{const tr=document.createElement("tr");[gridLabel(d.group),d.starts,d.p4,pct(d.rate)].forEach(v=>addCell(tr,v));body.append(tr);});}
 const finishLabels={p1:"冠軍",p2:"第 2 名",p3:"第 3 名",p4:"第 4 名",p5:"第 5 名",p6_10:"第 6–10 名",p11plus:"第 11 名後",no_position:"無官方名次"};
 function renderFinishTable(){const body=document.querySelector("#finish-table tbody");body.replaceChildren();dataset.finish_distribution.filter(d=>d.id===selectedDriver).forEach(d=>{const row=document.createElement("tr");[finishLabels[d.bucket],d.count].forEach(value=>addCell(row,value));body.append(row);});}
-function renderFinishDistribution(){const driver=dataset.drivers.find(d=>d.id===selectedDriver);document.querySelector("#finish-driver-name").textContent=driver.name;const rows=dataset.finish_distribution.filter(d=>d.id===selectedDriver);const holder=document.querySelector("#finish-chart");holder.replaceChildren();const width=Math.max(460,holder.clientWidth||460),height=rows.length*37+38,margin={left:105,right:37,top:8,bottom:28};const x=d3.scaleLinear().domain([0,Math.max(1,d3.max(rows,d=>d.count)*1.12)]).range([margin.left,width-margin.right]);const svg=d3.select(holder).append("svg").attr("width",width).attr("height",height).attr("role","img").attr("aria-label",`${driver.name} 各名次場數`);svg.append("title").text(`${driver.name} 官方名次分布`);const g=svg.selectAll("g.finish-row").data(rows).join("g").attr("class","finish-row").attr("transform",(_,i)=>`translate(0,${margin.top+i*37})`);g.append("text").attr("x",6).attr("y",24).text(d=>finishLabels[d.bucket]);g.append("rect").attr("x",margin.left).attr("y",10).attr("height",19).attr("width",d=>x(d.count)-margin.left).attr("fill",d=>d.bucket==="p4"?"#bd4b40":"#2d637d");g.append("text").attr("x",d=>x(d.count)+6).attr("y",25).attr("font-family","IBM Plex Mono, monospace").text(d=>d.count);svg.append("g").attr("class","chart-axis").attr("transform",`translate(0,${height-margin.bottom})`).call(d3.axisBottom(x).ticks(4).tickFormat(d3.format("d")));}
+function renderFinishDistribution(){const driver=dataset.drivers.find(d=>d.id===selectedDriver);document.querySelector("#finish-driver-name").textContent=driver.name;const rows=dataset.finish_distribution.filter(d=>d.id===selectedDriver);const holder=document.querySelector("#finish-chart");holder.replaceChildren();const width=Math.max(310,holder.clientWidth||310),height=rows.length*37+38,margin={left:105,right:35,top:8,bottom:28};const x=d3.scaleLinear().domain([0,Math.max(1,d3.max(rows,d=>d.count)*1.2)]).range([margin.left,width-margin.right]);const svg=d3.select(holder).append("svg").attr("width",width).attr("height",height).attr("role","img").attr("aria-label",`${driver.name} 各名次場數`);svg.append("title").text(`${driver.name} 官方名次分布`);const g=svg.selectAll("g.finish-row").data(rows).join("g").attr("class","finish-row").attr("transform",(_,i)=>`translate(0,${margin.top+i*37})`);g.append("text").attr("x",6).attr("y",24).text(d=>finishLabels[d.bucket]);g.append("rect").attr("x",margin.left).attr("y",10).attr("height",19).attr("width",d=>x(d.count)-margin.left).attr("fill",d=>d.bucket==="p4"?"#bd4b40":"#2d637d");g.append("text").attr("x",d=>x(d.count)+6).attr("y",25).attr("font-family","IBM Plex Mono, monospace").text(d=>d.count);svg.append("g").attr("class","chart-axis").attr("transform",`translate(0,${height-margin.bottom})`).call(d3.axisBottom(x).ticks(4).tickFormat(d3.format("d")));}
 
 const auditNames={hierarchical_all_starters:"階層模型：全部車手",same_race_teammate:"同場隊友",same_team_season:"同車隊同賽季",hierarchical_2019_2025:"階層模型：2019–2025",same_race_teammate_2019_2025:"同場隊友：2019–2025"};
 function renderLeclercComparison(){
@@ -282,7 +273,13 @@ function setupExplorer(){
   fillSelect(document.querySelector("#duel-year"),[["all","全部賽季"],...years],"all");
   document.querySelector("#race-driver").addEventListener("change",event=>selectDriver(event.target.value,false));
   document.querySelector("#race-year").addEventListener("change",()=>{selectedRaceRound=null;renderRaceTrack();});
+  document.querySelectorAll('input[name="race-view"]').forEach(input=>input.addEventListener("change",()=>{selectedRaceRound=null;renderRaceTrack();}));
   ["duel-a","duel-b","duel-year"].forEach(id=>document.querySelector("#"+id).addEventListener("change",renderDuel));
+  const circuits=d3.rollups(dataset.race_summaries.filter(d=>d.finish===4),rows=>rows.length,d=>d.circuit)
+    .map(([id,count])=>({id,count,name:dataset.race_summaries.find(d=>d.circuit===id).circuit_name}))
+    .sort((a,b)=>a.name.localeCompare(b.name));
+  fillSelect(document.querySelector("#circuit-select"),circuits.map(d=>[d.id,`${d.name}（${d.count} 場）`]),"hungaroring");
+  document.querySelector("#circuit-select").addEventListener("change",renderCircuit);
 }
 function selectedRaceRows(){
   const year=Number(document.querySelector("#race-year").value);
@@ -291,7 +288,7 @@ function selectedRaceRows(){
 function raceFinishLabel(position){return position===1?"冠軍":`第 ${position} 名`;}
 function renderRaceDetail(row){
   const holder=document.querySelector("#race-detail");holder.replaceChildren();
-  if(!row){holder.textContent="這個賽季沒有起跑紀錄。";return;}
+  if(!row){holder.textContent="目前沒有可選的比賽。";return;}
   const eyebrow=document.createElement("p");eyebrow.className="detail-label";eyebrow.textContent=`${row.year}／第 ${row.round} 場`;
   const title=document.createElement("h3");title.textContent=row.race;
   const date=document.createElement("p");date.textContent=`${row.date} · ${row.team}`;
@@ -307,21 +304,54 @@ function renderRaceTrack(){
   const count=rows.filter(d=>d.finish===4).length;
   document.querySelector("#race-summary").textContent=rows.length?`${driver.name} · ${year} 年：${rows.length} 場起跑，${count} 次第四名。`:`${driver.name} 在 ${year} 年沒有起跑紀錄。`;
   if(!rows.length){renderRaceDetail(null);renderRaceTable(rows);return;}
-  if(!rows.some(d=>d.round===selectedRaceRound))selectedRaceRound=(rows.find(d=>d.finish===4)||rows[0]).round;
-  const buttons=holder.selectAll("button").data(rows,d=>d.round).join("button").attr("type","button")
-    .attr("class",d=>`race-tile${d.finish===4?" is-p4":""}${d.round===selectedRaceRound?" is-selected":""}`)
+  const p4Only=document.querySelector('input[name="race-view"]:checked').value==="p4";
+  const visible=p4Only?rows.filter(d=>d.finish===4):rows;
+  if(!visible.length){holder.append("p").attr("class","empty-note").text("這個賽季沒有第四名。切回「全部」可看每場名次。");renderRaceDetail(null);renderRaceTable(rows);return;}
+  if(!visible.some(d=>d.round===selectedRaceRound))selectedRaceRound=(visible.find(d=>d.finish===4)||visible[0]).round;
+  const buttons=holder.selectAll("button").data(visible,d=>d.round).join("button").attr("type","button")
+    .attr("class",d=>`race-line${d.finish===4?" is-p4":""}${d.round===selectedRaceRound?" is-selected":""}`)
     .attr("aria-pressed",d=>d.round===selectedRaceRound?"true":"false")
     .attr("aria-label",d=>`第 ${d.round} 場 ${d.race}，${d.grid===0?"維修區":`第 ${d.grid} 格`}起跑，最後${raceFinishLabel(d.finish)}`)
     .on("click",(_,d)=>{selectedRaceRound=d.round;renderRaceTrack();d3.select("#race-track").selectAll("button").filter(x=>x.round===d.round).node()?.focus();});
   buttons.append("span").attr("class","race-round").text(d=>`R${String(d.round).padStart(2,"0")}`);
+  buttons.append("span").attr("class","race-name").text(d=>d.race.replace(/ Grand Prix$/,""));
+  buttons.append("span").attr("class","race-grid").text(d=>d.grid===0?"維修區起跑":`第 ${d.grid} 格起跑`);
   buttons.append("strong").text(d=>d.finish===4?"P4":d.finish===1?"P1":`P${d.finish}`);
-  buttons.append("span").attr("class","race-short").text(d=>d.race.replace(/ Grand Prix$/,""));
   renderRaceDetail(rows.find(d=>d.round===selectedRaceRound));
   renderRaceTable(rows);
 }
 function renderRaceTable(rows){
   const body=document.querySelector("#race-table tbody");body.replaceChildren();
   rows.forEach(d=>{const tr=document.createElement("tr");[`R${String(d.round).padStart(2,"0")}`,d.race,d.team,d.grid===0?"維修區":d.grid,raceFinishLabel(d.finish)].forEach(value=>addCell(tr,value));body.append(tr);});
+}
+function renderCircuit(){
+  const id=document.querySelector("#circuit-select").value;
+  const rows=dataset.race_summaries.filter(d=>d.circuit===id&&d.finish===4).toSorted((a,b)=>a.date.localeCompare(b.date));
+  const name=rows[0]?.circuit_name||"這條賽道";
+  const counts=d3.rollups(rows,r=>r.length,d=>d.id).sort((a,b)=>b[1]-a[1]);
+  const leader=counts[0],leaderName=dataset.drivers.find(d=>d.id===leader?.[0])?.name;
+  document.querySelector("#circuit-summary").textContent=`${name}：${rows.length} 場正賽紀錄；${leaderName} 拿過 ${leader[1]} 次第四名。`;
+  const list=document.querySelector("#circuit-list");list.replaceChildren();
+  const body=document.querySelector("#circuit-table tbody");body.replaceChildren();
+  rows.forEach(d=>{
+    const driver=dataset.drivers.find(x=>x.id===d.id);
+    const button=document.createElement("button");button.type="button";button.className=`circuit-line${d.id==="leclerc"?" is-leclerc":""}`;
+    button.setAttribute("aria-label",`${d.year} 年 ${d.race}，${driver.name} 從第 ${d.grid} 格起跑，取得第四名。查看該場。`);
+    const year=document.createElement("strong");year.textContent=d.year;
+    const nameSpan=document.createElement("span");nameSpan.textContent=driver.name;
+    const race=document.createElement("span");race.className="circuit-race";race.textContent=d.race.replace(/ Grand Prix$/," GP");
+    const grid=document.createElement("span");grid.className="circuit-grid";grid.textContent=d.grid===0?"維修區起跑":`第 ${d.grid} 格起跑`;
+    button.append(year,nameSpan,race,grid);
+    button.addEventListener("click",()=>{
+      document.querySelector("#race-year").value=String(d.year);
+      document.querySelector('input[name="race-view"][value="all"]').checked=true;
+      selectDriver(d.id,false);selectedRaceRound=d.round;renderRaceTrack();
+      document.querySelector("#races").scrollIntoView();
+      document.querySelector(`#race-track button[aria-pressed="true"]`)?.focus({preventScroll:true});
+    });
+    list.append(button);
+    const tr=document.createElement("tr");[d.year,d.race,driver.name,d.grid===0?"維修區":d.grid].forEach(x=>addCell(tr,x));body.append(tr);
+  });
 }
 function duelStats(id,year){
   const driver=dataset.drivers.find(d=>d.id===id);
@@ -333,32 +363,31 @@ function renderDuel(){
   const a=document.querySelector("#duel-a").value,b=document.querySelector("#duel-b").value,year=document.querySelector("#duel-year").value;
   const holder=document.querySelector("#duel-chart"),summary=document.querySelector("#duel-summary");holder.replaceChildren();summary.replaceChildren();
   if(a===b){summary.textContent="選了同一位車手；換一位再比較。";return;}
-  const rows=[duelStats(a,year),duelStats(b,year)],width=Math.max(520,(holder.clientWidth||700)-2),height=185,margin={left:170,right:100};
-  const max=Math.max(20,...rows.map(d=>d.per100||0))*1.12;
-  const x=d3.scaleLinear().domain([0,Math.min(100,max)]).range([margin.left,width-margin.right]);
-  const svg=d3.select(holder).append("svg").attr("width",width).attr("height",height).attr("role","img")
-    .attr("aria-label",rows.map(d=>`${d.name}：${d.p4} 次第四名，${d.starts} 場起跑，${d.per100===null?"無比例":`每 100 場 ${d.per100.toFixed(1)} 次`}`).join("；"));
-  svg.append("title").text("兩位車手每 100 場起跑的第四名次數");
-  const g=svg.selectAll("g.duel-row").data(rows).join("g").attr("class","duel-row").attr("transform",(_,i)=>`translate(0,${47+i*65})`);
-  g.append("text").attr("x",18).attr("y",5).text(d=>d.name);
-  g.append("rect").attr("x",margin.left).attr("y",-10).attr("height",22).attr("width",d=>d.per100===null?0:x(d.per100)-margin.left).attr("fill",(_,i)=>i===0?"#bd4b40":"#2d637d");
-  g.append("text").attr("x",width-12).attr("y",5).attr("text-anchor","end").text(d=>d.per100===null?"無紀錄":`${d.per100.toFixed(1)}／100`);
-  svg.append("g").attr("class","chart-axis").attr("transform","translate(0,153)").call(d3.axisBottom(x).ticks(5));
-  rows.forEach(d=>{const card=document.createElement("div");card.className="duel-card";const name=document.createElement("strong");name.textContent=d.name;const count=document.createElement("span");count.textContent=d.starts?`${d.p4} 次第四名／${d.starts} 場起跑；每 100 場約 ${d.per100.toFixed(1)} 次`:"這個賽季沒有起跑紀錄";card.append(name,count);summary.append(card);});
-  if(rows.some(d=>d.starts>0&&d.starts<10)){const note=document.createElement("p");note.textContent="其中一位車手的起跑場數少於 10 場，比例容易受單場結果影響。";summary.append(note);}
+  const rows=[duelStats(a,year),duelStats(b,year)],max=Math.max(1,...rows.map(d=>d.per100||0));
+  holder.setAttribute("aria-label",rows.map(d=>`${d.name}：${d.p4} 次第四名，${d.starts} 場起跑，${d.per100===null?"無比例":`每 100 場 ${d.per100.toFixed(1)} 次`}`).join("；"));
+  rows.forEach((d,i)=>{
+    const line=document.createElement("div");line.className=`duel-line${i===0?" is-first":""}`;
+    const name=document.createElement("strong");name.textContent=d.name;
+    const record=document.createElement("span");record.textContent=d.starts?`${d.p4}／${d.starts} 場`:"沒有起跑";
+    const track=document.createElement("span");track.className="duel-line-track";const bar=document.createElement("i");bar.style.width=`${100*(d.per100||0)/max}%`;track.append(bar);
+    const rate=document.createElement("span");rate.textContent=d.per100===null?"—":`每 100 場 ${d.per100.toFixed(1)} 次`;
+    line.append(name,record,track,rate);holder.append(line);
+  });
+  if(rows.some(d=>d.starts>0&&d.starts<10)){summary.textContent="其中一位車手的起跑場數少於 10 場，比例容易受單場結果影響。";}
 }
 
 async function start(){
   setupHelp();
   try{
-    const response=await fetch("./data/results.json"); if(!response.ok)throw new Error(`HTTP ${response.status}`);
+    const response=await fetch("./data/results.json?v=2"); if(!response.ok)throw new Error(`HTTP ${response.status}`);
     dataset=await response.json();
     if(dataset.race_summaries.length!==dataset.meta.starts||dataset.race_summaries.filter(d=>d.finish===4).length!==dataset.meta.races)throw new Error("逐場資料與摘要不一致");
     document.querySelector("#snapshot").textContent=`資料截至 ${dataset.meta.last_race_date} · ${fmt.format(dataset.meta.starts)} 筆已起跑紀錄 · ${dataset.meta.races} 場比賽`;
     setupExplorer();
     document.querySelectorAll('input[name="metric"]').forEach(input=>input.addEventListener("change",()=>{metric=input.value;renderDrivers();}));
     document.querySelector("#driver-search").addEventListener("input",renderDrivers);
-    renderRaceTrack();renderDuel();renderDriverDetail();renderDrivers();renderDriverTable();renderSeason();renderSeasonTable();renderGrid();renderGridTable();renderFinishDistribution();renderFinishTable();
+    document.querySelector("#show-all-drivers").addEventListener("click",()=>{showAllDrivers=!showAllDrivers;renderDrivers();});
+    renderRaceTrack();renderCircuit();renderDuel();renderDriverDetail();renderDrivers();renderDriverTable();renderSeason();renderSeasonTable();renderGrid();renderGridTable();renderFinishDistribution();renderFinishTable();
     let technicalRendered=false;
     const technical=document.querySelector("#technical-details");
     technical.addEventListener("toggle",()=>{if(technical.open){if(!technicalRendered){renderLeclercComparisonTable();renderCoefficientTable();renderFlow();renderDiagnostics();renderCoverageTable();technicalRendered=true;}renderLeclercComparison();renderBayesComparison();renderCoefficientDetail();renderCoefficients();renderCoverage();}});

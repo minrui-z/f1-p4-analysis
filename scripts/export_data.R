@@ -81,6 +81,8 @@ payload <- list(
     round = as.integer(started$round_number),
     race = started$race_name,
     date = started$race_date,
+    circuit = started$circuit_reference,
+    circuit_name = started$circuit_name,
     team = started$team_name,
     grid = as.integer(started$grid_position),
     finish = as.integer(started$finish_position)
